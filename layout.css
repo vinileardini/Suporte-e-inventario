@@ -1,0 +1,171 @@
+
+
+.box-logo{
+    max-width: 50%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    display: flex;
+    background-color: #03aba0;
+    clip-path: polygon(0 0, 100% 0%, 96% 100%, 0% 100%);
+    grid-row: 2;
+}
+
+.logo{
+    margin-left: 10%;
+    max-width: 50%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+}
+
+.header-sidebar-menu{
+    max-width: 30%;
+    max-height: 300px;
+    width: 3%;
+    height: auto;
+    color: black;
+    background-color:#03aba0;
+    grid-row: 1;
+    
+}
+
+.button-sidebar-menu{
+    margin-top:80%;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    font-weight: 25px;
+
+}
+
+.sidebar-menu-opened{
+    margin-top:0%;
+    margin-bottom: 0%;
+    margin-left: -3%;
+    margin-right: 75%;
+    background-color: rgb(187, 245, 245);;
+    
+
+}
+
+
+.flex-header{
+    display: flex;
+    flex-direction: row;
+    margin-left: -0.5%;
+    background-color: lightcyan;
+    
+}
+
+.texto-informatica{
+    background-color:lightcyan;
+    display: flex;
+    max-width: 50%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 28px;
+    font-style: bold;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 2%;
+    grid-row: 3;
+
+}
+
+.button-sidebar-menu-chamados{
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    margin-top: 60%;
+    
+    
+    
+}
+
+.text-chamados{
+    padding-left: 10px;
+    display: flex;
+}
+
+
+.button-sidebar-menu-inventario{
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    padding-top: 10px;
+    margin-top: 50%;
+    
+}
+
+.text-inventario{
+    padding-left: 10px;
+    display: flex;
+}
+
+.list-sidebar-menu{
+    width: 18%;
+    height: 100%;
+    background-color: rgb(187, 245, 245);
+    margin-top: 0%;
+    margin-left: -3%;
+    margin-bottom: 0%;
+    margin-right: 75%;
+    list-style-type: none;
+    position: absolute;
+    border-radius: 5%;
+
+}
+
+.input-name-search{
+    position: relative;
+    margin-left:21%;
+    margin-top: 1%;
+}
+
+.input-date-search{
+    position: relative;
+    margin-left: 4%;
+    margin-top: 1%;
+}
+
+.grid-filtragem{
+    grid-row: 3;
+    display: inline-flex;
+    width: 100%;
+}
+
+.grid-1-cards-chamados{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 5px;
+    width: 70%;
+    max-height: 50%;
+    margin-left: 20%;
+    margin-top: 3%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    
+}
+
+.shape-card{
+    margin-top: 2%;
+    border-style:solid;
+    border-radius: 3%;
+    border-color: rgb(17, 17, 17);
+    background-color: rgb(238, 238, 238);
+    max-height: 100%;
+    box-shadow: 2px;
+    margin-inline: 2%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
