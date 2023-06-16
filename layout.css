@@ -168,4 +168,40 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.inventario{
+    display: flex;
+    width: 70%;
+    margin-left: 20%;
+    margin-top: 3%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.list-inventario{
+    list-style-type: none;
+    width: 100%;
+}
+
+.list-inventario-li{
+    border:2px;
+    border-style: solid;
+    border-color:  rgb(17, 17, 17);
+    padding: 2px;
+    border-radius: 3%;
+    margin-block: 0.5%;
+    box-shadow: 2px;
+
+}
+
+.input-area-pesquisa{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.input-area-date{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 

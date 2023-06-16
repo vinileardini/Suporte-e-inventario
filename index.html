@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="layout.css">
         <link rel="stylesheet" type="text/css" href="Font Awesome/fontawesome-free-6.4.0-web/css/all.min.css">
+        <script src="program.js"></script>
         
 
     </head>
@@ -41,7 +42,7 @@
         <ul class="list-sidebar-menu">
             <div class="sidebar-menu-opened">
                 <li>
-                    <button type="submit" class="button-sidebar-menu-chamados"><i class="fa-solid fa-file-lines"></i><div class="text-chamados">Chamados</div></button>
+                    <button onclick=mudarTela type="submit" class="button-sidebar-menu-chamados"><i class="fa-solid fa-file-lines"></i><div class="text-chamados">Chamados</div></button>
                 </li>
 
                 <li>
@@ -55,12 +56,12 @@
     <div class="grid-filtragem">
         <div class="input-name-search">
             <font>Insira nome para pesquisa:</font>
-            <input type="text" ></input>
+            <input  class="input-area-pesquisa" type="text" ></input>
         </div>
 
         <div class="input-date-search">
             <font>Insira a data da abertura do chamado:</font>
-            <input type="date">
+            <input class="input-area-date" type="date">
         </div>
     </div>
 
@@ -72,7 +73,7 @@
 
     <!--Cartões dos chamados-->
 
-    <div class="grid-1-cards-chamados">
+    <div class="grid-1-cards-chamados" id="grid-tela">
 
         <div class="shape-card">
 
@@ -202,6 +203,19 @@
         </div>
 
     
+    </div>
+
+    <div class="inventario" id="tela-inventario">
+        <ul class="list-inventario">
+            <li class="list-inventario-li">
+                <font>Número de série:</font><textarea cols="20" rows="1" readonly></textarea><font>Equipamento: </font><textarea cols="20" rows="1"></textarea><font>Local:</font><textarea cols="20" rows="1"></textarea>
+            </li>
+
+            <li class="list-inventario-li">
+                    
+            </li>
+
+        </ul>
     </div>
 
 
