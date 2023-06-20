@@ -1,19 +1,17 @@
 var tela = document.getElementById("grid-tela");
 
-var telaChamado = document.getElementById("tela-chamado");
+const telaChamado = document.getElementById("tela-chamado");
 
-var telaInventario = document.getElementById("tela-inventario");
+const telaInventario = document.getElementById("tela-inventario");
 
 function mudarTela(){
 
-    tela = telaChamado;
-
-    if(tela=telaChamado){
-        tela.innerHTML=telaInventario;
+    if(document.getElementById("tela")=document.getElementById("telaChamado")){
+        document.getElementById("tela-chamado").hidden=false;
     }
 
     else{
-        tela.innerHTML=telaChamado;
+        document.getElementById("tela-inventario").hidden=false;
     }
     
 
