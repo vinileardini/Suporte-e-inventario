@@ -4,6 +4,10 @@ const telaChamado = document.getElementById("tela-chamado");
 
 const telaInventario = document.getElementById("tela-inventario");
 
+const escolhaChamado = document.getElementById("escolha-chamado")
+
+const escolhaInventario = document.getElementById("escolha-inventario");
+
 const chamado = {
 
     nome: nome,
