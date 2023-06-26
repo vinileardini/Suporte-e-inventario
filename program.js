@@ -33,17 +33,11 @@ function editarInventario(){
 }
 
 
-function mudarTela(){
+function mudarTelaChamado(){
 
-    if(tela=telaInventario){
+}
 
-        
-    }
-
-    else{
-        document.getElementById("tela-inventario");
-    }
-    
+function mudarTelaInventario(){
 
 }
 

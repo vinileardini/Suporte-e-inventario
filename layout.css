@@ -39,15 +39,6 @@
 
 }
 
-.sidebar-menu-opened{
-    margin-top:0%;
-    margin-bottom: 0%;
-    margin-left: 0%;
-    margin-right: 75%;
-    background-color: rgb(187, 245, 245);;
-    
-
-}
 
 
 .flex-header{
@@ -75,53 +66,12 @@
 
 }
 
-.button-sidebar-menu-chamados{
-    background-color: transparent;
-    font-size: 18px;
-    align-items: center;
-    justify-items: center;
-    display: flex;
-    margin-top: 60%;
-    
-    
-    
-}
-
 .text-chamados{
     padding-left: 10px;
     display: flex;
 }
 
 
-.button-sidebar-menu-inventario{
-    background-color: transparent;
-    font-size: 18px;
-    align-items: center;
-    justify-items: center;
-    display: flex;
-    padding-top: 10px;
-    margin-top: 50%;
-    
-}
-
-.text-inventario{
-    padding-left: 10px;
-    display: flex;
-}
-
-.list-sidebar-menu{
-    width: 18%;
-    height: 100%;
-    background-color: rgb(187, 245, 245);
-    margin-top: 0%;
-    margin-left: -3%;
-    margin-bottom: 0%;
-    margin-right: 75%;
-    list-style-type: none;
-    position: absolute;
-    border-radius: 5%;
-
-}
 
 .input-name-search{
     position: relative;
@@ -136,7 +86,7 @@
 }
 
 .grid-filtragem{
-    grid-row: 3;
+    grid-row: 4;
     display: inline-flex;
     width: 100%;
 }
@@ -147,7 +97,7 @@
     grid-gap: 5px;
     width: 70%;
     max-height: 50%;
-    margin-left: 20%;
+    margin-left: 10%;
     margin-top: 3%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
@@ -169,7 +119,7 @@
 .inventario{
     display: flex;
     width: 70%;
-    margin-left: 20%;
+    margin-left: 0%;
     margin-top: 3%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -202,4 +152,43 @@
     border-right: none;
 }
 
+.button-add{
+    shape-outside: circle();
+    clip-path: circle();
+    width: 50px;
+    max-width: 50px;
+    height: 40px;
+    max-height: 50px;
+    background-color: lightcyan;
+    border: none;
+    position: relative;
+    margin-left: 4%;
+    margin-top: 0.5%;
+    
+}
 
+#symbol-button-add{
+    background-color: black;
+    height: 20px;
+    position: relative;
+    width: 3px;
+    margin: auto;
+}
+
+#symbol-button-add::after{
+    background-color: black;
+    content: '';
+    height: 3px;
+    left: -9px;
+    position: absolute;
+    top: 9px;
+    width: 20px;
+}
+
+.escolha{
+    position: relative;
+}
+
+.escolha-chamado-inv{
+    width: 50px;
+}
