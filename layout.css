@@ -57,9 +57,11 @@
 }
 
 .grid-filtragem{
-    grid-row: 4;
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: 15% 28% 28% 28%;
     width: 100%;
+    margin-top: 1%;
+    justify-items: center;
 }
 
 .grid-1-cards-chamados{
@@ -107,6 +109,13 @@
     border-right: none;
 }
 
+#desc-chamados{
+    resize: none;
+    margin-left: 2px;
+    width: auto;
+    max-width: 70%;
+}
+
 .inventario{
     display: flex;
     width: 100%;
@@ -130,7 +139,14 @@
     border-radius: 3%;
     margin-block: 0.5%;
     box-shadow: 2px;
+    text-align:center;
 
+}
+
+#inputs-inv{
+    margin-right: 5%;
+    width: 15%;
+    max-width: 20%;
 }
 
 .input-area-pesquisa{
@@ -190,9 +206,10 @@
 }
 
 .escolha-chamado-inv{
-    width: 200px;
+    width: auto;
     height: auto;
     max-width: 200px;
     text-align: center;
     border-radius: 10%;
+    position: relative;
 }
