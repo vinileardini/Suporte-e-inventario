@@ -163,24 +163,53 @@
 }
 
 .button-add{
-    shape-outside: circle();
-    clip-path: circle();
-    width: 50px;
-    max-width: 50px;
-    height: 40px;
-    max-height: 50px;
-    background-color: rgba(14, 161, 161, 0.671);
-    border: none;
-    position: relative;
-    margin-left: 10%;
-    margin-top: 0.5%;
-    filter: drop-shadow( 4px 4px 8px #999999);
 
-    >.menu-open{
-        display: inline-block;
+    > .menu-open-close{
+        display: inline-grid;
+        place-items: center;
+        border: 1px solid #CCC;
+        border-radius: 0.15rem;
+        box-shadow: 1px 1px 1px;
+        cursor: pointer;
+        font-size: 120%;
+        padding: 2%;
+
+    }
+
+    > .menu-opened{
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #CCC;
+        border-radius: 0.3rem;
+        box-shadow: 2px 2px 4px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 0.5rem;
+        cursor: pointer;
 
     }
     
+    > .li-menu{
+        padding: 0.2rem 0.4rem;
+    }
+
+   &[data-aberto="true"]{
+        > .menu >.fa-plus{
+            display: none;
+        }
+    }
+
+    &[data-aberto="false"]{
+        > .menu >.fa-minus{
+            display: none;
+        }
+
+        > .menu-opened{
+            display: none;
+        }
+    }
 }
 
 #symbol-button-add{
@@ -209,6 +238,7 @@
     height: auto;
     max-width: 50px;
     max-height: 50px;
+    cursor: pointer;
 }
 
 .escolha-chamado-inv{
@@ -218,4 +248,5 @@
     text-align: center;
     border-radius: 10%;
     position: relative;
+    cursor: pointer;
 }

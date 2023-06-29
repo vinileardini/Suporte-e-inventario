@@ -1,8 +1,23 @@
-var escolhaChamado = "Chamados"
+var escolhaChamado = "Chamados";
 
-const addButton = document.getElementById("button-add")
+const addButton = document.getElementById("button-add");
 
-addButton.addEventListener("click",
+const buttonOpenClose = document.getElementById("menu-open-close");
+
+let state = addButton.dataset.aberto;
+
+buttonOpenClose.addEventListener('click',() => {
+    if (state == "false"){
+        state = "true";
+    }
+    else{
+        state = "false";
+    }
+
+    addButton.dataset.aberto = state;
+})
+
+
 
 function adicionarInventario(){
 
