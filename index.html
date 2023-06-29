@@ -42,9 +42,9 @@
     <div class="grid-filtragem">
 
         <div class="escolha">
-            <select class="escolha-chamado-inv" name="select-inv-chamado">
-                <option id="escolha-chamado" value="chamados" selected>Chamados</option>
-                <option id="escolha-inventario" value="inventario">Inventário</option>
+            <select id="select-inv-chamado" class="escolha-chamado-inv" name="select-inv-chamado" onchange=selectFunction()>
+                <option id="escolha-chamado" value="Chamados">Chamados</option>
+                <option id="escolha-inventario" value="Inventario">Inventário</option>
             </select>
         </div>
 
@@ -69,7 +69,28 @@
 
     <!--Cartões dos chamados-->
 
-    <div class="grid-1-cards-chamados" id="grid-tela">
+    <div class="grid-1-cards-chamad" id="grid-tela">
+
+        <div class="shape-card" >
+
+            <font>Nome do solicitante:</font>
+            <input id="size-input" type="text" readonly></input>
+
+            <p></p>
+
+            <font>Local:</font>
+            <input id="size-input"  type="text" readonly></input>
+
+            <p></p>
+
+            <font>Data de abertura:</font>
+            <input id="input-date-style"  type="date" readonly></input>
+
+            <p></p>
+
+            <label id="label-desc" for="descricao">Descrição:</label>
+            <textarea  id="desc-chamados" cols="35" rows="5" readonly></textarea>
+        </div>
 
         <div class="shape-card">
 
@@ -91,6 +112,8 @@
             <label id="label-desc" for="descricao">Descrição:</label>
             <textarea  id="desc-chamados" cols="35" rows="5" readonly></textarea>
         </div>
+
+        
 
         
     </div>

@@ -64,8 +64,8 @@
     justify-items: center;
 }
 
-.grid-1-cards-chamados{
-    display: grid;
+#grid-tela{
+    display: inline-table;
     grid-template-columns: 33% 33% 33%;
     grid-gap: 5px;
     width: 70%;
@@ -198,7 +198,7 @@
 
 .escolha{
     position: relative;
-    top: 15px;
+    top: 5px;
     left: 30px;
     width: auto;
     height: auto;
