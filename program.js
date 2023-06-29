@@ -1,5 +1,9 @@
 var escolhaChamado = "Chamados"
 
+const addButton = document.getElementById("button-add")
+
+addButton.addEventListener("click",
+
 function adicionarInventario(){
 
 }

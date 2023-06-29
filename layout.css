@@ -175,6 +175,11 @@
     margin-left: 10%;
     margin-top: 0.5%;
     filter: drop-shadow( 4px 4px 8px #999999);
+
+    >.menu-open{
+        display: inline-block;
+
+    }
     
 }
 
