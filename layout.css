@@ -116,6 +116,10 @@
     max-width: 70%;
 }
 
+.text-chamados-none{
+    text-align: center;
+}
+
 
 .inventario{
     display: flex;
@@ -164,7 +168,7 @@
 
 .button-add{
 
-    > .menu-open-close{
+    > .menu-trigger{
         display: inline-grid;
         place-items: center;
         border: 1px solid #CCC;
@@ -193,22 +197,27 @@
     
     > .li-menu{
         padding: 0.2rem 0.4rem;
+        list-style: none;
     }
 
    &[data-aberto="true"]{
-        > .menu >.fa-plus{
+        > .menu-trigger >.fa-plus{
             display: none;
         }
     }
 
     &[data-aberto="false"]{
-        > .menu >.fa-minus{
+        > .menu-trigger >.fa-minus{
             display: none;
         }
 
         > .menu-opened{
             display: none;
         }
+    }
+
+    > .list-open{
+        
     }
 }
 

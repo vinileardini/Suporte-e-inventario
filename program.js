@@ -1,12 +1,15 @@
 var escolhaChamado = "Chamados";
 
-const addButton = document.getElementById("button-add");
+const addButton = document.getElementById("#button-add");
 
-const buttonOpenClose = document.getElementById("menu-open-close");
+const menuTrigger = document.getElementById("menu-trigger");
 
-let state = addButton.dataset.aberto;
+var state = addButton.dataset.aberto;
 
-buttonOpenClose.addEventListener('click',() => {
+menuTrigger.addEventListener('click',() =>{
+
+    console.log("click")
+
     if (state == "false"){
         state = "true";
     }
