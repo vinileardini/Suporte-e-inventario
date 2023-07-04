@@ -4,7 +4,9 @@ const addButton = document.getElementById("#button-add");
 
 const menuTrigger = document.getElementById("menu-trigger");
 
-var state = addButton.dataset.aberto;
+addButton.dataset.openClose;
+
+console.log(addButton.dataset.openClose)
 
 menuTrigger.addEventListener('click',() =>{
 

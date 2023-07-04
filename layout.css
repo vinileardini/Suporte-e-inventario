@@ -204,14 +204,14 @@
         list-style: none;
     }
 
-   &[data-aberto="true"]{
+   &[data-openClose="true"]{
         > .menu-trigger >.fa-plus{
             display: none;
         }
     }
 
-    &[data-aberto="false"]{
-        > .menu-trigger >.fa-minus{
+    &[data-openClose="false"]{
+        > .menu-trigger > .fa-minus{
             display: none;
         }
 
@@ -223,6 +223,25 @@
     > .list-open{
         
     }
+
+    > .menu-add-chamado{
+        list-style: none;
+        border: 1px solid #CCC;
+        border-radius: 0.3rem;
+        box-shadow: 2px 2px 2px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    > .menu-add-inventario{
+        list-style: none;
+        border: 1px solid #CCC;
+        border-radius: 0.3rem;
+        box-shadow: 2px 2px 2px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    
 }
 
 
