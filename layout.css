@@ -226,6 +226,7 @@
 
     > .menu-add-chamado{
         list-style: none;
+        position: absolute;
         border: 1px solid #CCC;
         border-radius: 0.3rem;
         box-shadow: 2px 2px 2px;
@@ -236,6 +237,7 @@
 
     > .menu-add-inventario{
         list-style: none;
+        position: absolute;
         border: 1px solid #CCC;
         border-radius: 0.3rem;
         box-shadow: 2px 2px 2px;

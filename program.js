@@ -26,6 +26,18 @@ menuTrigger.addEventListener('click',() =>{
     addButton.dataset.aberto = state;
 })
 
+function abrirMenuAdd(){
+
+
+    if(data-OpenClose == "false" )
+    {
+        document.getElementsByClassName("fa-minus").style.display="none"
+    }
+    else{
+        document.getElementsByClassName("fa-plus").style.display="none"
+    }
+
+}
 
 
 function adicionarInventario(){
