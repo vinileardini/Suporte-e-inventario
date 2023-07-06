@@ -87,11 +87,15 @@ function editarChamado(){
 
 function pesquisaNome(){
 
+    searchName = document.getElementById("input-area-pesquisa");
+
+    
+
 }
 
 function pesquisaData(){
 
-    
+    searchDate = document.getElementById("input-date-search");
 
 
 }
