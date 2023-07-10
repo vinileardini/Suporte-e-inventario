@@ -74,6 +74,8 @@
                 <li>Data: <input type="date"></li>
                 <li>Local: <input type="text"></li>
                 <li>Descrição: <label for="add-chamado-desc"><textarea cols="35" rows="5"></textarea></label></li>
+                <p></p>
+                <button class="button-confirm"><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
             </ul>
 
             <ul id="menu-add-inventario" class="menu-add-inventario">
@@ -81,6 +83,8 @@
                 <li>Data: <input type="date"></li>
                 <li>Local <input type="text"></li>
                 <li>Numeração: <input type="text"></li>
+                <p></p>
+                <button class="button-confirm"><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
             </ul>
 
 
@@ -94,7 +98,7 @@
 
     <!--Cartões dos chamados-->
 
-    <div class="grid-1-cards-chamad" id="grid-tela">
+    <div class="grid-1-cards-chamados" id="grid-tela">
 
 
         <div id="shape-card" class="shape-card" >
@@ -119,8 +123,8 @@
 
             <p></p>
 
-            <button type="submit">Editar</button>
-            <button type="submit">Remover</button>
+            <button type="submit" class="button-edit-remove">Editar</button>
+            <button type="submit" class="button-edit-remove">Remover</button>
         </div>
 
         <div id="shape-card" class="shape-card">
@@ -145,8 +149,8 @@
 
             <p></p>
 
-            <button type="submit">Editar</button>
-            <button type="submit">Remover</button>
+            <button type="submit" class="button-edit-remove">Editar</button>
+            <button type="submit" class="button-edit-remove">Remover</button>
         </div>
 
         
@@ -157,11 +161,7 @@
     <div class="inventario" id="tela-inventario">
         <ul class="list-inventario">
             <li class="list-inventario-li">
-                <font id="number-serie-align">Número de série:</font><input id="inputs-inv" type="text"></input><font>Equipamento: </font><input id="inputs-inv" type="text" readonly></input><font>Local:</font><input id="inputs-inv" type="text" readonly> <button type="submit">Editar </button> <button type="submit">Remover</button></input>
-            </li>
-
-            <li class="list-inventario-li">
-                    
+                <font id="number-serie-align">Número de série:</font><input id="inputs-inv" type="text"></input><font>Equipamento: </font><input id="inputs-inv" type="text" readonly></input><font>Local:</font><input id="inputs-inv" type="text" readonly> <button type="submit" class="button-edit-remove">Editar </button> <button type="submit" class="button-edit-remove">Remover</button></input>
             </li>
 
         </ul>
