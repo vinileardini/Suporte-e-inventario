@@ -75,7 +75,7 @@
                 <li>Local: <input type="text"></li>
                 <li>Descrição: <label for="add-chamado-desc"><textarea cols="35" rows="5"></textarea></label></li>
                 <p></p>
-                <button class="button-confirm"><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
+                <button class="button-confirm" onclick="novoChamado()"><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
             </ul>
 
             <ul id="menu-add-inventario" class="menu-add-inventario">
@@ -103,12 +103,12 @@
 
         <div id="shape-card" class="shape-card" >
 
-            <font>Nome do solicitante:</font>
+            <label for="">Nome do solicitante: </label>
             <input id="size-input" type="text" readonly></input>
 
             <p></p>
 
-            <font>Local:</font>
+            <label for="">Local:</label>
             <input id="size-input"  type="text" readonly></input>
 
             <p></p>
@@ -119,6 +119,7 @@
             <p></p>
 
             <label id="label-desc" for="descricao">Descrição:</label>
+            <p></p>
             <textarea  id="desc-chamados" cols="35" rows="5" readonly></textarea>
 
             <p></p>
