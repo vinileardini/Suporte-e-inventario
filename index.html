@@ -58,15 +58,15 @@
             <input class="input-area-date" type="date">
         </div>
 
-        <div id="button-add" class="button-add" data-openClose="true" onclick="abrirMenuAdd()">
+        <div id="button-add" class="button-add" data-openClose="true" onclick=abrirMenuAdd()>
 
             <span id="menu-trigger" class="menu-trigger">
                 <i class="fa-solid fa-plus"></i>
                 <i class="fa-solid fa-minus"></i>
             </span>
             <ul class="menu-opened">
-                <li class="li-menu" onclick="adicionarChamado()">Abrir Chamado</li>
-                <li class="li-menu" onclick="adicionarInventario()">Adicionar item ao inventário</li>
+                <li class="li-menu" onclick=adicionarChamado()>Abrir Chamado</li>
+                <li class="li-menu" onclick=adicionarInventario()>Adicionar item ao inventário</li>
             </ul>
 
             <ul id="menu-add-chamado" class="menu-add-chamado">
@@ -75,7 +75,7 @@
                 <li>Local: <input type="text"></li>
                 <li>Descrição: <label for="add-chamado-desc"><textarea cols="35" rows="5"></textarea></label></li>
                 <p></p>
-                <button class="button-confirm" onclick="novoChamado()"><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
+                <button class="button-confirm" onclick=novoChamado()><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
             </ul>
 
             <ul id="menu-add-inventario" class="menu-add-inventario">
