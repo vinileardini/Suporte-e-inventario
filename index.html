@@ -58,7 +58,7 @@
             <input class="input-area-date" type="date">
         </div>
 
-        <div id="button-add" class="button-add" data-openClose="true" onclick=abrirMenuAdd()>
+        <div id="button-add" class="button-add" data-openClose="true">
 
             <span id="menu-trigger" class="menu-trigger">
                 <i class="fa-solid fa-plus"></i>
@@ -70,10 +70,10 @@
             </ul>
 
             <ul id="menu-add-chamado" class="menu-add-chamado">
-                <li>Nome: <input type="text"></li>
-                <li>Data: <input type="date"></li>
-                <li>Local: <input type="text"></li>
-                <li>Descrição: <label for="add-chamado-desc"><textarea cols="35" rows="5"></textarea></label></li>
+                <li id="nomeSolicitante">Nome: <input type="text"></li>
+                <li id="data-abertura-chamado">Data: <input type="date"></li>
+                <li id="local-chamado">Local: <input type="text"></li>
+                <li id="descricao-chamado">Descrição: <label for="add-chamado-desc"><textarea cols="35" rows="5"></textarea></label></li>
                 <p></p>
                 <button class="button-confirm" onclick=novoChamado()><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
             </ul>
@@ -102,6 +102,10 @@
 
 
         <div id="shape-card" class="shape-card" >
+
+            <label id="id-number" class="id-number">#0001</label>
+
+            <p></p>
 
             <label for="">Nome do solicitante: </label>
             <input id="size-input" type="text" readonly></input>

@@ -8,9 +8,9 @@ const abrirMenuChamado = document.getElementById("menu-add-chamado");
 
 const abrirMenuInventario = document.getElementById("menu-add-inventario");
 
-addButton.dataset.openClose;
+var state = addButton.dataset.openClose;
 
-console.log(addButton.dataset.openClose)
+
 
 menuTrigger.addEventListener('click',() =>{
 
@@ -26,18 +26,6 @@ menuTrigger.addEventListener('click',() =>{
     addButton.dataset.aberto = state;
 })
 
-function abrirMenuAdd(){
-
-
-    if(data-OpenClose == "false" )
-    {
-        document.getElementsByClassName("fa-minus").style.display="none"
-    }
-    else{
-        document.getElementsByClassName("fa-plus").style.display="none"
-    }
-
-}
 
 
 function adicionarInventario(){
@@ -116,6 +104,15 @@ function selectFunction(){
     {
         document.getElementById("grid-tela").style.display="contents";
         document.getElementById("tela-inventario").style.display = "none";
+
+        nomeChamado = document.getElementById("nomeSolicitante");
+        dataChamado = document.getElementById("data-abertura-chamado");
+        localChamado = document.getElementById("local-chamado");
+        descricaoChamado = document.getElementById("descricao-chamado");
+
+        
+
+
     }
     else{
 
@@ -136,14 +133,21 @@ function adicionarChamado(){
 function novoChamado(){
 
     const div_chamado = document.createElement("div");
+    div_chamado.innerHTML;
     div_chamado.className = "grid-1-cards-chamados";
     div_chamado.id = "grid-tela";
     const div_card = document.createElement("div");
+    div_card.innerHTML;
     div_card.className = "shape-card";
     div_card.id = "shape-card";
+    const label_idNumber = document.createElement("label");
+    label_idNumber.innerHTML
+    label_idNumber.id = "number-id";
+    label_idNumber.className = "number-id";
     const label_nomeSolicitante = document.createElement("label");
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
     const input_nome = document.createElement("input");
+    input_nome.innerHTML;
     input_nome.type = "text";
     input_nome.id = "size-input";
     input_nome.readOnly;
@@ -167,6 +171,7 @@ function novoChamado(){
     label_descricao.id = "label-desc";
     pulaLinha;
     const text_descricao = document.createElement("textarea")
+    text_descricao.innerHTML;
     text_descricao.id = "desc-chamados";
     text_descricao.cols = 35;
     text_descricao.rows = 5;
@@ -176,8 +181,8 @@ function novoChamado(){
     button_edit.innerHTML = "Editar";
     button_edit.type ="submit";
     button_edit.className = "button-edit-remove";
-    const button_remove = document.createElement("button");
-    button_remove.innerHTML = "Remover";
+    const button_remove = document.createElement("button")
+    button_remove.innerHTML= "Remover";
     button_remove.type = "submit";
     button_remove.className = "button-edit-remove";
 
@@ -194,9 +199,6 @@ function novoChamado(){
     div_card.appendChild(text_descricao);
     div_card.appendChild(button_edit);
     div_card.appendChild(button_remove);
-
-
-
 
 }
 
