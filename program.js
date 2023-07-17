@@ -35,47 +35,47 @@ function adicionarInventario(){
 
 function novoItemInventario(){
 
-
-    const div_chamado = document.createElement("div");
-    div_chamado.className = "inventario";
-    div_chamado.id = "tela-inventario";
-    const ul_chamado = document.createElement("ul");
+    const body_inventario = document.body;
+    const div_inventario = document.createElement('div');
+    div_inventario.className = "inventario";
+    div_inventario.id = "tela-inventario";
+    const ul_chamado = document.createElement('ul');
     ul_chamado.className = "list-inventario";
-    const li_chamado = document.createElement("li");
+    const li_chamado = document.createElement('li');
     li_chamado.className = "list-inventario-li";
-    const label_numeroSerie = document.createElement("label");
+    const label_numeroSerie = document.createElement('label');
     label_numeroSerie.innerHTML = "Número de série:";
     label_numeroSerie.id = "number-serie-align";
-    const input_inv_numeroSerie = document.createElement("input");
+    const input_inv_numeroSerie = document.createElement('input');
     input_inv_numeroSerie.className = "inputs-inv";
     input_inv_numeroSerie.type = "text";
     input_inv_numeroSerie.readOnly;
-    const label_equipamento = document.createElement("label");
+    const label_equipamento = document.createElement('label');
     label_equipamento.innerHTML = "Equipamento:";
     label_equipamento.id = "label_equipamento";
-    const input_inv_equipamento = document.createElement("inv");
+    const input_inv_equipamento = document.createElement('inv');
     input_inv_equipamento.className = "inputs-inv";
     input_inv_equipamento.type = "text";
     input_inv_equipamento.readOnly;
-    const label_local = document.createElement("label");
+    const label_local = document.createElement('label');
     label_local.id = "label-local";
-    label_local.innerHTML = "Local:";
-    const input_local = document.createElement("input");
+    label_local.textContent = "Local:";
+    const input_local = document.createElement('input');
     input_local.id.className = "inputs-inv";
     input_local.id = "input-local";
     input_local.type = "text";
     input_local.readOnly;
-    const button_edit_inv = document.createElement("button");
-    button_edit_inv.innerHTML = "Editar";
+    const button_edit_inv = document.createElement('button');
+    button_edit_inv.textContent = "Editar";
     button_edit_inv.className = "button-edit-remove";
     button_edit_inv.type = "submit";
-    const button_remove_inv = document.createElement("button");
-    button_remove_inv.innerHTML = "Remover";
+    const button_remove_inv = document.createElement('button');
+    button_remove_inv.textContent = "Remover";
     button_remove_inv.className = "button-edit-remove";
     button_remove_inv.type = "submit";
 
-
-    div_chamado.appendChild(ul_chamado);
+    body_inventario.appendChild(div_inventario);
+    div_inventario.appendChild(ul_chamado);
     ul_chamado.appendChild(li_chamado);
     li_chamado.appendChild(label_numeroSerie);
     li_chamado.appendChild(input_inv_numeroSerie);
@@ -122,40 +122,37 @@ function adicionarChamado(){
 
 function novoChamado(){
 
-    let nomeChamado = document.getElementById("nomeSolicitante");
-    let dataChamado = document.getElementById("data-abertura-chamado");
-    let localChamado = document.getElementById("local-chamado");
-    let descricaoChamado = document.getElementById("descricao-chamado");
+    var nomeChamado = document.getElementById("nomeSolicitante").value;
+    var dataChamado = document.getElementById("data-abertura-chamado").value;
+    var localChamado = document.getElementById("local-chamado").value;
+    var descricaoChamado = document.getElementById("descricao-chamado");
 
+    const body_chamado = document.body;
     const div_chamado = document.createElement("div");
-    div_chamado.innerHTML;
     div_chamado.className = "grid-1-cards-chamados";
     div_chamado.id = "grid-tela";
     const div_card = document.createElement("div");
-    div_card.innerHTML;
     div_card.className = "shape-card";
     div_card.id = "shape-card";
     const label_idNumber = document.createElement("label");
-    label_idNumber.innerHTML
     label_idNumber.id = "number-id";
     label_idNumber.className = "number-id";
     const label_nomeSolicitante = document.createElement("label");
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
-    const input_nome = document.createElement("input");
-    input_nome.innerHTML;
+    const input_nome = document.createElement("label");
     input_nome.type = "text";
     input_nome.id = "size-input";
-    input_nome.readOnly;
-    input_nome.innerText = nomeChamado
-    const pulaLinha = document.createElement("p");
+    input_nome.readOnly = true;
+    input_nome.innerHTML = nomeChamado;
+    let pulaLinha = document.createElement("p");
     const label_local = document.createElement("label");
-    label_local.innerHTML = "Local:";
+    label_local.innerText = "Local:";
     const input_local = document.createElement("input");
     input_local.type = "text";
     input_local.id = "size-input";
-    input_local.readOnly;
-    pulaLinha;
+    input_local.readOnly = true;
     input_local.innerText = localChamado;
+    pulaLinha;
     const label_data = document.createElement("label");
     label_data.innerHTML = "Data:";
     const input_data = document.createElement("input");
@@ -174,7 +171,7 @@ function novoChamado(){
     text_descricao.cols = 35;
     text_descricao.rows = 5;
     text_descricao.readOnly;
-    text_descricao.innerText = descricaoChamado;
+    text_descricao.innerHTML = "";
     pulaLinha;
     const button_edit = document.createElement("button");
     button_edit.innerHTML = "Editar";
@@ -187,8 +184,10 @@ function novoChamado(){
 
     console.log("ok")
 
+    body_chamado.appendChild(div_chamado);
     div_chamado.appendChild(div_card);
     div_card.appendChild(label_nomeSolicitante);
+    div_card.appendChild(pulaLinha);
     div_card.appendChild(input_nome);
     div_card.appendChild(label_local);
     div_card.appendChild(input_local);
