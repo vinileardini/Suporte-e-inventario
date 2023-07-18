@@ -8,36 +8,48 @@ const abrirMenuChamado = document.getElementById("menu-add-chamado");
 
 const abrirMenuInventario = document.getElementById("menu-add-inventario");
 
-var state = addButton.dataset.openClose;
+var contagemClick = 0;
 
 
-menuTrigger.addEventListener('click',() =>{
+function openMenu() {
 
-    console.log("click")
+    const body_menu = document.body;
+    const span_menu_symbol = document.createElement('span');
+    span_menu_symbol.id = "menu-trigger";
+    span_menu_symbol.className = "menu-trigger";
+    const symbol_plus = document.createElement('i');
+    symbol_plus.className = "fa-solid fa-plus"
+    const symbol_minus = document.createElement('i');
+    symbol_minus.className = "fa-solid fa-minus";
 
-    if (state == "false"){
-        state = "true";
+
+    body_menu.appendChild(span_menu_symbol);
+    span_menu_symbol.appendChild(symbol_plus);
+    span_menu_symbol.appendChild(symbol_minus);
+
+    if(contagemClick == 0){
+        body_menu.removeChild(symbol_minus);
+        contagemClick++;
     }
     else{
-        state = "false";
+        body_menu.removeChild(symbol_plus);
     }
 
-    addButton.dataset.aberto = state;
-})
+}
 
 
 
 function adicionarInventario(){
 
-    document.getElementById("menu-add-chamado").style.display="none";
-    document.getElementById("menu-add-inventario").style.display="contents";
+    document.getElementById(".menu-add-chamado").style.display="none";
+    document.getElementById(".menu-add-inventario").style.display="contents";
 }
 
 function novoItemInventario(){
 
     const body_inventario = document.body;
     const div_inventario = document.createElement('div');
-    div_inventario.className = "inventario";
+    div_inventario.className = 'inventario';
     div_inventario.id = "tela-inventario";
     const ul_chamado = document.createElement('ul');
     ul_chamado.className = "list-inventario";
@@ -50,10 +62,10 @@ function novoItemInventario(){
     input_inv_numeroSerie.className = "inputs-inv";
     input_inv_numeroSerie.type = "text";
     input_inv_numeroSerie.readOnly;
-    const label_equipamento = document.createElement('label');
+    const label_equipamento = document.createElement('labelinput');
     label_equipamento.innerHTML = "Equipamento:";
     label_equipamento.id = "label_equipamento";
-    const input_inv_equipamento = document.createElement('inv');
+    const input_inv_equipamento = document.createElement('input');
     input_inv_equipamento.className = "inputs-inv";
     input_inv_equipamento.type = "text";
     input_inv_equipamento.readOnly;
