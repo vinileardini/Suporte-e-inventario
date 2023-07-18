@@ -229,21 +229,6 @@
         list-style: none;
     }
 
-   &[data-openclose="true"]{
-        > .menu-trigger >.fa-plus{
-            display: none;
-        }
-    }
-
-    &[data-openclose="false"]{
-        > .menu-trigger > .fa-minus{
-            display: none;
-        }
-
-        > .menu-opened{
-            display: none;
-        }
-    }
 
     > .list-open{
         

@@ -58,12 +58,13 @@
             <input class="input-area-date" type="date">
         </div>
 
-        <div id="button-add" class="button-add" onclick=openMenu()>
+        <div id="button-add" class="button-add">
 
-            <span id="menu-trigger" class="menu-trigger">
-                <i class="fa-solid fa-plus"></i>
-                <i class="fa-solid fa-minus"></i>
+            <span id="menu-trigger" class="menu-trigger" onclick=openMenu()>
+                <i id="symbol-plus" class="fa-solid fa-plus"></i>
+                <i id="symbol-minus" class="fa-solid fa-minus" style="display: none;"></i>
             </span>
+            
             <ul class="menu-opened">
                 <li class="li-menu" onclick=adicionarChamado()>Abrir Chamado</li>
                 <li class="li-menu" onclick=adicionarInventario()>Adicionar item ao inventário</li>

@@ -10,30 +10,19 @@ const abrirMenuInventario = document.getElementById("menu-add-inventario");
 
 var contagemClick = 0;
 
-
-function openMenu() {
-
-    const body_menu = document.body;
-    const span_menu_symbol = document.createElement('span');
-    span_menu_symbol.id = "menu-trigger";
-    span_menu_symbol.className = "menu-trigger";
-    const symbol_plus = document.createElement('i');
-    symbol_plus.className = "fa-solid fa-plus"
-    const symbol_minus = document.createElement('i');
-    symbol_minus.className = "fa-solid fa-minus";
+function openMenu() {   
 
 
-    body_menu.appendChild(span_menu_symbol);
-    span_menu_symbol.appendChild(symbol_plus);
-    span_menu_symbol.appendChild(symbol_minus);
-
-    if(contagemClick == 0){
-        body_menu.removeChild(symbol_minus);
-        contagemClick++;
+    if((contagemClick%2)==0){
+        document.getElementById("symbol-plus").style.display="none";
+        document.getElementById("symbol-minus").style.display="contents";
     }
     else{
-        body_menu.removeChild(symbol_plus);
+        document.getElementById("symbol-minus").style.display="none";
+        document.getElementById("symbol-plus").style.display="contents";
     }
+
+    contagemClick++;
 
 }
 
@@ -41,8 +30,8 @@ function openMenu() {
 
 function adicionarInventario(){
 
-    document.getElementById(".menu-add-chamado").style.display="none";
-    document.getElementById(".menu-add-inventario").style.display="contents";
+    document.getElementById("menu-add-chamado").style.display="none";
+    document.getElementById("menu-add-inventario").style.display="contents";
 }
 
 function novoItemInventario(){
