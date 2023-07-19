@@ -10,25 +10,83 @@ const abrirMenuInventario = document.getElementById("menu-add-inventario");
 
 var contagemClick = 0;
 
-function openMenu() {   
-
-
-    if((contagemClick%2)==0){
-        document.getElementById("symbol-plus").style.display="none";
-        document.getElementById("symbol-minus").style.display="contents";
-    }
-    else{
-        document.getElementById("symbol-minus").style.display="none";
-        document.getElementById("symbol-plus").style.display="contents";
-    }
+function changeSymbol() {   
 
     contagemClick++;
+
+    if((contagemClick%2)==0){
+        document.getElementById("symbol-plus").style.display="contents";
+        document.getElementById("symbol-minus").style.display="none";
+    }
+    else{
+        document.getElementById("symbol-minus").style.display="contents";
+        document.getElementById("symbol-plus").style.display="none";
+
+        //criar lita a partir do botão
+    }
+
+}
+
+function listAddInvChamado(){
 
 }
 
 
-
 function adicionarInventario(){
+
+    const body_add_inventario = document.body;
+    const ul_menu_inventario = document.createElement('ul');
+    ul_menu_inventario.id = "menu-add-inventario";
+    ul_menu_inventario.className = "menu-add-inventario";
+    const li_menu_item = document.createElement('li');
+    li_menu_item.id = "item";
+    li_menu_item.innerText = "Item:";
+    const input_item = document.createElement('input');
+    input_item.type = "text";
+    const li_menu_inv_data = document.createElement('li');
+    li_menu_inv_data.id = "data-abertura";
+    li_menu_inv_data.innerText = "Data:"
+    const input_menu_inv_data = document.createElement('input');
+    input_menu_inv_data.type = "date";
+    const li_menu_inv_local = document.createElement('li');
+    li_menu_inv_local.id = "local-item";
+    li_menu_inv_local.innerText = "Local:"
+    const input_menu_inv_local = document.createElement('input');
+    input_menu_inv_local.type = "text";
+    const li_menu_inv_numeracao = document.createElement('li');
+    li_menu_inv_numeracao.id = "numeracao-item";
+    li_menu_inv_numeracao.innerText = "Numeração:";
+    const input_menu_inv_numeracao = document.createElement('input');
+    input_menu_inv_numeracao.type = "text";
+    const pulaLinha = document.createElement('p');
+    const button_confirm = document.createElement('button');
+    button_confirm.className = "button-confirm";
+    button_confirm.onclick = function(){novoItemInventario()};
+    const button_confirm_symbol_check = document.createElement('i');
+    button_confirm_symbol_check.className = "fa-solid fa-check";
+    const button_cancel = document.createElement('button');
+    button_cancel.className = "button-close";
+    const button_cancel_symbol_x = document.createElement('i');
+    button_cancel_symbol_x.className = "fa-solid fa-xmark";
+
+
+    body_add_inventario.appendChild(ul_menu_inventario);
+    ul_menu_inventario.appendChild(li_menu_item)
+    li_menu_item.appendChild(input_item);
+    ul_menu_inventario.appendChild(li_menu_inv_data);
+    li_menu_inv_data.appendChild(input_menu_inv_data);
+    ul_menu_inventario.appendChild(li_menu_inv_local);
+    li_menu_inv_local.appendChild(input_menu_inv_local);
+    ul_menu_inventario.appendChild(li_menu_inv_numeracao);
+    li_menu_inv_numeracao.appendChild(input_menu_inv_numeracao);
+    ul_menu_inventario.appendChild(pulaLinha);
+    ul_menu_inventario.appendChild(button_confirm);
+    button_confirm.appendChild(button_confirm_symbol_check);
+    ul_menu_inventario.appendChild(button_cancel);
+    button_cancel.appendChild(button_cancel_symbol_x);
+
+    
+
 
 
 }
@@ -39,8 +97,8 @@ function novoItemInventario(){
     const div_inventario = document.createElement('div');
     div_inventario.className = 'inventario';
     div_inventario.id = "tela-inventario";
-    const ul_chamado = document.createElement('ul');
-    ul_chamado.className = "list-inventario";
+    const ul_inventario = document.createElement('ul');
+    ul_inventario.className = "list-inventario";
     const li_chamado = document.createElement('li');
     li_chamado.className = "list-inventario-li";
     const label_numeroSerie = document.createElement('label');
@@ -75,8 +133,8 @@ function novoItemInventario(){
     button_remove_inv.type = "submit";
 
     body_inventario.appendChild(div_inventario);
-    div_inventario.appendChild(ul_chamado);
-    ul_chamado.appendChild(li_chamado);
+    div_inventario.appendChild(ul_inventario);
+    ul_inventario.appendChild(li_chamado);
     li_chamado.appendChild(label_numeroSerie);
     li_chamado.appendChild(input_inv_numeroSerie);
     li_chamado.appendChild(label_equipamento);
@@ -143,6 +201,17 @@ function adicionarChamado(){
     const textarea_descricao_menu_chamado = document.createElement('textarea');
     textarea_descricao_menu_chamado.cols = "35";
     textarea_descricao_menu_chamado.rows = "5";
+    const pulaLinha = document.createElement('p');
+    const button_confirm = document.createElement('button');
+    button_confirm.className = "button-confirm";
+    button_confirm.onclick = function(){novoChamado()};
+    const button_confirm_symbol_check = document.createElement('i');
+    button_confirm_symbol_check.className = "fa-solid fa-check";
+    const button_cancel = document.createElement('button');
+    button_cancel.className = "button-close";
+    const button_cancel_symbol_x = document.createElement('i');
+    button_cancel_symbol_x.className = "fa-solid fa-xmark";
+
 
     body_menu_chamado.appendChild(ul_menu_chamado);
     ul_menu_chamado.appendChild(li_menu_chamado_nome);
@@ -154,6 +223,12 @@ function adicionarChamado(){
     ul_menu_chamado.appendChild(li_menu_chamado_descricao);
     li_menu_chamado_descricao.appendChild(label_descricao_menu_chamado);
     label_descricao_menu_chamado.appendChild(textarea_descricao_menu_chamado);
+    ul_menu_chamado.appendChild(pulaLinha);
+    ul_menu_chamado.appendChild(button_confirm);
+    button_confirm.appendChild(button_confirm_symbol_check);
+    ul_menu_chamado.appendChild(button_cancel);
+    button_cancel.appendChild(button_cancel_symbol_x);
+
 
 
 
@@ -284,6 +359,6 @@ function opacidadePadrao(){
     document.getElementById("liAddInventario").style.opacity=1;
 }
 
-function menuTrigger(){
-    
+function menuAbreFecha(){
+
 }
