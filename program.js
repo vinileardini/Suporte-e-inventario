@@ -117,8 +117,47 @@ function selectFunction(){
 
 function adicionarChamado(){
     
-    document.getElementById("menu-add-chamado").style.display="contents";
-    document.getElementById("menu-add-inventario").style.display="none";
+
+    const body_menu_chamado = document.body;
+    const ul_menu_chamado = document.createElement('ul');
+    ul_menu_chamado.id = "menu-add-chamado";
+    ul_menu_chamado.className = "menu-add-chamado";
+    const li_menu_chamado_nome = document.createElement('li');
+    li_menu_chamado_nome.id = "nomeSolicitante";
+    li_menu_chamado_nome.innerText = "Nome:";
+    const input_nome_menu_chamado = document.createElement('input');
+    input_nome_menu_chamado.type = "text";
+    const li_menu_chamado_data = document.createElement('li');
+    li_menu_chamado_data.id = "data-abertura-chamado";
+    li_menu_chamado_data.innerText = "Data:";
+    const input_data_menu_chamado = document.createElement('input');
+    input_data_menu_chamado.type = "date";
+    const li_menu_chamado_local = document.createElement('li');
+    li_menu_chamado_local.id = "local-chamado";
+    li_menu_chamado_local.innerText = "Local:";
+    const input_local_menu_chamado = document.createElement('input');
+    input_local_menu_chamado.type = "text";
+    const li_menu_chamado_descricao = document.createElement('li')
+    li_menu_chamado_descricao.id = "descricao-chamado";
+    li_menu_chamado_descricao.innerText = "Descrição:";
+    const label_descricao_menu_chamado = document.createElement('label');
+    const textarea_descricao_menu_chamado = document.createElement('textarea');
+    textarea_descricao_menu_chamado.cols = "35";
+    textarea_descricao_menu_chamado.rows = "5";
+
+    body_menu_chamado.appendChild(ul_menu_chamado);
+    ul_menu_chamado.appendChild(li_menu_chamado_nome);
+    li_menu_chamado_nome.appendChild(input_nome_menu_chamado);
+    ul_menu_chamado.appendChild(li_menu_chamado_data);
+    li_menu_chamado_data.appendChild(input_data_menu_chamado);
+    ul_menu_chamado.appendChild(li_menu_chamado_local);
+    li_menu_chamado_local.appendChild(input_local_menu_chamado);
+    ul_menu_chamado.appendChild(li_menu_chamado_descricao);
+    li_menu_chamado_descricao.appendChild(label_descricao_menu_chamado);
+    label_descricao_menu_chamado.appendChild(textarea_descricao_menu_chamado);
+
+
+
 }
 
 function novoChamado(){
