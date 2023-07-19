@@ -65,19 +65,19 @@
                 <i id="symbol-minus" class="fa-solid fa-minus" style="display: none;"></i>
             </span>
             
-            <ul class="menu-opened">
-                <li class="li-menu" onclick=adicionarChamado()>Abrir Chamado</li>
-                <li class="li-menu" onclick=adicionarInventario()>Adicionar item ao inventário</li>
+            <ul id="menu-opened" class="menu-opened">
+                <li id="liAbrirChamado" onmouseover=opacidadeSelecaoChamado() onmouseout=opacidadePadrao() onclass="li-menu" onclick=adicionarChamado()>Abrir Chamado</li>
+                <li id="liAddInventario" onmouseover=opacidadeSelecaoInventario() onmouseout=opacidadePadrao() class="li-menu" onclick=adicionarInventario()>Adicionar item ao inventário</li>
             </ul>
 
-            <ul id="menu-add-chamado" class="menu-add-chamado">
+            <!--<ul id="menu-add-chamado" class="menu-add-chamado">
                 <li id="nomeSolicitante">Nome: <input type="text"></li>
                 <li id="data-abertura-chamado">Data: <input type="date"></li>
                 <li id="local-chamado">Local: <input type="text"></li>
                 <li id="descricao-chamado">Descrição: <label for="add-chamado-desc"><textarea cols="35" rows="5"></textarea></label></li>
                 <p></p>
                 <button class="button-confirm" onclick=novoChamado()><i class="fa-solid fa-check"></i></button><button class="button-close"><i class="fa-solid fa-xmark"></i></button>
-            </ul>
+            </ul>-->
 
             <ul id="menu-add-inventario" class="menu-add-inventario">
                 <li>Item: <input type="text"></li>

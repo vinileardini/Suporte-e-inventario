@@ -245,7 +245,7 @@
 
     }
 
-    > .menu-add-inventario{
+    .menu-add-inventario{
         list-style: none;
         position: absolute;
         border: 1px solid #CCC;
@@ -257,6 +257,24 @@
     
 }
 
+.menu-add-chamado{
+    list-style: none;
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 0.3rem;
+    box-shadow: 2px 2px 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 2px;
+}
+
+.menu-add-inventario{
+    list-style: none;
+    position: absolute;
+    border: 1px solid #CCC;
+    border-radius: 0.3rem;
+    box-shadow: 2px 2px 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 #symbol-button-add{
     background-color: black;

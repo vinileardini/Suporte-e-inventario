@@ -30,8 +30,7 @@ function openMenu() {
 
 function adicionarInventario(){
 
-    document.getElementById("menu-add-chamado").style.display="none";
-    document.getElementById("menu-add-inventario").style.display="contents";
+
 }
 
 function novoItemInventario(){
@@ -222,7 +221,6 @@ function novoChamado(){
     button_remove.type = "submit";
     button_remove.className = "button-edit-remove";
 
-    console.log("ok")
 
     body_chamado.appendChild(div_chamado);
     div_chamado.appendChild(div_card);
@@ -271,4 +269,21 @@ function resetAdd(){
 
     document.getElementById("menu-add-chamado").style.display="none";
     document.getElementById("menu-add-inventario").style.display="none";
+}
+
+function opacidadeSelecaoChamado(){
+    document.getElementById("liAddInventario").style.opacity=0.5;
+}
+
+function opacidadeSelecaoInventario(){
+    document.getElementById("liAbrirChamado").style.opacity=0.5;
+}
+
+function opacidadePadrao(){
+    document.getElementById("liAbrirChamado").style.opacity=1;
+    document.getElementById("liAddInventario").style.opacity=1;
+}
+
+function menuTrigger(){
+    
 }
