@@ -17,17 +17,39 @@ function changeSymbol() {
     if((contagemClick%2)==0){
         document.getElementById("symbol-plus").style.display="contents";
         document.getElementById("symbol-minus").style.display="none";
+
+        document.getElementById("menu-opened").remove();
+        document.getElementById("liAbrirChamado").remove();
+        document.getElementById("liAddInventario").remove();
     }
     else{
         document.getElementById("symbol-minus").style.display="contents";
         document.getElementById("symbol-plus").style.display="none";
 
-        //criar lita a partir do botão
+        const body_menu_open = document.body;
+        const menu_add_open = document.createElement('ul');
+        menu_add_open.id = "menu-opened";
+        menu_add_open.className = "menu-opened";
+        const li_menu_open_chamado = document.createElement('li');
+        li_menu_open_chamado.id = "liAbrirChamado";
+        li_menu_open_chamado.onmouseover = function(){opacidadeSelecaoChamado()};
+        li_menu_open_chamado.onmouseout = function(){opacidadePadrao()};
+        li_menu_open_chamado.className = "li-menu";
+        li_menu_open_chamado.onclick = function(){adicionarChamado()};
+        li_menu_open_chamado.innerText = "Abrir Chamado";
+        const li_menu_open_inventario = document.createElement('li');
+        li_menu_open_inventario.id = "liAddInventario";
+        li_menu_open_inventario.onmouseover = function(){opacidadeSelecaoInventario( )};
+        li_menu_open_inventario.onmouseout = function(){opacidadePadrao()};
+        li_menu_open_inventario.className = "li-menu";
+        li_menu_open_inventario.onclick = function(){adicionarInventario()};
+        li_menu_open_inventario.innerText = "Adicionar item ao inventário";
+
+        body_menu_open.appendChild(menu_add_open);
+        menu_add_open.appendChild(li_menu_open_chamado);
+        menu_add_open.appendChild(li_menu_open_inventario);
     }
 
-}
-
-function listAddInvChamado(){
 
 }
 

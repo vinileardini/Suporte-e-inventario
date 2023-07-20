@@ -46,19 +46,19 @@
 
 .input-name-search{
     position: relative;
-    margin-left:17%;
+    margin-left:1%;
     margin-top: 1%;
 }
 
 .input-date-search{
     position: relative;
-    margin-left: 5%;
+    margin-left: 8%;
     margin-top: 1%;
 }
 
 .grid-filtragem{
     display: grid;
-    grid-template-columns: 15% 28% 28% 28%;
+    grid-template-columns: 25% 25% 25% 25%;
     width: 100%;
     margin-top: 1%;
     justify-items: center;
@@ -206,55 +206,46 @@
         cursor: pointer;
         font-size: 120%;
         padding: 2%;
-
-    }
-
-    > .menu-opened{
-        background-color: rgb(255, 255, 255);
-        border: 1px solid #CCC;
-        border-radius: 0.3rem;
-        box-shadow: 2px 2px 4px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        font-size: 100%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        margin-top: 0.5rem;
-        cursor: pointer;
-
     }
     
-    > .li-menu{
-        padding: 0.2rem 0.4rem;
-        list-style: none;
-    }
+}
+
+.menu-trigger{
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid #CCC;
+    border-radius: 0.15rem;
+    box-shadow: 1px 1px 1px;
+    cursor: pointer;
+    font-size: 120%;
+    padding: 2%;
+}
 
 
-    > .list-open{
-        
-    }
 
-    > .menu-add-chamado{
-        list-style: none;
-        position: relative;
-        border: 1px solid #CCC;
-        border-radius: 0.3rem;
-        box-shadow: 2px 2px 2px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        margin-top: 2px;
+.li-menu{
+    padding: 0.2rem 0.4rem;
+    list-style: none;
+}
 
-    }
 
-    .menu-add-inventario{
-        list-style: none;
-        position: absolute;
-        border: 1px solid #CCC;
-        border-radius: 0.3rem;
-        box-shadow: 2px 2px 2px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
 
-    
+.menu-opened{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #CCC;
+    border-radius: 0.3rem;
+    box-shadow: 2px 2px 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    max-width: 17.5%;
+    margin-left: 80%;
+    margin-top: -1%;
+
 }
 
 .menu-add-chamado{
