@@ -245,7 +245,7 @@
 
 .menu-add-inventario{
     list-style: none;
-    position: absolute;
+    position: relative;
     border: 1px solid #CCC;
     border-radius: 0.3rem;
     box-shadow: 2px 2px 2px;

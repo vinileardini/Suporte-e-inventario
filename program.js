@@ -225,7 +225,7 @@ function adicionarChamado(){
     li_menu_chamado_data.id = "data-abertura-chamado";
     li_menu_chamado_data.innerText = "Data:";
     const input_data_menu_chamado = document.createElement('input');
-    input_data_menu_chamado.type = "date";
+    input_data_menu_chamado.type = "date"; 
     const li_menu_chamado_local = document.createElement('li');
     li_menu_chamado_local.id = "local-chamado";
     li_menu_chamado_local.innerText = "Local:";
@@ -236,8 +236,8 @@ function adicionarChamado(){
     li_menu_chamado_descricao.innerText = "Descrição:";
     const label_descricao_menu_chamado = document.createElement('label');
     const textarea_descricao_menu_chamado = document.createElement('textarea');
-    textarea_descricao_menu_chamado.cols = "35";
-    textarea_descricao_menu_chamado.rows = "5";
+    textarea_descricao_menu_chamado.cols = "";
+    textarea_descricao_menu_chamado.rows = "";
     const pulaLinha = document.createElement('p');
     const button_confirm = document.createElement('button');
     button_confirm.className = "button-confirm";
