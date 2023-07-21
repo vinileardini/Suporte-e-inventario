@@ -56,6 +56,9 @@ function changeSymbol() {
 
 function adicionarInventario(){
 
+    contagemClick++;
+
+    if(contagemClick%2==0){
     const body_add_inventario = document.body;
     const ul_menu_inventario = document.createElement('ul');
     ul_menu_inventario.id = "menu-add-inventario";
@@ -106,6 +109,15 @@ function adicionarInventario(){
     button_confirm.appendChild(button_confirm_symbol_check);
     ul_menu_inventario.appendChild(button_cancel);
     button_cancel.appendChild(button_cancel_symbol_x);
+    }
+
+    else{
+        document.getElementById("menu-add-inventario").remove();
+        document.getElementById("item").remove();
+        document.getElementById("data-abertura").remove();
+        document.getElementById("local-item").remove();
+        document.getElementById("numeracao-item").remove();
+    }
 
     
 
@@ -196,6 +208,9 @@ function selectFunction(){
 
 function adicionarChamado(){
     
+    contagemClick++;
+
+    if(contagemClick%2 == 0){
 
     const body_menu_chamado = document.body;
     const ul_menu_chamado = document.createElement('ul');
@@ -250,6 +265,14 @@ function adicionarChamado(){
     button_confirm.appendChild(button_confirm_symbol_check);
     ul_menu_chamado.appendChild(button_cancel);
     button_cancel.appendChild(button_cancel_symbol_x);
+    }
+    else{
+        document.getElementById("menu-add-chamado").remove();
+        document.getElementById("nomeSolicitante").remove();
+        document.getElementById("data-abertura-chamado").remove();
+        document.getElementById("local-chamado").remove();
+        document.getElementById("descricao-chamado").remove();
+    }
 
 
 

@@ -191,24 +191,6 @@
     border-right: none;
 }
 
-.button-add{
-
-    position: relative;
-
-    >a{}
-
-    > .menu-trigger{
-        display: inline-grid;
-        place-items: center;
-        border: 1px solid #CCC;
-        border-radius: 0.15rem;
-        box-shadow: 1px 1px 1px;
-        cursor: pointer;
-        font-size: 120%;
-        padding: 2%;
-    }
-    
-}
 
 .menu-trigger{
     display: inline-grid;
@@ -242,9 +224,10 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 0.5rem;
     cursor: pointer;
-    max-width: 17.5%;
+    max-width: 15%;
     margin-left: 80%;
-    margin-top: -1%;
+    margin-top: .5%;
+    text-align: center;
 
 }
 
@@ -255,7 +238,9 @@
     border-radius: 0.3rem;
     box-shadow: 2px 2px 2px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-top: 2px;
+    margin-top: 10px;
+    max-width: 15%;
+    margin-left: 80%;
 }
 
 .menu-add-inventario{
@@ -265,6 +250,10 @@
     border-radius: 0.3rem;
     box-shadow: 2px 2px 2px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 10px;
+    max-width: 15%;
+    margin-left: 80%;
+
 }
 
 #symbol-button-add{
