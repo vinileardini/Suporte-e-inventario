@@ -6,13 +6,16 @@ const menuTrigger = document.getElementById("menu-trigger");
 
 const abrirMenuChamado = document.getElementById("menu-add-chamado");
 
-const abrirMenuInventario = document.getElementById("menu-add-inventario");
+const abrirMenuInventario = document.getElementById("menu-add-inventario")
 
 var contagemClick = 0;
 
 function changeSymbol() {   
 
     contagemClick++;
+
+    const elementoChecado = document.querySelector("menu-opened");
+    const checkExists = document.body.contains(elementoChecado);
 
     if((contagemClick%2)==0){
         document.getElementById("symbol-plus").style.display="contents";
@@ -48,7 +51,7 @@ function changeSymbol() {
         body_menu_open.appendChild(menu_add_open);
         menu_add_open.appendChild(li_menu_open_chamado);
         menu_add_open.appendChild(li_menu_open_inventario);
-    }
+        }
 
 
 }
