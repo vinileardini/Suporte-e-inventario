@@ -59,9 +59,6 @@ function changeSymbol() {
 
 function adicionarInventario(){
 
-    contagemClick++;
-
-    if(contagemClick%2==0){
     const body_add_inventario = document.body;
     const ul_menu_inventario = document.createElement('ul');
     ul_menu_inventario.id = "menu-add-inventario";
@@ -114,19 +111,7 @@ function adicionarInventario(){
     button_cancel.appendChild(button_cancel_symbol_x);
     }
 
-    else{
-        document.getElementById("menu-add-inventario").remove();
-        document.getElementById("item").remove();
-        document.getElementById("data-abertura").remove();
-        document.getElementById("local-item").remove();
-        document.getElementById("numeracao-item").remove();
-    }
 
-    
-
-
-
-}
 
 function novoItemInventario(){
 
@@ -210,10 +195,6 @@ function selectFunction(){
 }
 
 function adicionarChamado(){
-    
-    contagemClick++;
-
-    if(contagemClick%2 == 0){
 
     const body_menu_chamado = document.body;
     const ul_menu_chamado = document.createElement('ul');
@@ -269,19 +250,8 @@ function adicionarChamado(){
     ul_menu_chamado.appendChild(button_cancel);
     button_cancel.appendChild(button_cancel_symbol_x);
     }
-    else{
-        document.getElementById("menu-add-chamado").remove();
-        document.getElementById("nomeSolicitante").remove();
-        document.getElementById("data-abertura-chamado").remove();
-        document.getElementById("local-chamado").remove();
-        document.getElementById("descricao-chamado").remove();
-    }
 
-
-
-
-}
-
+    
 function novoChamado(){
 
     var nomeChamado = document.getElementById("nomeSolicitante").value;
@@ -290,9 +260,7 @@ function novoChamado(){
     var descricaoChamado = document.getElementById("descricao-chamado");
 
     const body_chamado = document.body;
-    const div_chamado = document.createElement("div");
-    div_chamado.className = "grid-1-cards-chamados";
-    div_chamado.id = "grid-tela";
+    const div_chamado = document.getElementById("grid-tela")
     const div_card = document.createElement("div");
     div_card.className = "shape-card";
     div_card.id = "shape-card";
@@ -301,12 +269,12 @@ function novoChamado(){
     label_idNumber.className = "number-id";
     const label_nomeSolicitante = document.createElement("label");
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
-    const input_nome = document.createElement("label");
+    const input_nome = document.createElement("input");
     input_nome.type = "text";
     input_nome.id = "size-input";
     input_nome.readOnly = true;
-    input_nome.innerHTML = nomeChamado;
-    let pulaLinha = document.createElement("p");
+    input_nome.innerHTML;
+    let pulaLinha_1= document.createElement("p");
     const label_local = document.createElement("label");
     label_local.innerText = "Local:";
     const input_local = document.createElement("input");
@@ -314,27 +282,27 @@ function novoChamado(){
     input_local.id = "size-input";
     input_local.readOnly = true;
     input_local.innerText = localChamado;
-    pulaLinha;
+    let pulaLinha_2 = document.createElement("p");
     const label_data = document.createElement("label");
     label_data.innerHTML = "Data:";
     const input_data = document.createElement("input");
     input_data.type = "date";
     input_data.id = "input-date-style";
-    input_data.readOnly;
+    input_data.readOnly = true;
     input_data.innerText = dataChamado;
-    pulaLinha;
+    let pulaLinha_3 = document.createElement("p");
     const label_descricao = document.createElement("label");
     label_descricao.innerHTML = "Descrição:";
     label_descricao.id = "label-desc";
-    pulaLinha;
-    const text_descricao = document.createElement("textarea")
+    let pulaLinha_4 = document.createElement("p");
+    const text_descricao = document.createElement("textarea") 
     text_descricao.innerHTML;
     text_descricao.id = "desc-chamados";
     text_descricao.cols = 35;
     text_descricao.rows = 5;
     text_descricao.readOnly;
     text_descricao.innerHTML = "";
-    pulaLinha;
+    let pulaLinha_5 = document.createElement("p");
     const button_edit = document.createElement("button");
     button_edit.innerHTML = "Editar";
     button_edit.type ="submit";
@@ -348,14 +316,18 @@ function novoChamado(){
     body_chamado.appendChild(div_chamado);
     div_chamado.appendChild(div_card);
     div_card.appendChild(label_nomeSolicitante);
-    div_card.appendChild(pulaLinha);
     div_card.appendChild(input_nome);
+    div_card.appendChild(pulaLinha_1);
     div_card.appendChild(label_local);
     div_card.appendChild(input_local);
+    div_card.appendChild(pulaLinha_2)
     div_card.appendChild(label_data);
     div_card.appendChild(input_data);
+    div_card.appendChild(pulaLinha_3); 
     div_card.appendChild(label_descricao);
+    div_card.appendChild(pulaLinha_4);
     div_card.appendChild(text_descricao);
+    div_card.appendChild(pulaLinha_5);
     div_card.appendChild(button_edit);
     div_card.appendChild(button_remove);
 
@@ -407,6 +379,3 @@ function opacidadePadrao(){
     document.getElementById("liAddInventario").style.opacity=1;
 }
 
-function menuAbreFecha(){
-
-}
