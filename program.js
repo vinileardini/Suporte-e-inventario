@@ -277,6 +277,7 @@ function novoChamado(){
     let pulaLinha_1= document.createElement("p");
     const label_local = document.createElement("label");
     label_local.innerText = "Local:";
+    label_local.id = "label-local";
     const input_local = document.createElement("input");
     input_local.type = "text";
     input_local.id = "size-input";
@@ -311,6 +312,7 @@ function novoChamado(){
     button_remove.innerHTML= "Remover";
     button_remove.type = "submit";
     button_remove.className = "button-edit-remove";
+    button_remove.onclick = function(){fecharChamado()};
 
 
     body_chamado.appendChild(div_chamado);
@@ -334,6 +336,29 @@ function novoChamado(){
 }
 
 function fecharChamado(){
+
+    console.log("click");
+
+    const body_chamado = document.body;
+    const div_chamado = document.getElementById("grid-tela");
+    const div_card = document.getElementById("shape-card");
+
+    div_chamado.remove(div_card);
+    div_card.remove(label_nomeSolicitante);
+    div_card.remove(input_nome);
+    div_card.remove(pulaLinha_1);
+    div_card.remove(label_local);
+    div_card.remove(input_local);
+    div_card.remove(pulaLinha_2)
+    div_card.remove(label_data);
+    div_card.remove(input_data);
+    div_card.remove(pulaLinha_3); 
+    div_card.remove(label_descricao);
+    div_card.remove(pulaLinha_4);
+    div_card.remove(text_descricao);
+    div_card.remove(pulaLinha_5);
+    div_card.remove(button_edit);
+    div_card.remove(button_remove);
 
 }
 
