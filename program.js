@@ -10,7 +10,18 @@ const abrirMenuInventario = document.getElementById("menu-add-inventario")
 
 var contagemClick = 0;
 
-var Array_chamados = Array();
+var numeroUltimoId = 0;
+
+var Array_chamados = [];
+
+function Chamados (id_do_chamado, nome_do_chamado, local_do_chamado, data_do_chamado, descricao_do_chamado){
+    this.id_do_chamado = id_do_chamado;
+    this.nome_do_chamado = nome_do_chamado;
+    this.local_do_chamado = local_do_chamado;
+    this.data_do_chamado = data_do_chamado;
+    this.descricao_do_chamado = data_do_chamado;
+
+}
 
 var data = new Date();
 
@@ -253,6 +264,11 @@ function adicionarChamado(){
     
 function novoChamado(){
 
+    
+    var numeroId = numeroUltimoId+1;
+
+    console.log(numeroId);
+
     var nomeChamado = document.getElementById("input-nome-menu-chamado");
     var dia_chamado = String(data.getDate()).padStart(2,'0');
     var mes_chamado = String(data.getMonth()+1).padStart(2,'0');
@@ -297,7 +313,7 @@ function novoChamado(){
     input_data.id = "input-date-style";
     input_data.className = "input-label";
     input_data.readOnly = true;
-    input_data.innerText = dataChamado
+    input_data.innerText = dataChamado;
     let pulaLinha_3 = document.createElement("p");
     const label_descricao = document.createElement("label");
     label_descricao.innerHTML = "Descrição:";
@@ -314,10 +330,13 @@ function novoChamado(){
     button_edit.innerHTML = "Editar";
     button_edit.type ="submit";
     button_edit.className = "button-edit-remove";
-    const button_remove = document.createElement("button")
+    button_edit.id = "button-id";
+    button_edit.onclick = function(){editarChamado()};
+    const button_remove = document.createElement("button");
     button_remove.innerHTML= "Remover";
     button_remove.type = "submit";
     button_remove.className = "button-edit-remove";
+    button_remove.id = "button-remove";
     button_remove.onclick = function(){fecharChamado()};
 
 
@@ -341,8 +360,7 @@ function novoChamado(){
     div_card.appendChild(button_edit);
     div_card.appendChild(button_remove);
 
-    var numeroUltimoId = document.getElementById("number-id");
-    var numeroId = numeroUltimoId.innerText+"1";  
+    numeroUltimoId = document.getElementById("number-id").value;  
 
 }
 
@@ -375,8 +393,20 @@ function fecharChamado(){
 
 function editarChamado(){
 
-    id_chamado_editado = document.getElementById("id-number");
+    const id_chamado_editado = document.getElementById("id-number");
+
+    const button_editar = document.getElementById("button-edit");
+    const div_do_card = document.getElementById("shape-card");
     
+    div_do_card.remove(button_editar);
+
+    const button_salvar = document.createElement("button");
+    button_salvar.id = "button-salvar";
+    button_salvar.className = "button-salvar";
+    button_salvar.type = "submit";
+    button_salvar.innerHTML = "Salvar";
+    
+    div_card.appendChild(button_salvar);
     
 
 }
