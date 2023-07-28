@@ -210,12 +210,6 @@ function adicionarChamado(){
     const input_nome_menu_chamado = document.createElement('input');
     input_nome_menu_chamado.type = "text";
     input_nome_menu_chamado.id = "input-nome-menu-chamado";
-    const li_menu_chamado_data = document.createElement('li');
-    li_menu_chamado_data.id = "data-abertura-chamado";
-    li_menu_chamado_data.innerText = "Data:";
-    const input_data_menu_chamado = document.createElement('input');
-    input_data_menu_chamado.type = "date";
-    input_data_menu_chamado.id = 'input-data-menu-chamado'; 
     const li_menu_chamado_local = document.createElement('li');
     li_menu_chamado_local.id = "local-chamado";
     li_menu_chamado_local.innerText = "Local:";
@@ -241,12 +235,9 @@ function adicionarChamado(){
     const button_cancel_symbol_x = document.createElement('i');
     button_cancel_symbol_x.className = "fa-solid fa-xmark";
 
-
     body_menu_chamado.appendChild(ul_menu_chamado);
     ul_menu_chamado.appendChild(li_menu_chamado_nome);
     li_menu_chamado_nome.appendChild(input_nome_menu_chamado);
-    ul_menu_chamado.appendChild(li_menu_chamado_data);
-    li_menu_chamado_data.appendChild(input_data_menu_chamado);
     ul_menu_chamado.appendChild(li_menu_chamado_local);
     li_menu_chamado_local.appendChild(input_local_menu_chamado);
     ul_menu_chamado.appendChild(li_menu_chamado_descricao);
@@ -284,7 +275,8 @@ function novoChamado(){
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
     const input_nome = document.createElement("label");
     input_nome.type = "text";
-    input_nome.id = "size-input";
+    input_nome.id = "input_label_nome";
+    input_nome.className = "input-label";
     input_nome.readOnly = true;
     input_nome.innerText = nomeChamado.value;
     let pulaLinha_1 = document.createElement("p");
@@ -293,7 +285,8 @@ function novoChamado(){
     label_local.id = "label-local";
     const input_local = document.createElement("label");
     input_local.type = "text";
-    input_local.id = "size-input";
+    input_local.id = "input-label-local";
+    input_local.className = "input-label";
     input_local.readOnly = true;
     input_local.innerText = localChamado.value;
     let pulaLinha_2 = document.createElement("p");
@@ -302,6 +295,7 @@ function novoChamado(){
     const input_data = document.createElement("label");
     input_data.type = "date";
     input_data.id = "input-date-style";
+    input_data.className = "input-label";
     input_data.readOnly = true;
     input_data.innerText = dataChamado
     let pulaLinha_3 = document.createElement("p");
