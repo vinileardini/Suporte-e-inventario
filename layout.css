@@ -102,7 +102,7 @@
     margin-top: 2%;
     border-style:solid;
     border-radius: 3%;
-    border-color: rgb(17, 17, 17);
+    border-color: 1px solid rgb(17, 17, 17);
     background-color: rgb(253, 253, 253);
     max-height: 100%;
     box-shadow: 2px;
@@ -323,5 +323,11 @@
 }
 
 .button-salvar{
-    background-color: #03aba0;
+    background-color: #1e1bd49c;
+    width: auto;
+    height: auto;
+    margin-left: 80%;
+    border: 1px solid #CCC;
+    box-shadow: 1px 1px 1px #1e1bd49c;
+    border-radius: 10%;
 }

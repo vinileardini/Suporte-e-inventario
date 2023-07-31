@@ -29,16 +29,25 @@ function changeSymbol() {
 
     contagemClick++;
 
-    const elementoChecado = document.querySelector("menu-opened");
-    const checkExists = document.body.contains(elementoChecado);
+    const body_menu_add= document.body;
+
+    var checkExistsMenuAddChamado = document.getElementById("menu-add-chamado");
+    var checkExistsMenuAddInv = document.getElementById("menu-add-inventario");
+    var checkExists = body_menu_add.contains (checkExistsMenuAddChamado || checkExistsMenuAddInv);
+
 
     if((contagemClick%2)==0){
         document.getElementById("symbol-plus").style.display="contents";
         document.getElementById("symbol-minus").style.display="none";
 
         document.getElementById("menu-opened").remove();
-        document.getElementById("liAbrirChamado").remove();
-        document.getElementById("liAddInventario").remove();
+        
+        if(checkExists == true){
+
+            body_menu_add.removeChild(checkExistsMenuAddChamado || checkExistsMenuAddInv);
+
+        }
+        
     }
     else{
         document.getElementById("symbol-minus").style.display="contents";
@@ -83,9 +92,6 @@ function adicionarInventario(){
     li_menu_item.innerText = "Item:";
     const input_item = document.createElement('input');
     input_item.type = "text";
-    const li_menu_inv_data = document.createElement('li');
-    li_menu_inv_data.id = "data-abertura";
-    li_menu_inv_data.innerText = "Data:"
     const input_menu_inv_data = document.createElement('input');
     input_menu_inv_data.type = "date";
     const li_menu_inv_local = document.createElement('li');
@@ -107,14 +113,14 @@ function adicionarInventario(){
     const button_cancel = document.createElement('button');
     button_cancel.className = "button-close";
     const button_cancel_symbol_x = document.createElement('i');
+    button_cancel_symbol_x.type = "submit";
     button_cancel_symbol_x.className = "fa-solid fa-xmark";
+    button_cancel.onclick = function(){resetAdd()};
 
 
     body_add_inventario.appendChild(ul_menu_inventario);
     ul_menu_inventario.appendChild(li_menu_item)
     li_menu_item.appendChild(input_item);
-    ul_menu_inventario.appendChild(li_menu_inv_data);
-    li_menu_inv_data.appendChild(input_menu_inv_data);
     ul_menu_inventario.appendChild(li_menu_inv_local);
     li_menu_inv_local.appendChild(input_menu_inv_local);
     ul_menu_inventario.appendChild(li_menu_inv_numeracao);
@@ -245,6 +251,7 @@ function adicionarChamado(){
     button_cancel.className = "button-close";
     const button_cancel_symbol_x = document.createElement('i');
     button_cancel_symbol_x.className = "fa-solid fa-xmark";
+    button_cancel.onclick = function(){resetAdd()};
 
     body_menu_chamado.appendChild(ul_menu_chamado);
     ul_menu_chamado.appendChild(li_menu_chamado_nome);
@@ -265,9 +272,23 @@ function adicionarChamado(){
 function novoChamado(){
 
     
-    var numeroId = numeroUltimoId+1;
+    var checkExistsChamado = document.getElementById("shape-card");
 
-    console.log(numeroId);
+    var checkExistsChamadoBody = document.body.contains(checkExistsChamado);
+
+    if(checkExistsChamadoBody == true){
+        var numeroUltimoId = document.getElementById("number-id").value;
+
+        var novoNumeroId = numeroUltimoId+1;
+        
+        console.log(novoNumeroId);
+    }
+    else{
+        console.log("não existe chamado");
+
+        var novoNumeroId = 1;
+    }
+    
 
     var nomeChamado = document.getElementById("input-nome-menu-chamado");
     var dia_chamado = String(data.getDate()).padStart(2,'0');
@@ -285,7 +306,7 @@ function novoChamado(){
     const label_idNumber = document.createElement("label");
     label_idNumber.id = "number-id";
     label_idNumber.className = "id-number";
-    label_idNumber.innerText = "#"+numeroId;
+    label_idNumber.innerHTML = "#"+novoNumeroId;
     let pulaLinha = document.createElement("p");
     const label_nomeSolicitante = document.createElement("label");
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -330,14 +351,14 @@ function novoChamado(){
     button_edit.innerHTML = "Editar";
     button_edit.type ="submit";
     button_edit.className = "button-edit-remove";
-    button_edit.id = "button-id";
+    button_edit.id = "button-edit";
     button_edit.onclick = function(){editarChamado()};
     const button_remove = document.createElement("button");
     button_remove.innerHTML= "Remover";
     button_remove.type = "submit";
     button_remove.className = "button-edit-remove";
     button_remove.id = "button-remove";
-    button_remove.onclick = function(){fecharChamado()};
+    button_remove.onclick = function(){fecharChamado()}
 
 
     body_chamado.appendChild(div_chamado);
@@ -360,7 +381,7 @@ function novoChamado(){
     div_card.appendChild(button_edit);
     div_card.appendChild(button_remove);
 
-    numeroUltimoId = document.getElementById("number-id").value;  
+    
 
 }
 
@@ -372,22 +393,8 @@ function fecharChamado(){
     const div_chamado = document.getElementById("grid-tela");
     const div_card = document.getElementById("shape-card");
 
-    div_chamado.remove(div_card);
-    div_card.remove(label_nomeSolicitante);
-    div_card.remove(input_nome);
-    div_card.remove(pulaLinha_1);
-    div_card.remove(label_local);
-    div_card.remove(input_local);
-    div_card.remove(pulaLinha_2)
-    div_card.remove(label_data);
-    div_card.remove(input_data);
-    div_card.remove(pulaLinha_3); 
-    div_card.remove(label_descricao);
-    div_card.remove(pulaLinha_4);
-    div_card.remove(text_descricao);
-    div_card.remove(pulaLinha_5);
-    div_card.remove(button_edit);
-    div_card.remove(button_remove);
+    div_chamado.removeChild(div_card);
+    
 
 }
 
@@ -396,9 +403,10 @@ function editarChamado(){
     const id_chamado_editado = document.getElementById("id-number");
 
     const button_editar = document.getElementById("button-edit");
+    const div_do_chamado = document.getElementById("grid-tela");
     const div_do_card = document.getElementById("shape-card");
     
-    div_do_card.remove(button_editar);
+    div_do_card.removeChild(button_editar);
 
     const button_salvar = document.createElement("button");
     button_salvar.id = "button-salvar";
@@ -406,7 +414,7 @@ function editarChamado(){
     button_salvar.type = "submit";
     button_salvar.innerHTML = "Salvar";
     
-    div_card.appendChild(button_salvar);
+    div_do_card.appendChild(button_salvar);
     
 
 }
@@ -428,8 +436,20 @@ function pesquisaData(){
 
 function resetAdd(){
 
-    document.getElementById("menu-add-chamado").style.display="none";
-    document.getElementById("menu-add-inventario").style.display="none";
+    var checkAddInv = document.getElementById("menu-add-inventario");
+
+    var checkAddChamado = document.getElementById("menu-add-chamado");
+
+    var existsAdd = document.body.contains(checkAddInv || checkAddChamado);
+
+    if(existsAdd == true){
+        const body_add = document.body;
+
+        body_add.removeChild(checkAddChamado || checkAddInv);
+    }
+    else{
+        console.log("não existe Add");
+    }
 }
 
 function opacidadeSelecaoChamado(){
