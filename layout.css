@@ -304,6 +304,7 @@
     max-width: 200px;
     border: 1px solid #CCC;
     box-shadow: 1px 1px 1px;
+    
 }
 
 .button-confirm{
@@ -330,4 +331,5 @@
     border: 1px solid #CCC;
     box-shadow: 1px 1px 1px #1e1bd49c;
     border-radius: 10%;
+    
 }
