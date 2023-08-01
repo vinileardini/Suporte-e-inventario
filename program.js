@@ -277,11 +277,12 @@ function novoChamado(){
     var checkExistsChamadoBody = document.body.contains(checkExistsChamado);
 
     if(checkExistsChamadoBody == true){
-        var numeroUltimoId = document.getElementById("number-id").value;
+
+        var numeroUltimoId = document.getElementById("number-id").innerText;
 
         var novoNumeroId = numeroUltimoId+1;
         
-        console.log(novoNumeroId);
+        console.log(numeroUltimoId);
     }
     else{
         console.log("não existe chamado");
@@ -306,7 +307,7 @@ function novoChamado(){
     const label_idNumber = document.createElement("label");
     label_idNumber.id = "number-id";
     label_idNumber.className = "id-number";
-    label_idNumber.innerHTML = "#"+novoNumeroId;
+    label_idNumber.innerText = "#"+novoNumeroId;
     let pulaLinha = document.createElement("p");
     const label_nomeSolicitante = document.createElement("label");
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -347,6 +348,9 @@ function novoChamado(){
     text_descricao.readOnly;
     text_descricao.innerText = descricaoChamado.value;
     let pulaLinha_5 = document.createElement("p");
+    const div_botoes = document.createElement("div");
+    div_botoes.className = "div-botoes-chamado";
+    div_botoes.id = "div_botoes_chamados"
     const button_edit = document.createElement("button");
     button_edit.innerHTML = "Editar";
     button_edit.type ="submit";
@@ -378,8 +382,9 @@ function novoChamado(){
     div_card.appendChild(pulaLinha_4);
     div_card.appendChild(text_descricao);
     div_card.appendChild(pulaLinha_5);
-    div_card.appendChild(button_edit);
-    div_card.appendChild(button_remove);
+    div_card.appendChild(div_botoes);
+    div_botoes.appendChild(button_edit);
+    div_botoes.appendChild(button_remove);
 
     
 
@@ -400,13 +405,12 @@ function fecharChamado(){
 
 function editarChamado(){
 
-    const id_chamado_editado = document.getElementById("id-number");
-
     const button_editar = document.getElementById("button-edit");
     const div_do_chamado = document.getElementById("grid-tela");
     const div_do_card = document.getElementById("shape-card");
-    
-    div_do_card.removeChild(button_editar);
+    const div_botoes_card = document.getElementById("div_botoes_chamados");
+
+    div_botoes_card.removeChild(button_editar);
 
     const button_salvar = document.createElement("button");
     button_salvar.id = "button-salvar";
