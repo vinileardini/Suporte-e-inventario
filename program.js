@@ -170,10 +170,13 @@ function novoItemInventario(){
     button_edit_inv.textContent = "Editar";
     button_edit_inv.className = "button-edit-remove";
     button_edit_inv.type = "submit";
+    button_edit_inv.onclick = function(){editarInventario()};
     const button_remove_inv = document.createElement('button');
     button_remove_inv.textContent = "Remover";
+    button_remove_inv.id = "button-remove-inv";
     button_remove_inv.className = "button-edit-remove";
     button_remove_inv.type = "submit";
+    button_remove_inv.onclick = function(){removerInventario()};
 
     body_inventario.appendChild(div_inventario);
     div_inventario.appendChild(ul_inventario);
@@ -189,11 +192,39 @@ function novoItemInventario(){
 
 }
 
-function removerInventario(){
+function editarInventario(){
+
+    const body_inventario_remove = document.body;
+
+    const tela_inventario_remove = document.getElementById("tela-inventario");
+
+    const botao_remove_inv = document.getElementById("button-remove-inv");
+
+    tela_inventario_remove.removeChild(botao_remove_inv);
+
+    const botao_salvar_inv = document.createElement("button");
+    botao_salvar_inv.id = "botao-salvar-inv";
+    botao_salvar_inv.className = "button-salvar";
+    botao_salvar_inv.type = "submit";
+    botao_salvar_inv.innerHTML = "Salvar";
+
+    tela_inventario_remove.appendChild(botao_salvar_inv);
+
+    
 
 }
 
-function editarInventario(){
+function removerInventario(){
+
+    const body_inventario_edit = document.body;
+
+    const tela_inventario = document.getElementById("tela-inventario");
+
+    body_inventario_edit.removeChild(tela_inventario);
+
+    
+
+
 
 }
 
