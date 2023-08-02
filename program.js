@@ -92,18 +92,19 @@ function adicionarInventario(){
     li_menu_item.innerText = "Item:";
     const input_item = document.createElement('input');
     input_item.type = "text";
-    const input_menu_inv_data = document.createElement('input');
-    input_menu_inv_data.type = "date";
+    input_item.id = "input-item-inv";
     const li_menu_inv_local = document.createElement('li');
     li_menu_inv_local.id = "local-item";
     li_menu_inv_local.innerText = "Local:"
     const input_menu_inv_local = document.createElement('input');
     input_menu_inv_local.type = "text";
+    input_menu_inv_local.id = "input-local-inv";
     const li_menu_inv_numeracao = document.createElement('li');
     li_menu_inv_numeracao.id = "numeracao-item";
     li_menu_inv_numeracao.innerText = "Numeração:";
     const input_menu_inv_numeracao = document.createElement('input');
     input_menu_inv_numeracao.type = "text";
+    input_menu_inv_numeracao.id = "input-inv-numeracao";
     const pulaLinha = document.createElement('p');
     const button_confirm = document.createElement('button');
     button_confirm.className = "button-confirm";
@@ -136,6 +137,10 @@ function adicionarInventario(){
 
 function novoItemInventario(){
 
+    var numeroSerieInv = document.getElementById("input-inv-numeracao");
+    var itemInv = document.getElementById("input-item-inv");
+    var localInv = document.getElementById("input-local-inv");
+
     const body_inventario = document.body;
     const div_inventario = document.createElement('div');
     div_inventario.className = 'inventario';
@@ -144,20 +149,23 @@ function novoItemInventario(){
     ul_inventario.className = "list-inventario";
     const li_chamado = document.createElement('li');
     li_chamado.className = "list-inventario-li";
+    li_chamado.id = "list-inventario-li";
     const label_numeroSerie = document.createElement('label');
     label_numeroSerie.innerHTML = "Número de série:";
     label_numeroSerie.id = "number-serie-align";
     const input_inv_numeroSerie = document.createElement('input');
     input_inv_numeroSerie.className = "inputs-inv";
     input_inv_numeroSerie.type = "text";
-    input_inv_numeroSerie.readOnly;
-    const label_equipamento = document.createElement('labelinput');
+    input_inv_numeroSerie.readOnly = true;
+    input_inv_numeroSerie.value = numeroSerieInv.value;
+    const label_equipamento = document.createElement('label');
     label_equipamento.innerHTML = "Equipamento:";
     label_equipamento.id = "label_equipamento";
     const input_inv_equipamento = document.createElement('input');
     input_inv_equipamento.className = "inputs-inv";
     input_inv_equipamento.type = "text";
-    input_inv_equipamento.readOnly;
+    input_inv_equipamento.readOnly = true;
+    input_inv_equipamento.value = itemInv.value ;
     const label_local = document.createElement('label');
     label_local.id = "label-local";
     label_local.textContent = "Local:";
@@ -165,7 +173,8 @@ function novoItemInventario(){
     input_local.id.className = "inputs-inv";
     input_local.id = "input-local";
     input_local.type = "text";
-    input_local.readOnly;
+    input_local.readOnly = true;
+    input_local.value = localInv.value;
     const button_edit_inv = document.createElement('button');
     button_edit_inv.textContent = "Editar";
     button_edit_inv.className = "button-edit-remove";
@@ -196,7 +205,7 @@ function editarInventario(){
 
     const body_inventario_remove = document.body;
 
-    const tela_inventario_remove = document.getElementById("tela-inventario");
+    const tela_inventario_remove = document.getElementById("list-inventario-li");
 
     const botao_remove_inv = document.getElementById("button-remove-inv");
 
@@ -342,22 +351,21 @@ function novoChamado(){
     let pulaLinha = document.createElement("p");
     const label_nomeSolicitante = document.createElement("label");
     label_nomeSolicitante.innerHTML = "Nome do solicitante:";
-    const input_nome = document.createElement("label");
+    const input_nome = document.createElement("input");
     input_nome.type = "text";
-    input_nome.id = "input_label_nome";
+    input_nome.id = "input-label-nome";
     input_nome.className = "input-label";
-    input_nome.readOnly = true;
-    input_nome.innerText = nomeChamado.value;
+    input_nome.value = nomeChamado.value;
     let pulaLinha_1 = document.createElement("p");
     const label_local = document.createElement("label");
     label_local.innerText = "Local:";
     label_local.id = "label-local";
-    const input_local = document.createElement("label");
+    const input_local = document.createElement("input");
     input_local.type = "text";
     input_local.id = "input-label-local";
     input_local.className = "input-label";
     input_local.readOnly = true;
-    input_local.innerText = localChamado.value;
+    input_local.value = localChamado.value;
     let pulaLinha_2 = document.createElement("p");
     const label_data = document.createElement("label");
     label_data.innerHTML = "Data:";
@@ -376,12 +384,12 @@ function novoChamado(){
     text_descricao.id = "desc-chamados";
     text_descricao.cols = 35;
     text_descricao.rows = 5;
-    text_descricao.readOnly;
+    text_descricao.readOnly = true;
     text_descricao.innerText = descricaoChamado.value;
     let pulaLinha_5 = document.createElement("p");
     const div_botoes = document.createElement("div");
     div_botoes.className = "div-botoes-chamado";
-    div_botoes.id = "div_botoes_chamados"
+    div_botoes.id = "div-botoes-chamados"
     const button_edit = document.createElement("button");
     button_edit.innerHTML = "Editar";
     button_edit.type ="submit";
@@ -437,19 +445,57 @@ function fecharChamado(){
 function editarChamado(){
 
     const button_editar = document.getElementById("button-edit");
-    const div_do_chamado = document.getElementById("grid-tela");
-    const div_do_card = document.getElementById("shape-card");
-    const div_botoes_card = document.getElementById("div_botoes_chamados");
+    const div_botoes_card = document.getElementById("div-botoes-chamados");
+
+    const input_nome_card_chamado = document.getElementById("input-label-nome");
+    const input_local_card_chamado = document.getElementById("input-label-local");
+    const descricao_card_chamado = document.getElementById("desc-chamados");
 
     div_botoes_card.removeChild(button_editar);
+
+    input_nome_card_chamado.readOnly = false;
+    input_local_card_chamado.readOnly = false;
+    descricao_card_chamado.readOnly = false;
 
     const button_salvar = document.createElement("button");
     button_salvar.id = "button-salvar";
     button_salvar.className = "button-salvar";
     button_salvar.type = "submit";
     button_salvar.innerHTML = "Salvar";
+    button_salvar.onclick = function(){salvarChamadoEditado()};
+
+    div_botoes_card.appendChild(button_salvar);
+
+
+}
+
+function salvarChamadoEditado(){
+
+    const button_salvar_editado = document.getElementById("button-salvar");
+    const div_buttons_card = document.getElementById("div-botoes-chamados");
+
+    const input_nome_card_chamado = document.getElementById("input-label-nome");
+    const input_local_card_chamado = document.getElementById("input-label-local");
+    const descricao_card_chamado = document.getElementById("desc-chamados");
+
+    input_nome_card_chamado.readOnly = true;
+    input_local_card_chamado.readOnly = true;
+    descricao_card_chamado.readOnly = true;
+
     
-    div_do_card.appendChild(button_salvar);
+
+    div_buttons_card.removeChild(button_salvar_editado);
+
+    const new_button_edit_card_chamado = document.createElement("button");
+    new_button_edit_card_chamado.innerHTML = "Editar";
+    new_button_edit_card_chamado.type ="submit";
+    new_button_edit_card_chamado.className = "button-edit-remove";
+    new_button_edit_card_chamado.id = "button-edit";
+    new_button_edit_card_chamado.onclick = function(){editarChamado()}
+    
+    
+    div_buttons_card.appendChild(new_button_edit_card_chamado);
+    div_buttons_card.insertAdjacentElement("beforebegin",new_button_edit_card_chamado)
     
 
 }
