@@ -155,6 +155,7 @@ function novoItemInventario(){
     label_numeroSerie.id = "number-serie-align";
     const input_inv_numeroSerie = document.createElement('input');
     input_inv_numeroSerie.className = "inputs-inv";
+    input_inv_numeroSerie.id = "input-numeroDeSerie"
     input_inv_numeroSerie.type = "text";
     input_inv_numeroSerie.readOnly = true;
     input_inv_numeroSerie.value = numeroSerieInv.value;
@@ -163,6 +164,7 @@ function novoItemInventario(){
     label_equipamento.id = "label_equipamento";
     const input_inv_equipamento = document.createElement('input');
     input_inv_equipamento.className = "inputs-inv";
+    input_inv_equipamento.id = "input-equipamento"
     input_inv_equipamento.type = "text";
     input_inv_equipamento.readOnly = true;
     input_inv_equipamento.value = itemInv.value ;
@@ -209,6 +211,14 @@ function editarInventario(){
 
     const botao_remove_inv = document.getElementById("button-remove-inv");
 
+    const input_numeroSerie_editado = document.getElementById("input-numeroDeSerie");
+    const input_equipamento_editado = document.getElementById("input-equipamento");
+    const input_item_editado = document.getElementById("input-local");
+
+    input_numeroSerie_editado.readOnly = false;
+    input_equipamento_editado.readOnly = false;
+    input_item_editado.readOnly = false;
+
     tela_inventario_remove.removeChild(botao_remove_inv);
 
     const botao_salvar_inv = document.createElement("button");
@@ -216,8 +226,26 @@ function editarInventario(){
     botao_salvar_inv.className = "button-salvar";
     botao_salvar_inv.type = "submit";
     botao_salvar_inv.innerHTML = "Salvar";
+    botao_salvar_inv.onclick = function(){inventarioEditado()};
+
+
+
 
     tela_inventario_remove.appendChild(botao_salvar_inv);
+
+    
+
+}
+
+function inventarioEditado(){
+
+    const input_numeroSerie_salvar = document.getElementById("input-numeroDeSerie");
+    const input_equipamento_salvar = document.getElementById("input-equipamento");
+    const input_item_salvar = document.getElementById("input-local");
+
+    input_numeroSerie_salvar.readOnly = true;
+    input_equipamento_salvar.readOnly = true;
+    input_item_salvar.readOnly = true;
 
     
 
