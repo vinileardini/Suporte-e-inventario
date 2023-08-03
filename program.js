@@ -140,66 +140,130 @@ function novoItemInventario(){
     var numeroSerieInv = document.getElementById("input-inv-numeracao");
     var itemInv = document.getElementById("input-item-inv");
     var localInv = document.getElementById("input-local-inv");
+    var checkExistsDivInventario = document.getElementById("tela-inventario");
 
     const body_inventario = document.body;
-    const div_inventario = document.createElement('div');
-    div_inventario.className = 'inventario';
-    div_inventario.id = "tela-inventario";
-    const ul_inventario = document.createElement('ul');
-    ul_inventario.className = "list-inventario";
-    const li_chamado = document.createElement('li');
-    li_chamado.className = "list-inventario-li";
-    li_chamado.id = "list-inventario-li";
-    const label_numeroSerie = document.createElement('label');
-    label_numeroSerie.innerHTML = "Número de série:";
-    label_numeroSerie.id = "number-serie-align";
-    const input_inv_numeroSerie = document.createElement('input');
-    input_inv_numeroSerie.className = "inputs-inv";
-    input_inv_numeroSerie.id = "input-numeroDeSerie"
-    input_inv_numeroSerie.type = "text";
-    input_inv_numeroSerie.readOnly = true;
-    input_inv_numeroSerie.value = numeroSerieInv.value;
-    const label_equipamento = document.createElement('label');
-    label_equipamento.innerHTML = "Equipamento:";
-    label_equipamento.id = "label_equipamento";
-    const input_inv_equipamento = document.createElement('input');
-    input_inv_equipamento.className = "inputs-inv";
-    input_inv_equipamento.id = "input-equipamento"
-    input_inv_equipamento.type = "text";
-    input_inv_equipamento.readOnly = true;
-    input_inv_equipamento.value = itemInv.value ;
-    const label_local = document.createElement('label');
-    label_local.id = "label-local";
-    label_local.textContent = "Local:";
-    const input_local = document.createElement('input');
-    input_local.id.className = "inputs-inv";
-    input_local.id = "input-local";
-    input_local.type = "text";
-    input_local.readOnly = true;
-    input_local.value = localInv.value;
-    const button_edit_inv = document.createElement('button');
-    button_edit_inv.textContent = "Editar";
-    button_edit_inv.className = "button-edit-remove";
-    button_edit_inv.type = "submit";
-    button_edit_inv.onclick = function(){editarInventario()};
-    const button_remove_inv = document.createElement('button');
-    button_remove_inv.textContent = "Remover";
-    button_remove_inv.id = "button-remove-inv";
-    button_remove_inv.className = "button-edit-remove";
-    button_remove_inv.type = "submit";
-    button_remove_inv.onclick = function(){removerInventario()};
 
-    body_inventario.appendChild(div_inventario);
-    div_inventario.appendChild(ul_inventario);
-    ul_inventario.appendChild(li_chamado);
-    li_chamado.appendChild(label_numeroSerie);
-    li_chamado.appendChild(input_inv_numeroSerie);
-    li_chamado.appendChild(label_equipamento);
-    li_chamado.appendChild(input_inv_equipamento);
-    li_chamado.appendChild(label_local);
-    li_chamado.appendChild(input_local);
-    li_chamado.appendChild(button_edit_inv);
-    li_chamado.appendChild(button_remove_inv);
+    if(body_inventario.contains(checkExistsDivInventario) == false){
+        const div_inventario = document.createElement('div');
+        div_inventario.className = 'inventario';
+        div_inventario.id = "tela-inventario";
+        const ul_inventario = document.createElement('ul');
+        ul_inventario.className = "list-inventario";
+        const li_chamado = document.createElement('li');
+        li_chamado.className = "list-inventario-li";
+        li_chamado.id = "list-inventario-li";
+        const label_numeroSerie = document.createElement('label');
+        label_numeroSerie.innerHTML = "Número de série:";
+        label_numeroSerie.id = "number-serie-align";
+        const input_inv_numeroSerie = document.createElement('input');
+        input_inv_numeroSerie.className = "inputs-inv";
+        input_inv_numeroSerie.id = "input-numeroDeSerie"
+        input_inv_numeroSerie.type = "text";
+        input_inv_numeroSerie.readOnly = true;
+        input_inv_numeroSerie.value = numeroSerieInv.value;
+        const label_equipamento = document.createElement('label');
+        label_equipamento.innerHTML = "Equipamento:";
+        label_equipamento.id = "label_equipamento";
+        const input_inv_equipamento = document.createElement('input');
+        input_inv_equipamento.className = "inputs-inv";
+        input_inv_equipamento.id = "input-equipamento"
+        input_inv_equipamento.type = "text";
+        input_inv_equipamento.readOnly = true;
+        input_inv_equipamento.value = itemInv.value ;
+        const label_local = document.createElement('label');
+        label_local.id = "label-local";
+        label_local.textContent = "Local:";
+        const input_local = document.createElement('input');
+        input_local.id.className = "inputs-inv";
+        input_local.id = "input-local";
+        input_local.type = "text";
+        input_local.readOnly = true;
+        input_local.value = localInv.value;
+        const button_edit_inv = document.createElement('button');
+        button_edit_inv.textContent = "Editar";
+        button_edit_inv.className = "button-edit-remove";
+        button_edit_inv.type = "submit";
+        button_edit_inv.onclick = function(){editarInventario()};
+        const button_remove_inv = document.createElement('button');
+        button_remove_inv.textContent = "Remover";
+        button_remove_inv.id = "button-remove-inv";
+        button_remove_inv.className = "button-edit-remove";
+        button_remove_inv.type = "submit";
+        button_remove_inv.onclick = function(){removerInventario()};
+    
+        body_inventario.appendChild(div_inventario);
+        div_inventario.appendChild(ul_inventario);
+        ul_inventario.appendChild(li_chamado);
+        li_chamado.appendChild(label_numeroSerie);
+        li_chamado.appendChild(input_inv_numeroSerie);
+        li_chamado.appendChild(label_equipamento);
+        li_chamado.appendChild(input_inv_equipamento);
+        li_chamado.appendChild(label_local);
+        li_chamado.appendChild(input_local);
+        li_chamado.appendChild(button_edit_inv);
+        li_chamado.appendChild(button_remove_inv);
+    }
+    else{
+        const div_inventario = document.getElementById("tela-inventario");
+
+        const ul_inventario = document.createElement('ul');
+        ul_inventario.className = "list-inventario";
+        const li_chamado = document.createElement('li');
+        li_chamado.className = "list-inventario-li";
+        li_chamado.id = "list-inventario-li";
+        const label_numeroSerie = document.createElement('label');
+        label_numeroSerie.innerHTML = "Número de série:";
+        label_numeroSerie.id = "number-serie-align";
+        const input_inv_numeroSerie = document.createElement('input');
+        input_inv_numeroSerie.className = "inputs-inv";
+        input_inv_numeroSerie.id = "input-numeroDeSerie"
+        input_inv_numeroSerie.type = "text";
+        input_inv_numeroSerie.readOnly = true;
+        input_inv_numeroSerie.value = numeroSerieInv.value;
+        const label_equipamento = document.createElement('label');
+        label_equipamento.innerHTML = "Equipamento:";
+        label_equipamento.id = "label_equipamento";
+        const input_inv_equipamento = document.createElement('input');
+        input_inv_equipamento.className = "inputs-inv";
+        input_inv_equipamento.id = "input-equipamento"
+        input_inv_equipamento.type = "text";
+        input_inv_equipamento.readOnly = true;
+        input_inv_equipamento.value = itemInv.value ;
+        const label_local = document.createElement('label');
+        label_local.id = "label-local";
+        label_local.textContent = "Local:";
+        const input_local = document.createElement('input');
+        input_local.id.className = "inputs-inv";
+        input_local.id = "input-local";
+        input_local.type = "text";
+        input_local.readOnly = true;
+        input_local.value = localInv.value;
+        const button_edit_inv = document.createElement('button');
+        button_edit_inv.textContent = "Editar";
+        button_edit_inv.className = "button-edit-remove";
+        button_edit_inv.type = "submit";
+        button_edit_inv.onclick = function(){editarInventario()};
+        const button_remove_inv = document.createElement('button');
+        button_remove_inv.textContent = "Remover";
+        button_remove_inv.id = "button-remove-inv";
+        button_remove_inv.className = "button-edit-remove";
+        button_remove_inv.type = "submit";
+        button_remove_inv.onclick = function(){removerInventario()};
+    
+        body_inventario.appendChild(div_inventario);
+        div_inventario.appendChild(ul_inventario);
+        ul_inventario.appendChild(li_chamado);
+        li_chamado.appendChild(label_numeroSerie);
+        li_chamado.appendChild(input_inv_numeroSerie);
+        li_chamado.appendChild(label_equipamento);
+        li_chamado.appendChild(input_inv_equipamento);
+        li_chamado.appendChild(label_local);
+        li_chamado.appendChild(input_local);
+        li_chamado.appendChild(button_edit_inv);
+        li_chamado.appendChild(button_remove_inv);
+        
+    }
 
 }
 
@@ -229,8 +293,6 @@ function editarInventario(){
     botao_salvar_inv.onclick = function(){inventarioEditado()};
 
 
-
-
     tela_inventario_remove.appendChild(botao_salvar_inv);
 
     
@@ -243,9 +305,18 @@ function inventarioEditado(){
     const input_equipamento_salvar = document.getElementById("input-equipamento");
     const input_item_salvar = document.getElementById("input-local");
 
+    const button_editar_editado = document.createElement("button");
+    
     input_numeroSerie_salvar.readOnly = true;
     input_equipamento_salvar.readOnly = true;
     input_item_salvar.readOnly = true;
+
+    button_editar_editado.textContent = "Editar";
+    button_editar_editado.className = "button-edit-remove";
+    button_editar_editado.type = "submit";
+    button_editar_editado.onclick = function(){editarInventario()};
+
+
 
     
 
@@ -499,6 +570,8 @@ function editarChamado(){
 
 function salvarChamadoEditado(){
 
+    console.log("ok");
+
     const button_salvar_editado = document.getElementById("button-salvar");
     const div_buttons_card = document.getElementById("div-botoes-chamados");
 
@@ -509,8 +582,6 @@ function salvarChamadoEditado(){
     input_nome_card_chamado.readOnly = true;
     input_local_card_chamado.readOnly = true;
     descricao_card_chamado.readOnly = true;
-
-    
 
     div_buttons_card.removeChild(button_salvar_editado);
 
