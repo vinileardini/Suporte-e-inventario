@@ -121,6 +121,10 @@
 .input-label{
     padding: 10px;
     opacity: 0.8;
+    max-height: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 #input-date-style{
