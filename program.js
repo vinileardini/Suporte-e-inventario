@@ -14,12 +14,21 @@ var numeroUltimoId = 0;
 
 var Array_chamados = [];
 
+var Array_Inv = [];
+
 function Chamados (id_do_chamado, nome_do_chamado, local_do_chamado, data_do_chamado, descricao_do_chamado){
     this.id_do_chamado = id_do_chamado;
     this.nome_do_chamado = nome_do_chamado;
     this.local_do_chamado = local_do_chamado;
     this.data_do_chamado = data_do_chamado;
     this.descricao_do_chamado = data_do_chamado;
+}
+
+function Inventario (tipo_item, local_item, numeracao_item){
+
+    this.tipo_item = tipo_item;
+    this.local_item = local_item;
+    this.numeracao_item = numeracao_item;
 
 }
 
@@ -131,6 +140,9 @@ function adicionarInventario(){
     button_confirm.appendChild(button_confirm_symbol_check);
     ul_menu_inventario.appendChild(button_cancel);
     button_cancel.appendChild(button_cancel_symbol_x);
+
+
+
     }
 
 
@@ -143,8 +155,6 @@ function novoItemInventario(){
     var checkExistsDivInventario = document.getElementById("tela-inventario");
 
     const select_function_inventario = document.getElementById("select-inv-chamado");
-
-
 
     const body_inventario = document.body;
 
@@ -271,6 +281,16 @@ function novoItemInventario(){
 
     select_function_inventario.value = "Inventario";
 
+    var novoItemInventario = new Inventario();
+
+    novoItemInventario.tipo_item = itemInv.value;
+    novoItemInventario.local_item = localInv.value;
+    novoItemInventario.numeracao_item = numeroSerieInv.value;
+
+    Array_Inv.push(novoItemInventario);
+
+    console.log(Array_Inv);
+
 }
 
 function editarInventario(){
@@ -324,9 +344,9 @@ function inventarioEditado(){
 
 
 
-    
 
 }
+
 
 function removerInventario(){
 
@@ -633,7 +653,18 @@ function novoChamado(){
     }
 
     select_function_chamado.value = "Chamados";
-    
+
+    const novaAberturaChamado = new Chamados();
+
+    novaAberturaChamado.id_do_chamado = novoNumeroId;
+    novaAberturaChamado.nome_do_chamado = nomeChamado.value;
+    novaAberturaChamado.local_do_chamado = localChamado.value;
+    novaAberturaChamado.data_do_chamado = dataChamado;
+    novaAberturaChamado.descricao_do_chamado = descricaoChamado.value;
+
+    Array_chamados.push(novaAberturaChamado);
+
+    console.log(Array_chamados);
 
 }
 
