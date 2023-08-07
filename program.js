@@ -142,6 +142,10 @@ function novoItemInventario(){
     var localInv = document.getElementById("input-local-inv");
     var checkExistsDivInventario = document.getElementById("tela-inventario");
 
+    const select_function_inventario = document.getElementById("select-inv-chamado");
+
+
+
     const body_inventario = document.body;
 
     if(body_inventario.contains(checkExistsDivInventario) == false){
@@ -250,7 +254,7 @@ function novoItemInventario(){
         button_remove_inv.className = "button-edit-remove";
         button_remove_inv.type = "submit";
         button_remove_inv.onclick = function(){removerInventario()};
-    
+        
         body_inventario.appendChild(div_inventario);
         div_inventario.appendChild(ul_inventario);
         ul_inventario.appendChild(li_chamado);
@@ -263,7 +267,9 @@ function novoItemInventario(){
         li_chamado.appendChild(button_edit_inv);
         li_chamado.appendChild(button_remove_inv);
         
-    }
+    }   
+
+    select_function_inventario.value = "Inventario";
 
 }
 
@@ -415,6 +421,9 @@ function novoChamado(){
 
     var checkExistsChamadoBody = document.body.contains(checkExistsChamado);
 
+    const select_function_chamado = document.getElementById("select-inv-chamado");
+
+
     if(checkExistsChamadoBody == true){
 
         var numeroUltimoId = document.getElementById("number-id").innerText;
@@ -442,7 +451,7 @@ function novoChamado(){
 
     const body_chamado = document.body;
 
-    if(body_chamado.contains(checkExistsChamado) == true){
+    if(body_chamado.contains(checkExistsDivChamado) == true){
         
         const div_chamado = document.getElementById("grid-tela");
         const div_card = document.createElement("div");
@@ -623,6 +632,7 @@ function novoChamado(){
 
     }
 
+    select_function_chamado.value = "Chamados";
     
 
 }
