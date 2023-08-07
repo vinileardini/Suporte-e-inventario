@@ -16,6 +16,219 @@ var Array_chamados = [];
 
 var Array_Inv = [];
 
+const chamadoTeste = new Chamados;
+
+chamadoTeste.nome_do_chamado = "vini";
+chamadoTeste.local_do_chamado = "prefeitura";
+chamadoTeste.data_do_chamado = "19/05/2003";
+chamadoTeste.descricao_do_chamado = "manutenção pc";
+
+Array_chamados.push(chamadoTeste);
+
+if (Array_chamados.length >= 1){
+
+
+    for(let i = 0; i <= Array_chamados.length; i++){
+
+        let checkExistsDivChamado = document.getElementById("grid-tela");
+
+        let body_chamado = document.getElementById("body");
+
+        let checkExistsTelaChamado = document.contains(checkExistsDivChamado);
+
+        console.log(checkExistsTelaChamado);
+
+        if(body_chamado.contains(checkExistsDivChamado) == true){
+
+            Array_chamados[i];
+            
+            const div_chamado = document.getElementById("grid-tela");
+            const div_card = document.createElement("div");
+            div_card.className = "shape-card";
+            div_card.id = "shape-card";
+            const label_idNumber = document.createElement("label");
+            label_idNumber.id = "number-id";
+            label_idNumber.className = "id-number";
+            label_idNumber.innerText = "";
+            let pulaLinha = document.createElement("p");
+            const label_nomeSolicitante = document.createElement("label");
+            label_nomeSolicitante.innerHTML = "Nome do solicitante:";
+            const input_nome = document.createElement("input");
+            input_nome.type = "text";
+            input_nome.id = "input-label-nome";
+            input_nome.className = "input-label";
+            input_nome.readOnly = true;
+            input_nome.value = Array_chamados[i].nome_do_chamado;
+            let pulaLinha_1 = document.createElement("p");
+            const label_local = document.createElement("label");
+            label_local.innerText = "Local:";
+            label_local.id = "label-local";
+            const input_local = document.createElement("input");
+            input_local.type = "text";
+            input_local.id = "input-label-local";
+            input_local.className = "input-label";
+            input_local.readOnly = true;
+            input_local.value = Array_chamados[i].local_do_chamado;
+            let pulaLinha_2 = document.createElement("p");
+            const label_data = document.createElement("label");
+            label_data.innerHTML = "Data:";
+            const input_data = document.createElement("label");
+            input_data.type = "date";
+            input_data.id = "input-date-style";
+            input_data.className = "input-label";
+            input_data.readOnly = true;
+            input_data.innerText = Array_chamados[i].data_do_chamado;
+            let pulaLinha_3 = document.createElement("p");
+            const label_descricao = document.createElement("label");
+            label_descricao.innerHTML = "Descrição:";
+            label_descricao.id = "label-desc";
+            let pulaLinha_4 = document.createElement("p");
+            const text_descricao = document.createElement("textarea") 
+            text_descricao.id = "desc-chamados";
+            text_descricao.cols = 35;
+            text_descricao.rows = 5;
+            text_descricao.readOnly = true;
+            text_descricao.innerText = Array_chamados[i].descricao_do_chamado;
+            let pulaLinha_5 = document.createElement("p");
+            const div_botoes = document.createElement("div");
+            div_botoes.className = "div-botoes-chamado";
+            div_botoes.id = "div-botoes-chamados"
+            const button_edit = document.createElement("button");
+            button_edit.innerHTML = "Editar";
+            button_edit.type ="submit";
+            button_edit.className = "button-edit-remove";
+            button_edit.id = "button-edit";
+            button_edit.onclick = function(){editarChamado()};
+            const button_remove = document.createElement("button");
+            button_remove.innerHTML= "Remover";
+            button_remove.type = "submit";
+            button_remove.className = "button-edit-remove";
+            button_remove.id = "button-remove";
+            button_remove.onclick = function(){fecharChamado()}
+
+
+            body_chamado.appendChild(div_chamado);
+            div_chamado.appendChild(div_card);
+            div_card.appendChild(label_idNumber);
+            div_card.appendChild(pulaLinha);
+            div_card.appendChild(label_nomeSolicitante);
+            div_card.appendChild(input_nome);
+            div_card.appendChild(pulaLinha_1);
+            div_card.appendChild(label_local);
+            div_card.appendChild(input_local);
+            div_card.appendChild(pulaLinha_2)
+            div_card.appendChild(label_data);
+            div_card.appendChild(input_data);
+            div_card.appendChild(pulaLinha_3); 
+            div_card.appendChild(label_descricao);
+            div_card.appendChild(pulaLinha_4);
+            div_card.appendChild(text_descricao);
+            div_card.appendChild(pulaLinha_5);
+            div_card.appendChild(div_botoes);
+            div_botoes.appendChild(button_edit);
+            div_botoes.appendChild(button_remove);
+
+        }
+
+        else{
+            const div_chamado = document.createElement("grid-tela");
+            div_chamado.id = "grid-tela";
+            div_chamado.className = "grid-1-cards-chamados";
+            const div_card = document.createElement("div");
+            div_card.className = "shape-card";
+            div_card.id = "shape-card";
+            const label_idNumber = document.createElement("label");
+            label_idNumber.id = "number-id";
+            label_idNumber.className = "id-number";
+            label_idNumber.innerText = "#";
+            let pulaLinha = document.createElement("p");
+            const label_nomeSolicitante = document.createElement("label");
+            label_nomeSolicitante.innerHTML = "Nome do solicitante:";
+            const input_nome = document.createElement("input");
+            input_nome.type = "text";
+            input_nome.id = "input-label-nome";
+            input_nome.className = "input-label";
+            input_nome.readOnly = true;
+            input_nome.value = chamadoTeste.nome_do_chamado;
+            let pulaLinha_1 = document.createElement("p");
+            const label_local = document.createElement("label");
+            label_local.innerText = "Local:";
+            label_local.id = "label-local";
+            const input_local = document.createElement("input");
+            input_local.type = "text";
+            input_local.id = "input-label-local";
+            input_local.className = "input-label";
+            input_local.readOnly = true;
+            input_local.value = chamadoTeste.local_do_chamado;
+            let pulaLinha_2 = document.createElement("p");
+            const label_data = document.createElement("label");
+            label_data.innerHTML = "Data:";
+            const input_data = document.createElement("label");
+            input_data.type = "date";
+            input_data.id = "input-date-style";
+            input_data.className = "input-label";
+            input_data.readOnly = true;
+            input_data.innerText = chamadoTeste.data_do_chamado;
+            let pulaLinha_3 = document.createElement("p");
+            const label_descricao = document.createElement("label");
+            label_descricao.innerHTML = "Descrição:";
+            label_descricao.id = "label-desc";
+            let pulaLinha_4 = document.createElement("p");
+            const text_descricao = document.createElement("textarea") 
+            text_descricao.id = "desc-chamados";
+            text_descricao.cols = 35;
+            text_descricao.rows = 5;
+            text_descricao.readOnly = true;
+            text_descricao.innerText = chamadoTeste.descricao_do_chamado;
+            let pulaLinha_5 = document.createElement("p");
+            const div_botoes = document.createElement("div");
+            div_botoes.className = "div-botoes-chamado";
+            div_botoes.id = "div-botoes-chamados"
+            const button_edit = document.createElement("button");
+            button_edit.innerHTML = "Editar";
+            button_edit.type ="submit";
+            button_edit.className = "button-edit-remove";
+            button_edit.id = "button-edit";
+            button_edit.onclick = function(){editarChamado()};
+            const button_remove = document.createElement("button");
+            button_remove.innerHTML= "Remover";
+            button_remove.type = "submit";
+            button_remove.className = "button-edit-remove";
+            button_remove.id = "button-remove";
+            button_remove.onclick = function(){fecharChamado()}
+
+
+            body_chamado.appendChild(div_chamado);
+            div_chamado.appendChild(div_card);
+            div_card.appendChild(label_idNumber);
+            div_card.appendChild(pulaLinha);
+            div_card.appendChild(label_nomeSolicitante);
+            div_card.appendChild(input_nome);
+            div_card.appendChild(pulaLinha_1);
+            div_card.appendChild(label_local);
+            div_card.appendChild(input_local);
+            div_card.appendChild(pulaLinha_2)
+            div_card.appendChild(label_data);
+            div_card.appendChild(input_data);
+            div_card.appendChild(pulaLinha_3); 
+            div_card.appendChild(label_descricao);
+            div_card.appendChild(pulaLinha_4);
+            div_card.appendChild(text_descricao);
+            div_card.appendChild(pulaLinha_5);
+            div_card.appendChild(div_botoes);
+            div_botoes.appendChild(button_edit);
+            div_botoes.appendChild(button_remove);
+
+        }
+
+        select_function_chamado.value = "Chamados";
+
+    }
+
+}
+
+
+
 function Chamados (id_do_chamado, nome_do_chamado, local_do_chamado, data_do_chamado, descricao_do_chamado){
     this.id_do_chamado = id_do_chamado;
     this.nome_do_chamado = nome_do_chamado;
@@ -742,6 +955,8 @@ function salvarChamadoEditado(){
 function pesquisaNome(){
 
     searchName = document.getElementById("input-area-pesquisa");
+
+
 
     
 
