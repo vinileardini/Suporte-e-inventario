@@ -16,27 +16,21 @@ var Array_chamados = [];
 
 var Array_Inv = [];
 
-const chamadoTeste = new Chamados;
+console.log(Array_Inv,Array_chamados);
 
-chamadoTeste.nome_do_chamado = "vini";
-chamadoTeste.local_do_chamado = "prefeitura";
-chamadoTeste.data_do_chamado = "19/05/2003";
-chamadoTeste.descricao_do_chamado = "manutenção pc";
+window.onload = function checkArrayChamado () {if (Array_chamados.length >= 1){
 
-Array_chamados.push(chamadoTeste);
-
-if (Array_chamados.length >= 1){
-
-
-    for(let i = 0; i <= Array_chamados.length; i++){
+    for(let i = 0; i < Array_chamados.length; i++){
 
         let checkExistsDivChamado = document.getElementById("grid-tela");
 
-        let body_chamado = document.getElementById("body");
+        const body_chamado = document.getElementById("body-page");
 
         let checkExistsTelaChamado = document.contains(checkExistsDivChamado);
 
         console.log(checkExistsTelaChamado);
+
+        console.log(Array_chamados[i])
 
         if(body_chamado.contains(checkExistsDivChamado) == true){
 
@@ -49,7 +43,7 @@ if (Array_chamados.length >= 1){
             const label_idNumber = document.createElement("label");
             label_idNumber.id = "number-id";
             label_idNumber.className = "id-number";
-            label_idNumber.innerText = "";
+            label_idNumber.innerText = novoNumeroId;
             let pulaLinha = document.createElement("p");
             const label_nomeSolicitante = document.createElement("label");
             label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -221,11 +215,11 @@ if (Array_chamados.length >= 1){
 
         }
 
-        select_function_chamado.value = "Chamados";
+        
 
     }
 
-}
+}}
 
 
 
@@ -659,16 +653,16 @@ function novoChamado(){
 
     if(checkExistsChamadoBody == true){
 
-        var numeroUltimoId = document.getElementById("number-id").innerText;
+        var numeroUltimoId = document.getElementById("number-id").value;
 
         var novoNumeroId = numeroUltimoId+1;
         
-        console.log(numeroUltimoId);
+        console.log(novoNumeroId);
     }
     else{
         console.log("não existe chamado");
 
-        var novoNumeroId = 1;
+        novoNumeroId = 1;
     }
     
 
@@ -693,7 +687,7 @@ function novoChamado(){
         const label_idNumber = document.createElement("label");
         label_idNumber.id = "number-id";
         label_idNumber.className = "id-number";
-        label_idNumber.innerText = "#"+novoNumeroId;
+        label_idNumber.innerText = novoNumeroId.value;
         let pulaLinha = document.createElement("p");
         const label_nomeSolicitante = document.createElement("label");
         label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -784,7 +778,7 @@ function novoChamado(){
         const label_idNumber = document.createElement("label");
         label_idNumber.id = "number-id";
         label_idNumber.className = "id-number";
-        label_idNumber.innerText = "#"+novoNumeroId;
+        label_idNumber.innerText = novoNumeroId;
         let pulaLinha = document.createElement("p");
         const label_nomeSolicitante = document.createElement("label");
         label_nomeSolicitante.innerHTML = "Nome do solicitante:";
