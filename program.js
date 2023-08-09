@@ -1,3 +1,4 @@
+
 var escolhaChamado = "Chamados";
 
 const addButton = document.getElementById("#button-add");
@@ -579,8 +580,6 @@ function selectFunction(){
         document.getElementById("input-local-search").style.display="none";
         document.getElementById("input-numeracao-search").style.display="none";
 
-
-
     }
     else{
 
@@ -955,6 +954,7 @@ function salvarChamadoEditado(){
 }
 
 function pesquisaNome(){
+
     
     const searchName = document.getElementById("input-area-pesquisa").value;
 
@@ -969,9 +969,12 @@ function pesquisaNome(){
         alert("Não existe chamado com o nome desta pessoa");
     }
 
+
 }
 
-function pesquisaData(){
+function pesquisaData(event){
+
+    if(event.key === 13){
 
     const searchDate = document.getElementById("input-area-date").value;
 
@@ -988,6 +991,8 @@ function pesquisaData(){
     }
     else{
         alert("Não existe chamado desta data");
+    }
+
     }
 
 }
