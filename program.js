@@ -653,7 +653,7 @@ function novoChamado(){
 
     if(checkExistsChamadoBody == true){
 
-        var numeroUltimoId = document.getElementById("number-id").value;
+        var numeroUltimoId = parseInt(document.getElementById("number-id").innerHTML);
 
         var novoNumeroId = numeroUltimoId+1;
         
@@ -662,7 +662,7 @@ function novoChamado(){
     else{
         console.log("não existe chamado");
 
-        novoNumeroId = 1;
+        var novoNumeroId = 1;
     }
     
 
@@ -687,7 +687,7 @@ function novoChamado(){
         const label_idNumber = document.createElement("label");
         label_idNumber.id = "number-id";
         label_idNumber.className = "id-number";
-        label_idNumber.innerText = novoNumeroId.value;
+        label_idNumber.innerHTML = novoNumeroId;
         let pulaLinha = document.createElement("p");
         const label_nomeSolicitante = document.createElement("label");
         label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -947,18 +947,22 @@ function salvarChamadoEditado(){
 }
 
 function pesquisaNome(){
-
-    searchName = document.getElementById("input-area-pesquisa");
-
-
-
     
+    const searchName = document.getElementById("input-area-pesquisa").value;
+
+    console.log(searchName);
 
 }
 
 function pesquisaData(){
 
-    searchDate = document.getElementById("input-date-search");
+    const searchDate = document.getElementById("input-area-date").value;
+
+    const transformaData = searchDate.toLocaleDateString('pt-br');
+
+    console.lo(transformaData);
+
+
 
 
 }
