@@ -576,11 +576,19 @@ function selectFunction(){
         document.getElementById("grid-tela").style.display="contents";
         document.getElementById("tela-inventario").style.display = "none";
 
+        document.getElementById("input-local-search").style.display="none";
+        document.getElementById("input-numeracao-search").style.display="none";
+
+
+
     }
     else{
 
         document.getElementById("tela-inventario").style.display="contents";
         document.getElementById("grid-tela").style.display ="none";
+
+        document.getElementById("input-name-search").style.display="none";
+        document.getElementById("input-date-search").style.display="none";
         
     }
 
@@ -952,18 +960,57 @@ function pesquisaNome(){
 
     console.log(searchName);
 
+    if(Array_chamados.includes(searchName)){
+        let Array_resultado_nome = Array_chamados.filter(searchName);
+
+        console.log(Array_resultado_nome);
+    }
+    else{
+        alert("Não existe chamado com o nome desta pessoa");
+    }
+
 }
 
 function pesquisaData(){
 
     const searchDate = document.getElementById("input-area-date").value;
 
-    const transformaData = searchDate.toLocaleDateString('pt-br');
+    const transformaData = searchDate.split("-").reverse().join('/');
 
-    console.lo(transformaData);
+    console.log(transformaData);
+
+    if(Array_chamados.includes(transformaData)){
+
+        let Array_resultado_datas = Array_chamados.filter(transformaData);
+
+        console.log(Array_resultado_datas);
+
+    }
+    else{
+        alert("Não existe chamado desta data");
+    }
+
+}
+
+function pesquisaNumeracao(){
+
+    const searchNumber = document.getElementById("input-area-numeracao").value;
+
+    if(Array_Inv.includes(searchNumber)){
+        
+        let Array_resultado_numeracao = Array_Inv.filter(searchNumber);
+
+        console.log(Array_resultado_numeracao);
+
+    }
+    else{
+        alert("Não existe nenhum item com essa numeração");
+    }
 
 
+}
 
+function pesquisaLocal(){
 
 }
 
