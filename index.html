@@ -41,7 +41,7 @@
 
     <!--Botões de filtragem-->
         
-    <div class="grid-filtragem">
+    <div id="grid-filtragem" class="grid-filtragem">
 
         <div class="escolha">
             <select id="select-inv-chamado" class="escolha-chamado-inv" name="select-inv-chamado" onchange=selectFunction()>
@@ -50,26 +50,29 @@
             </select>
         </div>
 
-        <div id="input-name-search" class="input-name-search">
+        <!--<div id="input-name-search" class="input-name-search">
             <font>Insira nome para pesquisa:</font>
-            <input  class="input-area-pesquisa" type="text" id="input-area-pesquisa" onsubmit=pesquisaNome()></input>
+            <input  class="input-area-pesquisa" type="text" id="input-area-pesquisa"></input>
+            <button id="lupa-pesquisa-nome" type="submit" class="lupa-pesquisa" onclick=pesquisaNome()><i id="symbol-lupa" class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
         <div id="input-date-search" class="input-date-search">
             <font>Insira a data da abertura do chamado:</font>
-            <input id="input-area-date" class="input-area-date" type="date" onkeyup=pesquisaData()>
+            <input id="input-area-date" class="input-area-date" type="date" onsubmit=pesquisaData()>
         </div>
 
 
         <div id="input-local-search" class="input-local-search">
             <font>Insira o local a ser pesquisado:</font>
-            <input id="input-area-local" class="input-area-local" type="text" onkeyup=pesquisaLocal()>
+            <input id="input-area-local" class="input-area-local" type="text">
+            <button type="submit" class="lupa-pesquisa" onclick=pesquisaLocal()><i id="symbol-lupa" class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
         <div id="input-numeracao-search" class="input-numeracao-search">
             <font>Insira a numeracao a ser pesquisada:</font>
-            <input id="input-area-numeracao" class="input-area-numeracao" type="text" onkeydown=pesquisaNumeracao()>
-        </div>
+            <input id="input-area-numeracao" class="input-area-numeracao" type="text">
+            <button class="lupa-pesquisa" type="submit" onclick=pesquisaNumeracao()><i id="symbol-lupa" class="fa-solid fa-magnifying-glass"></i></button>
+        </div>-->
 
         <div id="button-add" class="button-add">
 

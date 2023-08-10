@@ -574,11 +574,50 @@ function selectFunction(){
 
     if(document.getElementById("select-inv-chamado").value == escolhaChamado)
     {
-        document.getElementById("grid-tela").style.display="contents";
-        document.getElementById("tela-inventario").style.display = "none";
 
-        document.getElementById("input-local-search").style.display="none";
-        document.getElementById("input-numeracao-search").style.display="none";
+        const doc_body = document.body;
+
+        const div_filtragem = document.getElementById("grid-filtragem");
+
+        checkExistsGridTela = document.getElementById("grid-tela");
+
+        if(doc_body.contains(checkExistsGridTela) == false){
+
+            document.getElementById("grid-tela").style.display="contents";
+            document.getElementById("tela-inventario").style.display = "none"
+
+
+        }
+
+            const nova_div_pesquisa_nome = document.createElement("div");
+            nova_div_pesquisa_nome.textContent = "Insira o nome para pesquisa:";
+            nova_div_pesquisa_nome.id = "input-name-search";
+            nova_div_pesquisa_nome.className = "input-name-search";
+            const input_pesquisa_nome = document.createElement("input");
+            input_pesquisa_nome.id = "input-area-pesquisa";
+            input_pesquisa_nome.className = "input-area-pesquisa";
+            input_pesquisa_nome.type = "text";
+            const button_submit_pesquisa_nome = document.createElement("button");
+            button_submit_pesquisa_nome.id = "lupa-pesquisa-nome";
+            button_submit_pesquisa_nome.className = "lupa-pesquisa";
+            button_submit_pesquisa_nome.type = "submit";
+            button_submit_pesquisa_nome.onclick=pesquisaNome();
+            const symbol_lupa = document.createElement("i");
+            symbol_lupa.id = "symbol-lupa";
+            symbol_lupa.className = "fa-solid fa-magnifying-glass";
+
+        div_filtragem.appendChild(nova_div_pesquisa_nome);
+        nova_div_pesquisa_nome.appendChild(input_pesquisa_nome);
+        nova_div_pesquisa_nome.appendChild(button_submit_pesquisa_nome);
+        button_submit_pesquisa_nome.appendChild(symbol_lupa);
+
+
+        const area_pesquisa_local = document.getElementById("input-local-search");
+
+        const area_pesquisa_numeracao = document.getElementById("input-numeracao-search");
+
+        div_filtragem.removeChild(area_pesquisa_local);
+        div_filtragem.removeChild(area_pesquisa_numeracao);
 
     }
     else{
@@ -972,9 +1011,7 @@ function pesquisaNome(){
 
 }
 
-function pesquisaData(event){
-
-    if(event.key === 13){
+function pesquisaData(){
 
     const searchDate = document.getElementById("input-area-date").value;
 
@@ -993,7 +1030,7 @@ function pesquisaData(event){
         alert("Não existe chamado desta data");
     }
 
-    }
+    
 
 }
 
