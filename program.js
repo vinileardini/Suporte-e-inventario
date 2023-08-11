@@ -570,19 +570,24 @@ function removerInventario(){
 
 }
 
+//Operação de alteração de exibição entre chamados e inventário
+
 function selectFunction(){
+
+    
+    const div_filtragem = document.getElementById("grid-filtragem");
+
+    const botao_add = document.getElementById("button-add");
 
     if(document.getElementById("select-inv-chamado").value == escolhaChamado)
     {
 
         const doc_body = document.body;
 
-        const div_filtragem = document.getElementById("grid-filtragem");
-
         const checkExistsGridTela = document.getElementById("grid-tela");
 
-        const botao_add = document.getElementById("button-add");
 
+        // Cria filtragem para cards dos chamados a partir do nome 
 
             const nova_div_pesquisa_nome = document.createElement("div");
             nova_div_pesquisa_nome.textContent = "Insira o nome para pesquisa:";
@@ -597,14 +602,16 @@ function selectFunction(){
             button_submit_pesquisa_nome.className = "lupa-pesquisa";
             button_submit_pesquisa_nome.type = "submit";
             button_submit_pesquisa_nome.onclick=function(){pesquisaNome()};
-            const symbol_lupa = document.createElement("i");
-            symbol_lupa.id = "symbol-lupa";
-            symbol_lupa.className = "fa-solid fa-magnifying-glass";
+            const symbol_lupa_nome = document.createElement("i");
+            symbol_lupa_nome.id = "symbol-lupa-nome";
+            symbol_lupa_nome.className = "fa-solid fa-magnifying-glass";
 
             div_filtragem.appendChild(nova_div_pesquisa_nome);
             nova_div_pesquisa_nome.appendChild(input_pesquisa_nome);
             nova_div_pesquisa_nome.appendChild(button_submit_pesquisa_nome);
-            button_submit_pesquisa_nome.appendChild(symbol_lupa);
+            button_submit_pesquisa_nome.appendChild(symbol_lupa_nome);
+
+        // Cria filtragem dos cards de chamado a partir da data do chamado
 
             const nova_div_pesquisa_data = document.createElement("div");
             nova_div_pesquisa_data.textContent = "Insira a data para pesquisa:";
@@ -630,14 +637,65 @@ function selectFunction(){
             div_filtragem.removeChild(area_pesquisa_numeracao);
 
     }
-    /*else{
+    else{
 
-        document.getElementById("tela-inventario").style.display="contents";
-        document.getElementById("grid-tela").style.display ="none";
 
+        // Cria filtragem de local para os itens do inventário
+
+       const nova_div_pesquisa_local = document.createElement("div");
+       nova_div_pesquisa_local.id = "input-local-search";
+       nova_div_pesquisa_local.className = "input-local-search";
+       nova_div_pesquisa_local.textContent = "Insira o local a ser pesquisado:";
+       const input_pesquisa_local = document.createElement("input");
+       input_pesquisa_local.id = "input-area-local";
+       input_pesquisa_local.className = "input-area-local";
+       input_pesquisa_local.type = "text";
+       const button_submit_pesquisa_local = document.createElement("button");
+       button_submit_pesquisa_local.id = "lupa-pesquisa-local";
+       button_submit_pesquisa_local.className = "lupa-pesquisa";
+       button_submit_pesquisa_local.type = "submit";
+       button_submit_pesquisa_local.onclick=function(){pesquisaLocal()};
+       const symbol_lupa_local = document.createElement("i");
+       symbol_lupa_local.id = "symbol-lupa-local";
+       symbol_lupa_local.className = "fa-solid fa-magnifying-glass";
+
+       div_filtragem.appendChild(nova_div_pesquisa_local);
+       nova_div_pesquisa_local.appendChild(input_pesquisa_local);
+       nova_div_pesquisa_local.appendChild(button_submit_pesquisa_local);
+       button_submit_pesquisa_local.appendChild(symbol_lupa_local);
+
+       botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_local);
+
+       
+
+       // Cria filtragem através da numeração para os itens do inventário
+
+       const nova_div_pesquisa_numeracao = document.createElement("div");
+       nova_div_pesquisa_numeracao.id = "input-numeracao-search";
+       nova_div_pesquisa_numeracao.className = "input-numeracao-search";
+       nova_div_pesquisa_numeracao.textContent = "Insira a numeração a ser pesquisada:";
+       const input_pesquisa_numeracao = document.createElement("input");
+       input_pesquisa_numeracao.id = "input-area-numeracao";
+       input_pesquisa_numeracao.className = "input-area-numeracao";
+       input_pesquisa_numeracao.type = "text";
+       const button_submit_pesquisa_numeracao = document.createElement("button");
+       button_submit_pesquisa_numeracao.id = "lupa-pesquisa-numeracao";
+       button_submit_pesquisa_numeracao.className = "lupa-pesquisa";
+       button_submit_pesquisa_numeracao.type = "submit";
+       button_submit_pesquisa_numeracao.onclick = function(){pesquisaNumeracao()};
+       const symbol_lupa_numeracao = document.createElement("i");
+       symbol_lupa_numeracao.id = "symbol-lupa-numeracao";
+       symbol_lupa_numeracao.className = "fa-solid fa-magnifying-glass";
+
+       div_filtragem.appendChild(nova_div_pesquisa_numeracao);
+       nova_div_pesquisa_numeracao.appendChild(input_pesquisa_numeracao);
+       nova_div_pesquisa_numeracao.appendChild(button_submit_pesquisa_numeracao);
+       button_submit_pesquisa_numeracao.appendChild(symbol_lupa_numeracao);
+
+       botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_numeracao);
         
         
-    }*/
+    }
 
 
 }
