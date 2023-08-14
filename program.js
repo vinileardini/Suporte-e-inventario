@@ -372,6 +372,7 @@ function novoItemInventario(){
         div_inventario.id = "tela-inventario";
         const ul_inventario = document.createElement('ul');
         ul_inventario.className = "list-inventario";
+        ul_inventario.id = "list-inventario"
         const li_chamado = document.createElement('li');
         li_chamado.className = "list-inventario-li";
         li_chamado.id = "list-inventario-li";
@@ -562,7 +563,9 @@ function removerInventario(){
 
     const tela_inventario = document.getElementById("tela-inventario");
 
-    body_inventario_edit.removeChild(tela_inventario);
+    const card_inventario = document.getElementById("list-inventario")
+
+    tela_inventario.removeChild(card_inventario);
 
     
 
@@ -574,6 +577,7 @@ function removerInventario(){
 
 function selectFunction(){
 
+    const doc_body = document.body;
     
     const div_filtragem = document.getElementById("grid-filtragem");
 
@@ -582,12 +586,14 @@ function selectFunction(){
     if(document.getElementById("select-inv-chamado").value == escolhaChamado)
     {
 
-        const doc_body = document.body;
+        const checkExistsFiltragemChamado = document.getElementById("input-name-search");
 
         const checkExistsGridTela = document.getElementById("grid-tela");
 
 
         // Cria filtragem para cards dos chamados a partir do nome 
+
+        if(doc_body.contains(checkExistsFiltragemChamado)== false){
 
             const nova_div_pesquisa_nome = document.createElement("div");
             nova_div_pesquisa_nome.textContent = "Insira o nome para pesquisa:";
@@ -635,10 +641,16 @@ function selectFunction(){
 
             div_filtragem.removeChild(area_pesquisa_local);
             div_filtragem.removeChild(area_pesquisa_numeracao);
+        }
 
     }
     else{
 
+        
+        let checkExistsFiltragemInventario = document.getElementById("input-local-search");
+
+        if(doc_body.contains(checkExistsFiltragemInventario)==false){
+        
 
         // Cria filtragem de local para os itens do inventário
 
@@ -693,12 +705,22 @@ function selectFunction(){
        button_submit_pesquisa_numeracao.appendChild(symbol_lupa_numeracao);
 
        botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_numeracao);
+
+       const area_pesquisa_nome = document.getElementById("input-name-search");
+       const area_pesquisa_data = document.getElementById("input-date-search");
+
+       div_filtragem.removeChild(area_pesquisa_nome);
+       div_filtragem.removeChild(area_pesquisa_data);
+    
         
-        
+    }
+
     }
 
 
 }
+
+// Cria a tabela para a adição de um novo chamado
 
 function adicionarChamado(){
 
@@ -753,6 +775,8 @@ function adicionarChamado(){
     button_cancel.appendChild(button_cancel_symbol_x);
     }
 
+
+// Cria o card do novo Chamado 
     
 function novoChamado(){
 
