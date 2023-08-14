@@ -432,6 +432,7 @@ function novoItemInventario(){
 
         const ul_inventario = document.createElement('ul');
         ul_inventario.className = "list-inventario";
+        ul_inventario.id = "list-inventario";
         const li_chamado = document.createElement('li');
         li_chamado.className = "list-inventario-li";
         li_chamado.id = "list-inventario-li";
@@ -996,7 +997,12 @@ function novoChamado(){
 
     }
 
+
+    // Altera o valor do seletor de chamado ou inventário
+
     select_function_chamado.value = "Chamados";
+
+    // Insire os valores do card de chamado em um objeto dentro de um array
 
     const novaAberturaChamado = new Chamados();
 
@@ -1012,6 +1018,8 @@ function novoChamado(){
 
 }
 
+// Exclui um chamado
+
 function fecharChamado(){
 
     console.log("click");
@@ -1024,6 +1032,8 @@ function fecharChamado(){
     
 
 }
+
+// Torna possível a edição de um chamado
 
 function editarChamado(){
 
@@ -1051,6 +1061,8 @@ function editarChamado(){
 
 
 }
+
+// Salva as alterações realizadas na edição de um chamado
 
 function salvarChamadoEditado(){
 
