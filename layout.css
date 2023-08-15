@@ -320,11 +320,43 @@
     box-shadow: 1px 1px 1px;
 }
 
-.input-card-add{
+.input-card-add-nome{
     border-top: none;
     border-left: none;
     border-right: none;
+    margin-left: 10px;
 }
+
+.input-card-add-local-chamado{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-left: 18px;
+}
+
+.input-card-add-local-inv{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-left: 10px;
+    max-width: 300px;
+}
+
+.input-card-add-item{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-left: 15px;
+}
+
+.input-card-add-numero{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-left: 10px;
+}
+
+
 
 .button-edit-remove{
     width: auto;
