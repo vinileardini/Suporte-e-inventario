@@ -320,6 +320,12 @@
     box-shadow: 1px 1px 1px;
 }
 
+.input-card-add{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 .button-edit-remove{
     width: auto;
     height: auto;

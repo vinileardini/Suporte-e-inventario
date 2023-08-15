@@ -757,15 +757,18 @@ function adicionarChamado(){
     const input_nome_menu_chamado = document.createElement('input');
     input_nome_menu_chamado.type = "text";
     input_nome_menu_chamado.id = "input-nome-menu-chamado";
+    input_nome_menu_chamado.className = "input-card-add";
     const li_menu_chamado_local = document.createElement('li');
     li_menu_chamado_local.id = "local-chamado";
     li_menu_chamado_local.innerText = "Local:";
     const input_local_menu_chamado = document.createElement('input');
     input_local_menu_chamado.type = "text";
     input_local_menu_chamado.id = "input-local-menu-chamado";
+    input_local_menu_chamado.className = "input-card-add";
     const li_menu_chamado_descricao = document.createElement('li')
     li_menu_chamado_descricao.id = "descricao-chamado";
     li_menu_chamado_descricao.innerText = "Descrição:";
+    const alinha_desc_acima = document.createElement("p");
     const label_descricao_menu_chamado = document.createElement('label');
     const textarea_descricao_menu_chamado = document.createElement('textarea');
     textarea_descricao_menu_chamado.cols = "";
@@ -790,6 +793,7 @@ function adicionarChamado(){
     li_menu_chamado_local.appendChild(input_local_menu_chamado);
     ul_menu_chamado.appendChild(li_menu_chamado_descricao);
     li_menu_chamado_descricao.appendChild(label_descricao_menu_chamado);
+    ul_menu_chamado.appendChild(alinha_desc_acima);
     label_descricao_menu_chamado.appendChild(textarea_descricao_menu_chamado);
     ul_menu_chamado.appendChild(pulaLinha);
     ul_menu_chamado.appendChild(button_confirm);
