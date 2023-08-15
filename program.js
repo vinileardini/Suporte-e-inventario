@@ -251,6 +251,7 @@ function changeSymbol() {
     var checkExistsMenuAddChamado = document.getElementById("menu-add-chamado");
     var checkExistsMenuAddInv = document.getElementById("menu-add-inventario");
     var checkExists = body_menu_add.contains (checkExistsMenuAddChamado || checkExistsMenuAddInv);
+    var checkExistsBoth = body_menu_add.contains (checkExistsMenuAddChamado && checkExistsMenuAddInv)
 
 
     if((contagemClick%2)==0){
@@ -261,7 +262,13 @@ function changeSymbol() {
         
         if(checkExists == true){
 
-            body_menu_add.removeChild(checkExistsMenuAddChamado || checkExistsMenuAddInv);
+            if(checkExistsBoth == true){
+                body_menu_add.removeChild(checkExistsMenuAddChamado);
+                body_menu_add.removeChild(checkExistsMenuAddInv);
+            }
+            else{
+                body_menu_add.removeChild(checkExistsMenuAddChamado || checkExistsMenuAddInv);
+            }
 
         }
         
@@ -300,7 +307,15 @@ function changeSymbol() {
 
 function adicionarInventario(){
 
+
     const body_add_inventario = document.body;
+
+    var MenuAddInv  = document.getElementById("menu-add-inventario");
+
+    var checkAddInv = body_add_inventario.contains(MenuAddInv);
+
+    if(checkAddInv == false){
+
     const ul_menu_inventario = document.createElement('ul');
     ul_menu_inventario.id = "menu-add-inventario";
     ul_menu_inventario.className = "menu-add-inventario";
@@ -348,7 +363,7 @@ function adicionarInventario(){
     button_confirm.appendChild(button_confirm_symbol_check);
     ul_menu_inventario.appendChild(button_cancel);
     button_cancel.appendChild(button_cancel_symbol_x);
-
+    }
 
 
     }
@@ -725,7 +740,14 @@ function selectFunction(){
 
 function adicionarChamado(){
 
+    var MenuAddChamado = document.getElementById("menu-add-chamado");
+
     const body_menu_chamado = document.body;
+
+    var checkExistsAddChamado = body_menu_chamado.contains(MenuAddChamado);
+
+    if(checkExistsAddChamado == false){
+
     const ul_menu_chamado = document.createElement('ul');
     ul_menu_chamado.id = "menu-add-chamado";
     ul_menu_chamado.className = "menu-add-chamado";
@@ -774,6 +796,8 @@ function adicionarChamado(){
     button_confirm.appendChild(button_confirm_symbol_check);
     ul_menu_chamado.appendChild(button_cancel);
     button_cancel.appendChild(button_cancel_symbol_x);
+
+    }
     }
 
 
@@ -1095,6 +1119,8 @@ function salvarChamadoEditado(){
 
 }
 
+// Realiza a pesquisa através do nome informado
+
 function pesquisaNome(){
 
     
@@ -1113,6 +1139,9 @@ function pesquisaNome(){
 
 
 }
+
+
+// Realiza a pesquisa através da data informada
 
 function pesquisaData(){
 
@@ -1137,6 +1166,8 @@ function pesquisaData(){
 
 }
 
+// Realiza a pesquisa a partir  da numeracao informada do item
+
 function pesquisaNumeracao(){
 
     const searchNumber = document.getElementById("input-area-numeracao").value;
@@ -1155,9 +1186,26 @@ function pesquisaNumeracao(){
 
 }
 
+// Realiza a pesquisa de itens a partir do local informado na pesquisa
+
 function pesquisaLocal(){
 
+const searchLocal = document.getElementById("input-local-search").value;
+
+if(Array_Inv.includes(searchLocal)){
+
+    let Array_resultado_local = Array_Inv.filter(searchLocal);
+
+    console.log(Array_resultado_local);
+
 }
+else{
+    alert("Não existe nenhum item neste local");
+}
+
+}
+
+// Exclui o campo de adição de chamado ou inventário
 
 function resetAdd(){
 
@@ -1177,13 +1225,19 @@ function resetAdd(){
     }
 }
 
+// Altera a opacidade do texto para a adição de um novo chamado
+
 function opacidadeSelecaoChamado(){
     document.getElementById("liAddInventario").style.opacity=0.5;
 }
 
+// Altera a opacidade do texto para a adição de um item no inventário
+
 function opacidadeSelecaoInventario(){
     document.getElementById("liAbrirChamado").style.opacity=0.5;
 }
+
+// Altera a opacidade para padrão quando não se tem selecionado nenhuma opção de adição
 
 function opacidadePadrao(){
     document.getElementById("liAbrirChamado").style.opacity=1;
