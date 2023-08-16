@@ -817,20 +817,9 @@ function novoChamado(){
 
     const select_function_chamado = document.getElementById("select-inv-chamado");
 
+    var tamanhoArray = Array_chamados.length;
 
-    if(checkExistsChamadoBody == true){
-
-        var numeroUltimoId = parseInt(document.getElementById("number-id").innerHTML);
-
-        var novoNumeroId = numeroUltimoId+1;
-        
-        console.log(novoNumeroId);
-    }
-    else{
-        console.log("não existe chamado");
-
-        var novoNumeroId = 1;
-    }
+    var id_do_chamado = tamanhoArray+1;
     
 
     var nomeChamado = document.getElementById("input-nome-menu-chamado");
@@ -850,11 +839,11 @@ function novoChamado(){
         const div_chamado = document.getElementById("grid-tela");
         const div_card = document.createElement("div");
         div_card.className = "shape-card";
-        div_card.id = "shape-card";
+        div_card.id = "shape-card"+id_do_chamado;
         const label_idNumber = document.createElement("label");
         label_idNumber.id = "number-id";
         label_idNumber.className = "id-number";
-        label_idNumber.innerHTML = novoNumeroId;
+        label_idNumber.innerHTML = id_do_chamado;
         let pulaLinha = document.createElement("p");
         const label_nomeSolicitante = document.createElement("label");
         label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -941,11 +930,11 @@ function novoChamado(){
         div_chamado.className = "grid-1-cards-chamados";
         const div_card = document.createElement("div");
         div_card.className = "shape-card";
-        div_card.id = "shape-card";
+        div_card.id = "shape-card"+id_do_chamado;
         const label_idNumber = document.createElement("label");
         label_idNumber.id = "number-id";
         label_idNumber.className = "id-number";
-        label_idNumber.innerText = novoNumeroId;
+        label_idNumber.innerText = id_do_chamado;
         let pulaLinha = document.createElement("p");
         const label_nomeSolicitante = document.createElement("label");
         label_nomeSolicitante.innerHTML = "Nome do solicitante:";
@@ -1026,6 +1015,10 @@ function novoChamado(){
 
     }
 
+    var checkId = document.getElementsByClassName("shape-card");
+    
+    console.log(checkId);
+
 
     // Altera o valor do seletor de chamado ou inventário
 
@@ -1035,7 +1028,7 @@ function novoChamado(){
 
     const novaAberturaChamado = new Chamados();
 
-    novaAberturaChamado.id_do_chamado = novoNumeroId;
+    novaAberturaChamado.id_do_chamado = id_do_chamado;
     novaAberturaChamado.nome_do_chamado = nomeChamado.value;
     novaAberturaChamado.local_do_chamado = localChamado.value;
     novaAberturaChamado.data_do_chamado = dataChamado;
@@ -1055,10 +1048,21 @@ function fecharChamado(){
 
     const body_chamado = document.body;
     const div_chamado = document.getElementById("grid-tela");
-    const div_card = document.getElementById("shape-card");
+    const checkId = document.getElementById("number-id").innerText;
+    let array_chamado_size = Array_chamados.length;
 
-    div_chamado.removeChild(div_card);
-    
+    for(a=1; a<=array_chamado_size; a++){
+
+        let checkCard = document.getElementById("shape-card")+a;
+
+        if(checkCard == checkId){
+
+        console.log(checkId);
+        }
+
+        div_chamado.removeChild(checkCard);
+
+    }
 
 }
 
