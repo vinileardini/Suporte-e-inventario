@@ -30,8 +30,8 @@ window.onload = function checkArrayChamado () {if (Array_chamados.length >= 1){
         let checkExistsTelaChamado = document.contains(checkExistsDivChamado);
 
         console.log(checkExistsTelaChamado);
-
-        console.log(Array_chamados[i])
+ 
+        console.log(Array_chamados[i]);
 
         if(body_chamado.contains(checkExistsDivChamado) == true){
 
@@ -773,8 +773,8 @@ function adicionarChamado(){
     li_menu_chamado_descricao.innerText = "Descrição:";
     const alinha_desc_acima = document.createElement('p');
     const textarea_descricao_menu_chamado = document.createElement('textarea');
-    textarea_descricao_menu_chamado.cols = "25";
-    textarea_descricao_menu_chamado.rows = "4";
+    textarea_descricao_menu_chamado.cols = 20;
+    textarea_descricao_menu_chamado.rows = 4;
     textarea_descricao_menu_chamado.id = "text-area-descricao-menu-chamado";
     const pulaLinha = document.createElement('p');
     const button_confirm = document.createElement('button');
@@ -1055,12 +1055,14 @@ function fecharChamado(){
 
         let checkCard = document.getElementById("shape-card")+a;
 
+        console.log(checkCard);
+
         if(checkCard == checkId){
 
         console.log(checkId);
         }
 
-        div_chamado.removeChild(checkCard);
+    
 
     }
 
