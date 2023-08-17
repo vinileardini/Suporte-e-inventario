@@ -840,6 +840,7 @@ function novoChamado(){
         const div_card = document.createElement("div");
         div_card.className = "shape-card";
         div_card.id = "shape-card"+id_do_chamado;
+        div_card.dataset.id_card = tamanhoArray;
         const label_idNumber = document.createElement("label");
         label_idNumber.id = "number-id";
         label_idNumber.className = "id-number";
@@ -1051,20 +1052,19 @@ function fecharChamado(){
     const checkId = document.getElementById("number-id").innerText;
     let array_chamado_size = Array_chamados.length;
 
-    for(a=1; a<=array_chamado_size; a++){
+    let obj = event.currentTarget;
 
-        let checkCard = document.getElementById("shape-card")+a;
+    let paiObj = obj.parentNode;
 
-        console.log(checkCard);
+    let voObj = paiObj.parentNode;
 
-        if(checkCard == checkId){
+    let pegaId = voObj.getAttribute('id');
 
-        console.log(checkId);
-        }
+    console.log(pegaId);
 
-    
+    let retira_card = document.getElementById(pegaId);
 
-    }
+    div_chamado.removeChild(retira_card);
 
 }
 
