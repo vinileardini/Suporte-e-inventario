@@ -1170,7 +1170,7 @@ function pesquisaData(){
 
     console.log(transformaData);
 
-    if(Array_chamados.includes(transformaData)){
+    if(Array_chamados.find(Array_chamados => Array_chamados.data_do_chamado === transformaData)){
 
         let Array_resultado_datas = Array_chamados.filter(transformaData);
 
