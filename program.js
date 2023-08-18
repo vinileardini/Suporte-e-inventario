@@ -1139,10 +1139,18 @@ function pesquisaNome(){
 
     console.log(searchName);
 
-    if(Array_chamados.includes(searchName)){
-        let Array_resultado_nome = Array_chamados.filter(searchName);
+    if(Array_chamados.find(Array_chamados => Array_chamados.nome_do_chamado === searchName)){
 
-        console.log(Array_resultado_nome);
+        for(u = 1; u<=Array_chamados.length; u++){
+
+             seleciona_nome_pesquisa = Array_chamados.findIndex(Array_chamados => Array_chamados.nome_do_chamado === searchName);
+        }
+
+        let operacao_id = seleciona_nome_pesquisa + 1;
+
+        let card_nome_pesquisa = document.getElementById("shape-card"+operacao_id);
+
+       
     }
     else{
         alert("Não existe chamado com o nome desta pessoa");
