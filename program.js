@@ -1172,9 +1172,16 @@ function pesquisaData(){
 
     if(Array_chamados.find(Array_chamados => Array_chamados.data_do_chamado === transformaData)){
 
-        let Array_resultado_datas = Array_chamados.filter(transformaData);
+        let consulta_index = Array_chamados.findIndex(Array_chamados => Array_chamados.data_do_chamado === transformaData);
 
-        console.log(Array_resultado_datas);
+        let operacao_id_data = consulta_index+1;
+
+        let card_id_data = document.getElementById("shape-card"+operacao_id_data);
+
+       
+
+        
+
 
     }
     else{
