@@ -247,11 +247,15 @@ function changeSymbol() {
     contagemClick++;
 
     const body_menu_add= document.body;
+    const telaInventario = document.getElementById("tela-inventario");
+    const telaChamado = document.getElementById("grid-tela");
 
     var checkExistsMenuAddChamado = document.getElementById("menu-add-chamado");
     var checkExistsMenuAddInv = document.getElementById("menu-add-inventario");
     var checkExists = body_menu_add.contains (checkExistsMenuAddChamado || checkExistsMenuAddInv);
-    var checkExistsBoth = body_menu_add.contains (checkExistsMenuAddChamado && checkExistsMenuAddInv)
+    var checkExistsBoth = body_menu_add.contains (checkExistsMenuAddChamado && checkExistsMenuAddInv);
+    var checkExistsTelaInvOrChamados = body_menu_add.contains (telaInventario || telaChamado);
+    var checkExistsTelaInv = body_menu_add.contains (telaInventario);
 
 
     if((contagemClick%2)==0){
@@ -260,17 +264,19 @@ function changeSymbol() {
 
         document.getElementById("menu-opened").remove();
         
-        if(checkExists == true){
 
-            if(checkExistsBoth == true){
-                body_menu_add.removeChild(checkExistsMenuAddChamado);
-                body_menu_add.removeChild(checkExistsMenuAddInv);
-            }
-            else{
-                body_menu_add.removeChild(checkExistsMenuAddChamado || checkExistsMenuAddInv);
-            }
+            if(checkExists == true){
 
-        }
+                if(checkExistsBoth == true){
+                    body_menu_add.removeChild(checkExistsMenuAddChamado);
+                    body_menu_add.removeChild(checkExistsMenuAddInv);
+                }
+                else{
+                    body_menu_add.removeChild(checkExistsMenuAddChamado || checkExistsMenuAddInv);
+              }
+
+            }
+        
         
     }
     else{
@@ -297,6 +303,15 @@ function changeSymbol() {
         li_menu_open_inventario.innerText = "Adicionar item ao inventário";
 
         body_menu_open.appendChild(menu_add_open);
+        // Checagem se existe tela de inventarios ou de chamados
+        if(checkExistsTelaInvOrChamados == true){
+            if(checkExistsTelaInv == true){
+                telaInventario.insertAdjacentElement("beforebegin",menu_add_open);
+            }
+            else{
+                telaChamado.insertAdjacentElement("beforebegin",menu_add_open);
+            }
+        }
         menu_add_open.appendChild(li_menu_open_chamado);
         menu_add_open.appendChild(li_menu_open_inventario);
         }
@@ -312,64 +327,80 @@ function adicionarInventario(){
 
     var MenuAddInv  = document.getElementById("menu-add-inventario");
 
+    var telaInv = document.getElementById("tela-inventario");
+
+    var MenuAdicionaChamado = document.getElementById("menu-add-chamado");
+
+    var checkExistsAdicionaChamado = body_add_inventario.contains(MenuAdicionaChamado);
+
+    var checkExistsInv = body_add_inventario.contains(telaInv);
+
     var checkAddInv = body_add_inventario.contains(MenuAddInv);
 
-    if(checkAddInv == false){
-
-    const ul_menu_inventario = document.createElement('ul');
-    ul_menu_inventario.id = "menu-add-inventario";
-    ul_menu_inventario.className = "menu-add-inventario";
-    const li_menu_item = document.createElement('li');
-    li_menu_item.id = "item";
-    li_menu_item.innerText = "Item:";
-    const input_item = document.createElement('input');
-    input_item.type = "text";
-    input_item.id = "input-item-inv";
-    input_item.className = "input-card-add-item";
-    const li_menu_inv_local = document.createElement('li');
-    li_menu_inv_local.id = "local-item";
-    li_menu_inv_local.innerText = "Local:"
-    const input_menu_inv_local = document.createElement('input');
-    input_menu_inv_local.type = "text";
-    input_menu_inv_local.id = "input-local-inv";
-    input_menu_inv_local.className = "input-card-add-local-inv";
-    const li_menu_inv_numeracao = document.createElement('li');
-    li_menu_inv_numeracao.id = "numeracao-item";
-    li_menu_inv_numeracao.innerText = "Numeração:";
-    const input_menu_inv_numeracao = document.createElement('input');
-    input_menu_inv_numeracao.type = "text";
-    input_menu_inv_numeracao.id = "input-inv-numeracao";
-    input_menu_inv_numeracao.className = "input-card-add-numero";
-    const pulaLinha = document.createElement('p');
-    const button_confirm = document.createElement('button');
-    button_confirm.className = "button-confirm";
-    button_confirm.onclick = function(){novoItemInventario()};
-    const button_confirm_symbol_check = document.createElement('i');
-    button_confirm_symbol_check.className = "fa-solid fa-check";
-    const button_cancel = document.createElement('button');
-    button_cancel.className = "button-close";
-    const button_cancel_symbol_x = document.createElement('i');
-    button_cancel_symbol_x.type = "submit";
-    button_cancel_symbol_x.className = "fa-solid fa-xmark";
-    button_cancel.onclick = function(){resetAdd()};
+        if(checkAddInv == false){
 
 
-    body_add_inventario.appendChild(ul_menu_inventario);
-    ul_menu_inventario.appendChild(li_menu_item)
-    li_menu_item.appendChild(input_item);
-    ul_menu_inventario.appendChild(li_menu_inv_local);
-    li_menu_inv_local.appendChild(input_menu_inv_local);
-    ul_menu_inventario.appendChild(li_menu_inv_numeracao);
-    li_menu_inv_numeracao.appendChild(input_menu_inv_numeracao);
-    ul_menu_inventario.appendChild(pulaLinha);
-    ul_menu_inventario.appendChild(button_confirm);
-    button_confirm.appendChild(button_confirm_symbol_check);
-    ul_menu_inventario.appendChild(button_cancel);
-    button_cancel.appendChild(button_cancel_symbol_x);
-    }
+            //Remove o menu de adição de chamado caso exista
+            if(checkExistsAdicionaChamado == true){
+                body_add_inventario.removeChild(MenuAdicionaChamado);
+            }
+
+            const ul_menu_inventario = document.createElement('ul');
+            ul_menu_inventario.id = "menu-add-inventario";
+            ul_menu_inventario.className = "menu-add-inventario";
+            const li_menu_item = document.createElement('li');
+            li_menu_item.id = "item";
+            li_menu_item.innerText = "Item:";
+            const input_item = document.createElement('input');
+            input_item.type = "text";
+            input_item.id = "input-item-inv";
+            input_item.className = "input-card-add-item";
+            const li_menu_inv_local = document.createElement('li');
+            li_menu_inv_local.id = "local-item";
+            li_menu_inv_local.innerText = "Local:"
+            const input_menu_inv_local = document.createElement('input');
+            input_menu_inv_local.type = "text";
+            input_menu_inv_local.id = "input-local-inv";
+            input_menu_inv_local.className = "input-card-add-local-inv";
+            const li_menu_inv_numeracao = document.createElement('li');
+            li_menu_inv_numeracao.id = "numeracao-item";
+            li_menu_inv_numeracao.innerText = "Numeração:";
+            const input_menu_inv_numeracao = document.createElement('input');
+            input_menu_inv_numeracao.type = "text";
+            input_menu_inv_numeracao.id = "input-inv-numeracao";
+            input_menu_inv_numeracao.className = "input-card-add-numero";
+            const pulaLinha = document.createElement('p');
+            const button_confirm = document.createElement('button');
+            button_confirm.className = "button-confirm";
+            button_confirm.onclick = function(){novoItemInventario()};
+            const button_confirm_symbol_check = document.createElement('i');
+            button_confirm_symbol_check.className = "fa-solid fa-check";
+            const button_cancel = document.createElement('button');
+            button_cancel.className = "button-close";
+            const button_cancel_symbol_x = document.createElement('i');
+            button_cancel_symbol_x.type = "submit";
+            button_cancel_symbol_x.className = "fa-solid fa-xmark";
+            button_cancel.onclick = function(){resetAdd()};
 
 
-    }
+            body_add_inventario.appendChild(ul_menu_inventario);
+            if(checkExistsInv == true){
+                telaInv.insertAdjacentElement("beforebegin",ul_menu_inventario)
+            }
+            ul_menu_inventario.appendChild(li_menu_item)
+            li_menu_item.appendChild(input_item);
+            ul_menu_inventario.appendChild(li_menu_inv_local);
+            li_menu_inv_local.appendChild(input_menu_inv_local);
+            ul_menu_inventario.appendChild(li_menu_inv_numeracao);
+            li_menu_inv_numeracao.appendChild(input_menu_inv_numeracao);
+            ul_menu_inventario.appendChild(pulaLinha);
+            ul_menu_inventario.appendChild(button_confirm);
+            button_confirm.appendChild(button_confirm_symbol_check);
+            ul_menu_inventario.appendChild(button_cancel);
+            button_cancel.appendChild(button_cancel_symbol_x);
+        }
+
+}
 
 
 
@@ -749,60 +780,75 @@ function adicionarChamado(){
 
     var checkExistsAddChamado = body_menu_chamado.contains(MenuAddChamado);
 
+    var TelaDeChamados = document.getElementById("grid-tela");
+
+    var MenuAddInventario = document.getElementById("menu-add-inventario");
+
+    checkExistsAddInv = body_menu_chamado.contains(MenuAddInventario);
+
+    var checkExistsTelaDeChamados = body_menu_chamado.contains(TelaDeChamados);
+
     if(checkExistsAddChamado == false){
 
-    const ul_menu_chamado = document.createElement('ul');
-    ul_menu_chamado.id = "menu-add-chamado";
-    ul_menu_chamado.className = "menu-add-chamado";
-    const li_menu_chamado_nome = document.createElement('li');
-    li_menu_chamado_nome.id = "nomeSolicitante";
-    li_menu_chamado_nome.innerText = "Nome:";
-    const input_nome_menu_chamado = document.createElement('input');
-    input_nome_menu_chamado.type = "text";
-    input_nome_menu_chamado.id = "input-nome-menu-chamado";
-    input_nome_menu_chamado.className = "input-card-add-nome";
-    const li_menu_chamado_local = document.createElement('li');
-    li_menu_chamado_local.id = "local-chamado";
-    li_menu_chamado_local.innerText = "Local:";
-    const input_local_menu_chamado = document.createElement('input');
-    input_local_menu_chamado.type = "text";
-    input_local_menu_chamado.id = "input-local-menu-chamado";
-    input_local_menu_chamado.className = "input-card-add-local-chamado";
-    const li_menu_chamado_descricao = document.createElement('li')
-    li_menu_chamado_descricao.id = "descricao-chamado";
-    li_menu_chamado_descricao.innerText = "Descrição:";
-    const alinha_desc_acima = document.createElement('p');
-    const textarea_descricao_menu_chamado = document.createElement('textarea');
-    textarea_descricao_menu_chamado.cols = 20;
-    textarea_descricao_menu_chamado.rows = 4;
-    textarea_descricao_menu_chamado.id = "text-area-descricao-menu-chamado";
-    const pulaLinha = document.createElement('p');
-    const button_confirm = document.createElement('button');
-    button_confirm.className = "button-confirm";
-    button_confirm.onclick = function(){novoChamado()};
-    const button_confirm_symbol_check = document.createElement('i');
-    button_confirm_symbol_check.className = "fa-solid fa-check";
-    const button_cancel = document.createElement('button');
-    button_cancel.className = "button-close";
-    const button_cancel_symbol_x = document.createElement('i');
-    button_cancel_symbol_x.className = "fa-solid fa-xmark";
-    button_cancel.onclick = function(){resetAdd()};
+        if(checkExistsAddInv == true){
+            body_menu_chamado.removeChild(MenuAddInventario);
+        }
 
-    body_menu_chamado.appendChild(ul_menu_chamado);
-    ul_menu_chamado.appendChild(li_menu_chamado_nome);
-    li_menu_chamado_nome.appendChild(input_nome_menu_chamado);
-    ul_menu_chamado.appendChild(li_menu_chamado_local);
-    li_menu_chamado_local.appendChild(input_local_menu_chamado);
-    ul_menu_chamado.appendChild(li_menu_chamado_descricao);
-    ul_menu_chamado.appendChild(textarea_descricao_menu_chamado);
-    ul_menu_chamado.appendChild(alinha_desc_acima);
-    ul_menu_chamado.appendChild(pulaLinha);
-    ul_menu_chamado.appendChild(button_confirm);
-    button_confirm.appendChild(button_confirm_symbol_check);
-    ul_menu_chamado.appendChild(button_cancel);
-    button_cancel.appendChild(button_cancel_symbol_x);
+        const ul_menu_chamado = document.createElement('ul');
+        ul_menu_chamado.id = "menu-add-chamado";
+        ul_menu_chamado.className = "menu-add-chamado";
+        const li_menu_chamado_nome = document.createElement('li');
+        li_menu_chamado_nome.id = "nomeSolicitante";
+        li_menu_chamado_nome.innerText = "Nome:";
+        const input_nome_menu_chamado = document.createElement('input');
+        input_nome_menu_chamado.type = "text";
+        input_nome_menu_chamado.id = "input-nome-menu-chamado";
+        input_nome_menu_chamado.className = "input-card-add-nome";
+        const li_menu_chamado_local = document.createElement('li');
+        li_menu_chamado_local.id = "local-chamado";
+        li_menu_chamado_local.innerText = "Local:";
+        const input_local_menu_chamado = document.createElement('input');
+        input_local_menu_chamado.type = "text";
+        input_local_menu_chamado.id = "input-local-menu-chamado";
+        input_local_menu_chamado.className = "input-card-add-local-chamado";
+        const li_menu_chamado_descricao = document.createElement('li')
+        li_menu_chamado_descricao.id = "descricao-chamado";
+        li_menu_chamado_descricao.innerText = "Descrição:";
+        const alinha_desc_acima = document.createElement('p');
+        const textarea_descricao_menu_chamado = document.createElement('textarea');
+        textarea_descricao_menu_chamado.cols = 20;
+        textarea_descricao_menu_chamado.rows = 4;
+        textarea_descricao_menu_chamado.id = "text-area-descricao-menu-chamado";
+        const pulaLinha = document.createElement('p');
+        const button_confirm = document.createElement('button');
+        button_confirm.className = "button-confirm";
+        button_confirm.onclick = function(){novoChamado()};
+        const button_confirm_symbol_check = document.createElement('i');
+        button_confirm_symbol_check.className = "fa-solid fa-check";
+        const button_cancel = document.createElement('button');
+        button_cancel.className = "button-close";
+        const button_cancel_symbol_x = document.createElement('i');
+        button_cancel_symbol_x.className = "fa-solid fa-xmark";
+        button_cancel.onclick = function(){resetAdd()};
 
-    }
+        body_menu_chamado.appendChild(ul_menu_chamado);
+        if(checkExistsTelaDeChamados == true){
+            TelaDeChamados.insertAdjacentElement("beforebegin",ul_menu_chamado); 
+        }
+        ul_menu_chamado.appendChild(li_menu_chamado_nome);
+        li_menu_chamado_nome.appendChild(input_nome_menu_chamado);
+        ul_menu_chamado.appendChild(li_menu_chamado_local);
+        li_menu_chamado_local.appendChild(input_local_menu_chamado);
+        ul_menu_chamado.appendChild(li_menu_chamado_descricao);
+        ul_menu_chamado.appendChild(textarea_descricao_menu_chamado);
+        ul_menu_chamado.appendChild(alinha_desc_acima);
+        ul_menu_chamado.appendChild(pulaLinha);
+        ul_menu_chamado.appendChild(button_confirm);
+        button_confirm.appendChild(button_confirm_symbol_check);
+        ul_menu_chamado.appendChild(button_cancel);
+        button_cancel.appendChild(button_cancel_symbol_x);
+
+        }
     }
 
 
@@ -1179,6 +1225,12 @@ function pesquisaData(){
         let card_id_data = document.getElementById("shape-card"+operacao_id_data);
 
        
+       
+
+        
+
+
+
 
         
 
@@ -1269,4 +1321,3 @@ function opacidadePadrao(){
     document.getElementById("liAbrirChamado").style.opacity=1;
     document.getElementById("liAddInventario").style.opacity=1;
 }
-
