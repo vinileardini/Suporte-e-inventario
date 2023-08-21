@@ -322,8 +322,9 @@ function changeSymbol() {
 
 function adicionarInventario(){
 
-
     const body_add_inventario = document.body;
+
+    const seleciona_function = document.getElementById("select-inv-chamado");
 
     var MenuAddInv  = document.getElementById("menu-add-inventario");
 
@@ -336,6 +337,8 @@ function adicionarInventario(){
     var checkExistsInv = body_add_inventario.contains(telaInv);
 
     var checkAddInv = body_add_inventario.contains(MenuAddInv);
+
+    seleciona_function.value = "Inventario";
 
         if(checkAddInv == false){
 
@@ -611,14 +614,17 @@ function removerInventario(){
 
     const body_inventario_edit = document.body;
 
-    const tela_inventario = document.getElementById("tela-inventario");
+    const div_tela_inventario = document.getElementById("tela-inventario");
 
-    const card_inventario = document.getElementById("list-inventario")
+    let recebeClick = event.target;
 
-    tela_inventario.removeChild(card_inventario);
+    let recebeDivBotões = recebeClick.parentNode;
 
-    
+    let recebeCard = recebeDivBotões.parentNode;
 
+    let Id_card_inv = recebeCard.getAttribute('id');
+
+    div_tela_inventario.removeChild(recebeCard);
 
 
 }
@@ -635,10 +641,7 @@ function selectFunction(){
 
     if(document.getElementById("select-inv-chamado").value == escolhaChamado)
     {
-
         const checkExistsFiltragemChamado = document.getElementById("input-name-search");
-
-        const checkExistsGridTela = document.getElementById("grid-tela");
 
 
         // Cria filtragem para cards dos chamados a partir do nome 
@@ -778,6 +781,8 @@ function adicionarChamado(){
 
     const body_menu_chamado = document.body;
 
+    const alterna_inv_chamado = document.getElementById("select-inv-chamado")
+
     var checkExistsAddChamado = body_menu_chamado.contains(MenuAddChamado);
 
     var TelaDeChamados = document.getElementById("grid-tela");
@@ -787,6 +792,8 @@ function adicionarChamado(){
     checkExistsAddInv = body_menu_chamado.contains(MenuAddInventario);
 
     var checkExistsTelaDeChamados = body_menu_chamado.contains(TelaDeChamados);
+
+   alterna_inv_chamado.value = "Chamados";
 
     if(checkExistsAddChamado == false){
 
@@ -1118,14 +1125,21 @@ function fecharChamado(){
 
 function editarChamado(){
 
-    const button_editar = document.getElementById("button-edit");
-    const div_botoes_card = document.getElementById("div-botoes-chamados");
+    let card_alvo = event.target;
+
+    let div_botoes_card_alvo = card_alvo.parentNode;
+
+    let card_alvo_selecionado = div_botoes_card_alvo.parentNode;
+
+    let elementsCard = card_alvo_selecionado.children;
+
+    console.log(elementsCard);
 
     const input_nome_card_chamado = document.getElementById("input-label-nome");
     const input_local_card_chamado = document.getElementById("input-label-local");
     const descricao_card_chamado = document.getElementById("desc-chamados");
 
-    div_botoes_card.removeChild(button_editar);
+    //div_botoes_card.removeChild(button_editar);
 
     input_nome_card_chamado.readOnly = false;
     input_local_card_chamado.readOnly = false;
@@ -1138,7 +1152,7 @@ function editarChamado(){
     button_salvar.innerHTML = "Salvar";
     button_salvar.onclick = function(){salvarChamadoEditado()};
 
-    div_botoes_card.appendChild(button_salvar);
+   //div_botoes_card.appendChild(button_salvar);
 
 
 }
@@ -1223,17 +1237,6 @@ function pesquisaData(){
         let operacao_id_data = consulta_index+1;
 
         let card_id_data = document.getElementById("shape-card"+operacao_id_data);
-
-       
-       
-
-        
-
-
-
-
-        
-
 
     }
     else{
