@@ -1127,17 +1127,24 @@ function editarChamado(){
 
     let card_alvo_selecionado = div_botoes_card_alvo.parentNode;
 
-    let elementsCard = card_alvo_selecionado.children;
+    let elementsCard = card_alvo_selecionado.childNodes;
 
-    const input_nome_card_chamado = document.getElementById("input-label-nome");
-    const input_local_card_chamado = document.getElementById("input-label-local");
-    const descricao_card_chamado = document.getElementById("desc-chamados");
+    console.log(elementsCard);
 
-    //div_botoes_card.removeChild(button_editar);
+    let seleciona_input_nome = card_alvo_selecionado.children[3];
+    let seleciona_input_local = card_alvo_selecionado.children[6];
+    let seleciona_textarea_desc = card_alvo_selecionado.children[13];
 
-    input_nome_card_chamado.readOnly = false;
-    input_local_card_chamado.readOnly = false;
-    descricao_card_chamado.readOnly = false;
+    seleciona_input_nome.readOnly = false;
+    seleciona_input_local.readOnly = false;
+    seleciona_textarea_desc.readOnly = false;
+
+    const div_botoes_card = card_alvo_selecionado.children[15];
+
+    const button_editar = div_botoes_card.children[0];
+    const button_remove = div_botoes_card.children[1];
+
+    div_botoes_card.removeChild(button_editar);
 
     const button_salvar = document.createElement("button");
     button_salvar.id = "button-salvar";
@@ -1146,7 +1153,8 @@ function editarChamado(){
     button_salvar.innerHTML = "Salvar";
     button_salvar.onclick = function(){salvarChamadoEditado()};
 
-   //div_botoes_card.appendChild(button_salvar);
+    div_botoes_card.appendChild(button_salvar);
+    button_remove.insertAdjacentElement("beforebegin",button_salvar);
 
 
 }
