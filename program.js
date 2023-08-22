@@ -622,8 +622,6 @@ function removerInventario(){
 
     let recebeCard = recebeDivBotões.parentNode;
 
-    let Id_card_inv = recebeCard.getAttribute('id');
-
     div_tela_inventario.removeChild(recebeCard);
 
 
@@ -1113,8 +1111,6 @@ function fecharChamado(){
 
     let pegaId = voObj.getAttribute('id');
 
-    console.log(pegaId);
-
     let retira_card = document.getElementById(pegaId);
 
     div_chamado.removeChild(retira_card);
@@ -1132,8 +1128,6 @@ function editarChamado(){
     let card_alvo_selecionado = div_botoes_card_alvo.parentNode;
 
     let elementsCard = card_alvo_selecionado.children;
-
-    console.log(elementsCard);
 
     const input_nome_card_chamado = document.getElementById("input-label-nome");
     const input_local_card_chamado = document.getElementById("input-label-local");
