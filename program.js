@@ -557,21 +557,25 @@ function novoItemInventario(){
 
 function editarInventario(){
 
-    const body_inventario_remove = document.body;
+    let button_edit_clickado = event.target;
 
-    const tela_inventario_remove = document.getElementById("list-inventario-li");
+    let card_clickado = button_edit_clickado.parentNode;
 
-    const botao_remove_inv = document.getElementById("button-remove-inv");
+    let input_numeroSerie_editado = card_clickado.children[1];
 
-    const input_numeroSerie_editado = document.getElementById("input-numeroDeSerie");
-    const input_equipamento_editado = document.getElementById("input-equipamento");
-    const input_item_editado = document.getElementById("input-local");
+    let input_equipamento_editado = card_clickado.children[3];
+
+    let input_item_editado = card_clickado.children[5];
+    
+    let botao_remove_inv = card_clickado.children[7];
+
+    console.log(card_clickado);
 
     input_numeroSerie_editado.readOnly = false;
     input_equipamento_editado.readOnly = false;
     input_item_editado.readOnly = false;
 
-    tela_inventario_remove.removeChild(botao_remove_inv);
+    card_clickado.removeChild(button_edit_clickado);
 
     const botao_salvar_inv = document.createElement("button");
     botao_salvar_inv.id = "botao-salvar-inv";
@@ -580,8 +584,10 @@ function editarInventario(){
     botao_salvar_inv.innerHTML = "Salvar";
     botao_salvar_inv.onclick = function(){inventarioEditado()};
 
+     card_clickado.appendChild(botao_salvar_inv);
+     botao_remove_inv.insertAdjacentElement("beforebegin",botao_salvar_inv);
 
-    tela_inventario_remove.appendChild(botao_salvar_inv);
+    //tela_inventario_remove.appendChild(botao_salvar_inv);
 
     
 
@@ -1163,20 +1169,27 @@ function editarChamado(){
 
 function salvarChamadoEditado(){
 
-    console.log("ok");
+    let button_salvar_card_clickado = event.target;
 
-    const button_salvar_editado = document.getElementById("button-salvar");
-    const div_buttons_card = document.getElementById("div-botoes-chamados");
+    let div_botao_card_clickado = button_salvar_card_clickado.parentNode;
 
-    const input_nome_card_chamado = document.getElementById("input-label-nome");
-    const input_local_card_chamado = document.getElementById("input-label-local");
-    const descricao_card_chamado = document.getElementById("desc-chamados");
+    let button_card_edit = div_botao_card_clickado.children[1];
+
+    let checkId_button_edit = button_card_edit.getAttribute('id');
+
+    let card_clickado = div_botao_card_clickado.parentNode;
+
+    let input_nome_card_chamado = card_clickado.children[3];
+
+    let input_local_card_chamado = card_clickado.children[6];
+
+    let descricao_card_chamado = card_clickado.children[13];
 
     input_nome_card_chamado.readOnly = true;
     input_local_card_chamado.readOnly = true;
     descricao_card_chamado.readOnly = true;
 
-    div_buttons_card.removeChild(button_salvar_editado);
+    div_botao_card_clickado.removeChild(button_salvar_card_clickado);
 
     const new_button_edit_card_chamado = document.createElement("button");
     new_button_edit_card_chamado.innerHTML = "Editar";
@@ -1186,8 +1199,10 @@ function salvarChamadoEditado(){
     new_button_edit_card_chamado.onclick = function(){editarChamado()}
     
     
-    div_buttons_card.appendChild(new_button_edit_card_chamado);
-    div_buttons_card.insertAdjacentElement("beforebegin",new_button_edit_card_chamado)
+    div_botao_card_clickado.appendChild(new_button_edit_card_chamado);
+    if(checkId_button_edit != "button-edit"){
+        button_card_edit.insertAdjacentElement("beforebegin",new_button_edit_card_chamado)
+    }
     
 
 }
