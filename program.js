@@ -1,6 +1,8 @@
 
 var escolhaChamado = "Chamados";
 
+var escolhaInventario = "Inventario";
+
 const addButton = document.getElementById("#button-add");
 
 const menuTrigger = document.getElementById("menu-trigger");
@@ -587,28 +589,38 @@ function editarInventario(){
      card_clickado.appendChild(botao_salvar_inv);
      botao_remove_inv.insertAdjacentElement("beforebegin",botao_salvar_inv);
 
-    //tela_inventario_remove.appendChild(botao_salvar_inv);
-
-    
 
 }
 
 function inventarioEditado(){
 
-    const input_numeroSerie_salvar = document.getElementById("input-numeroDeSerie");
-    const input_equipamento_salvar = document.getElementById("input-equipamento");
-    const input_item_salvar = document.getElementById("input-local");
+    let salvar_click = event.target;
 
-    const button_editar_editado = document.createElement("button");
+    let card_click = salvar_click.parentNode;
+
+    let input_numeroSerie_salvar = card_click.children[1];
+
+    let input_equipamento_salvar = card_click.children[3];
+
+    let input_item_salvar = card_click.children[5];
+
+    let botao_remove_inv = card_click.children[7];
     
     input_numeroSerie_salvar.readOnly = true;
     input_equipamento_salvar.readOnly = true;
     input_item_salvar.readOnly = true;
 
+    card_click.removeChild(salvar_click);
+
+    const button_editar_editado = document.createElement('button');
     button_editar_editado.textContent = "Editar";
     button_editar_editado.className = "button-edit-remove";
     button_editar_editado.type = "submit";
     button_editar_editado.onclick = function(){editarInventario()};
+
+    card_click.appendChild(button_editar_editado);
+    botao_remove_inv.insertAdjacentElement('beforebegin',button_editar_editado);
+    
 
 
 
@@ -643,10 +655,17 @@ function selectFunction(){
 
     const botao_add = document.getElementById("button-add");
 
+    let id_tela_chamado = document.getElementById("grid-tela");
+
+    let id_tela_inv = document.getElementById('tela-inventario');
+
+    const checkExistsChamadoScreen = doc_body.contains(id_tela_chamado);
+
+    const checkExistsInvScreen = doc_body.contains(id_tela_inv);
+
     if(document.getElementById("select-inv-chamado").value == escolhaChamado)
     {
         const checkExistsFiltragemChamado = document.getElementById("input-name-search");
-
 
         // Cria filtragem para cards dos chamados a partir do nome 
 
@@ -706,69 +725,71 @@ function selectFunction(){
         
         let checkExistsFiltragemInventario = document.getElementById("input-local-search");
 
+        
+
         if(doc_body.contains(checkExistsFiltragemInventario)==false){
         
 
-        // Cria filtragem de local para os itens do inventário
+            // Cria filtragem de local para os itens do inventário
 
-       const nova_div_pesquisa_local = document.createElement("div");
-       nova_div_pesquisa_local.id = "input-local-search";
-       nova_div_pesquisa_local.className = "input-local-search";
-       nova_div_pesquisa_local.textContent = "Insira o local a ser pesquisado:";
-       const input_pesquisa_local = document.createElement("input");
-       input_pesquisa_local.id = "input-area-local";
-       input_pesquisa_local.className = "input-area-local";
-       input_pesquisa_local.type = "text";
-       const button_submit_pesquisa_local = document.createElement("button");
-       button_submit_pesquisa_local.id = "lupa-pesquisa-local";
-       button_submit_pesquisa_local.className = "lupa-pesquisa";
-       button_submit_pesquisa_local.type = "submit";
-       button_submit_pesquisa_local.onclick=function(){pesquisaLocal()};
-       const symbol_lupa_local = document.createElement("i");
-       symbol_lupa_local.id = "symbol-lupa-local";
-       symbol_lupa_local.className = "fa-solid fa-magnifying-glass";
+            const nova_div_pesquisa_local = document.createElement("div");
+            nova_div_pesquisa_local.id = "input-local-search";
+            nova_div_pesquisa_local.className = "input-local-search";
+            nova_div_pesquisa_local.textContent = "Insira o local a ser pesquisado:";
+            const input_pesquisa_local = document.createElement("input");
+            input_pesquisa_local.id = "input-area-local";
+            input_pesquisa_local.className = "input-area-local";
+            input_pesquisa_local.type = "text";
+            const button_submit_pesquisa_local = document.createElement("button");
+            button_submit_pesquisa_local.id = "lupa-pesquisa-local";
+            button_submit_pesquisa_local.className = "lupa-pesquisa";
+            button_submit_pesquisa_local.type = "submit";
+            button_submit_pesquisa_local.onclick=function(){pesquisaLocal()};
+            const symbol_lupa_local = document.createElement("i");
+            symbol_lupa_local.id = "symbol-lupa-local";
+            symbol_lupa_local.className = "fa-solid fa-magnifying-glass";
 
-       div_filtragem.appendChild(nova_div_pesquisa_local);
-       nova_div_pesquisa_local.appendChild(input_pesquisa_local);
-       nova_div_pesquisa_local.appendChild(button_submit_pesquisa_local);
-       button_submit_pesquisa_local.appendChild(symbol_lupa_local);
+            div_filtragem.appendChild(nova_div_pesquisa_local);
+            nova_div_pesquisa_local.appendChild(input_pesquisa_local);
+            nova_div_pesquisa_local.appendChild(button_submit_pesquisa_local);
+            button_submit_pesquisa_local.appendChild(symbol_lupa_local);
 
-       botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_local);
+            botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_local);
 
-       
+            
 
-       // Cria filtragem através da numeração para os itens do inventário
+            // Cria filtragem através da numeração para os itens do inventário
 
-       const nova_div_pesquisa_numeracao = document.createElement("div");
-       nova_div_pesquisa_numeracao.id = "input-numeracao-search";
-       nova_div_pesquisa_numeracao.className = "input-numeracao-search";
-       nova_div_pesquisa_numeracao.textContent = "Insira a numeração a ser pesquisada:";
-       const input_pesquisa_numeracao = document.createElement("input");
-       input_pesquisa_numeracao.id = "input-area-numeracao";
-       input_pesquisa_numeracao.className = "input-area-numeracao";
-       input_pesquisa_numeracao.type = "text";
-       const button_submit_pesquisa_numeracao = document.createElement("button");
-       button_submit_pesquisa_numeracao.id = "lupa-pesquisa-numeracao";
-       button_submit_pesquisa_numeracao.className = "lupa-pesquisa";
-       button_submit_pesquisa_numeracao.type = "submit";
-       button_submit_pesquisa_numeracao.onclick = function(){pesquisaNumeracao()};
-       const symbol_lupa_numeracao = document.createElement("i");
-       symbol_lupa_numeracao.id = "symbol-lupa-numeracao";
-       symbol_lupa_numeracao.className = "fa-solid fa-magnifying-glass";
+            const nova_div_pesquisa_numeracao = document.createElement("div");
+            nova_div_pesquisa_numeracao.id = "input-numeracao-search";
+            nova_div_pesquisa_numeracao.className = "input-numeracao-search";
+            nova_div_pesquisa_numeracao.textContent = "Insira a numeração a ser pesquisada:";
+            const input_pesquisa_numeracao = document.createElement("input");
+            input_pesquisa_numeracao.id = "input-area-numeracao";
+            input_pesquisa_numeracao.className = "input-area-numeracao";
+            input_pesquisa_numeracao.type = "text";
+            const button_submit_pesquisa_numeracao = document.createElement("button");
+            button_submit_pesquisa_numeracao.id = "lupa-pesquisa-numeracao";
+            button_submit_pesquisa_numeracao.className = "lupa-pesquisa";
+            button_submit_pesquisa_numeracao.type = "submit";
+            button_submit_pesquisa_numeracao.onclick = function(){pesquisaNumeracao()};
+            const symbol_lupa_numeracao = document.createElement("i");
+            symbol_lupa_numeracao.id = "symbol-lupa-numeracao";
+            symbol_lupa_numeracao.className = "fa-solid fa-magnifying-glass";
 
-       div_filtragem.appendChild(nova_div_pesquisa_numeracao);
-       nova_div_pesquisa_numeracao.appendChild(input_pesquisa_numeracao);
-       nova_div_pesquisa_numeracao.appendChild(button_submit_pesquisa_numeracao);
-       button_submit_pesquisa_numeracao.appendChild(symbol_lupa_numeracao);
+            div_filtragem.appendChild(nova_div_pesquisa_numeracao);
+            nova_div_pesquisa_numeracao.appendChild(input_pesquisa_numeracao);
+            nova_div_pesquisa_numeracao.appendChild(button_submit_pesquisa_numeracao);
+            button_submit_pesquisa_numeracao.appendChild(symbol_lupa_numeracao);
 
-       botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_numeracao);
+            botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_numeracao);
 
-       const area_pesquisa_nome = document.getElementById("input-name-search");
-       const area_pesquisa_data = document.getElementById("input-date-search");
+            const area_pesquisa_nome = document.getElementById("input-name-search");
+            const area_pesquisa_data = document.getElementById("input-date-search");
 
-       div_filtragem.removeChild(area_pesquisa_nome);
-       div_filtragem.removeChild(area_pesquisa_data);
-    
+            div_filtragem.removeChild(area_pesquisa_nome);
+            div_filtragem.removeChild(area_pesquisa_data);
+            
         
     }
 
