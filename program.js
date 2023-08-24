@@ -21,6 +21,8 @@ var Array_Inv = [];
 
 console.log(Array_Inv,Array_chamados);
 
+// No carregamento da página checa array de chamados e no caso existam exibe os cards de chamado
+
 window.onload = function checkArrayChamado () {if (Array_chamados.length >= 1){
 
     for(let i = 0; i < Array_chamados.length; i++){
@@ -231,7 +233,7 @@ function Chamados (id_do_chamado, nome_do_chamado, local_do_chamado, data_do_cha
     this.nome_do_chamado = nome_do_chamado;
     this.local_do_chamado = local_do_chamado;
     this.data_do_chamado = data_do_chamado;
-    this.descricao_do_chamado = data_do_chamado;
+    this.descricao_do_chamado = descricao_do_chamado;
 }
 
 function Inventario (tipo_item, local_item, numeracao_item){
@@ -332,15 +334,22 @@ function adicionarInventario(){
 
     var telaInv = document.getElementById("tela-inventario");
 
+    var telaChamado = document.getElementById("grid-tela");
+
     var MenuAdicionaChamado = document.getElementById("menu-add-chamado");
 
     var checkExistsAdicionaChamado = body_add_inventario.contains(MenuAdicionaChamado);
+
+    var checkExistsTelaChamado = body_add_inventario.contains(telaChamado);
 
     var checkExistsInv = body_add_inventario.contains(telaInv);
 
     var checkAddInv = body_add_inventario.contains(MenuAddInv);
 
-    seleciona_function.value = "Inventario";
+    var tamanhoArrayInv = Array_Inv.length;
+
+
+    seleciona_function.value = "Inventario"; 
 
         if(checkAddInv == false){
 
@@ -348,6 +357,12 @@ function adicionarInventario(){
             //Remove o menu de adição de chamado caso exista
             if(checkExistsAdicionaChamado == true){
                 body_add_inventario.removeChild(MenuAdicionaChamado);
+            }
+
+
+            // Remove a tela de chamados caso exista
+            if(checkExistsTelaChamado == true){
+                body_add_inventario.removeChild(telaChamado);
             }
 
             const ul_menu_inventario = document.createElement('ul');
@@ -369,7 +384,7 @@ function adicionarInventario(){
             input_menu_inv_local.className = "input-card-add-local-inv";
             const li_menu_inv_numeracao = document.createElement('li');
             li_menu_inv_numeracao.id = "numeracao-item";
-            li_menu_inv_numeracao.innerText = "Numeração:";
+            li_menu_inv_numeracao.innerText = "Patrimônio:";
             const input_menu_inv_numeracao = document.createElement('input');
             input_menu_inv_numeracao.type = "text";
             input_menu_inv_numeracao.id = "input-inv-numeracao";
@@ -553,9 +568,10 @@ function novoItemInventario(){
 
     Array_Inv.push(novoItemInventario);
 
-    console.log(Array_Inv);
-
 }
+
+
+// Habilita a edição dos inputs dos cards do inventario 
 
 function editarInventario(){
 
@@ -592,6 +608,8 @@ function editarInventario(){
 
 }
 
+// Salva as alterações e bloqueia os campos de input dos cards de inventario
+
 function inventarioEditado(){
 
     let salvar_click = event.target;
@@ -622,11 +640,9 @@ function inventarioEditado(){
     botao_remove_inv.insertAdjacentElement('beforebegin',button_editar_editado);
     
 
-
-
-
 }
 
+// Exclui o card do inventario e exclui o objeto do array do inventario
 
 function removerInventario(){
 
@@ -725,8 +741,6 @@ function selectFunction(){
         
         let checkExistsFiltragemInventario = document.getElementById("input-local-search");
 
-        
-
         if(doc_body.contains(checkExistsFiltragemInventario)==false){
         
 
@@ -763,7 +777,7 @@ function selectFunction(){
             const nova_div_pesquisa_numeracao = document.createElement("div");
             nova_div_pesquisa_numeracao.id = "input-numeracao-search";
             nova_div_pesquisa_numeracao.className = "input-numeracao-search";
-            nova_div_pesquisa_numeracao.textContent = "Insira a numeração a ser pesquisada:";
+            nova_div_pesquisa_numeracao.textContent = "Insira o patrimônio a ser pesquisado:";
             const input_pesquisa_numeracao = document.createElement("input");
             input_pesquisa_numeracao.id = "input-area-numeracao";
             input_pesquisa_numeracao.className = "input-area-numeracao";
@@ -812,18 +826,29 @@ function adicionarChamado(){
 
     var TelaDeChamados = document.getElementById("grid-tela");
 
+    var TelaInventario = document.getElementById("tela-inventario");
+
     var MenuAddInventario = document.getElementById("menu-add-inventario");
 
-    checkExistsAddInv = body_menu_chamado.contains(MenuAddInventario);
+    var checkExistsAddInv = body_menu_chamado.contains(MenuAddInventario);
 
     var checkExistsTelaDeChamados = body_menu_chamado.contains(TelaDeChamados);
+
+    var checkExistsTelaInventario = body_menu_chamado.contains(TelaInventario);
 
    alterna_inv_chamado.value = "Chamados";
 
     if(checkExistsAddChamado == false){
 
+
+        // Remove o menu de adição no inventário, caso exista
         if(checkExistsAddInv == true){
             body_menu_chamado.removeChild(MenuAddInventario);
+        }
+
+        // Remove a tela de exibição dos cards de inventário caso exista
+        if(checkExistsTelaInventario == true){
+            body_menu_chamado.removeChild(TelaInventario);
         }
 
         const ul_menu_chamado = document.createElement('ul');

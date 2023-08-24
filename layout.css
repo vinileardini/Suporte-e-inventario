@@ -186,11 +186,11 @@
 .list-inventario-li{
     border:2px;
     border-style: solid;
-    border-color:  rgb(17, 17, 17);
+    border-color: rgb(189, 188, 188);
     padding: 2px;
     border-radius: 3%;
     margin-block: 0.5%;
-    box-shadow: 2px;
+    box-shadow: 2px 2px 2px rgb(189, 188, 188);
     text-align:center;
 
 }
