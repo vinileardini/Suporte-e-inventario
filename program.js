@@ -9,7 +9,7 @@ const menuTrigger = document.getElementById("menu-trigger");
 
 const abrirMenuChamado = document.getElementById("menu-add-chamado");
 
-const abrirMenuInventario = document.getElementById("menu-add-inventario")
+const abrirMenuInventario = document.getElementById("menu-add-inventario");
 
 var contagemClick = 0;
 
@@ -683,6 +683,10 @@ function selectFunction(){
     {
         const checkExistsFiltragemChamado = document.getElementById("input-name-search");
 
+        if(checkExistsInvScreen == true){
+            doc_body.removeChild(id_tela_inv);
+        }
+
         // Cria filtragem para cards dos chamados a partir do nome 
 
         if(doc_body.contains(checkExistsFiltragemChamado)== false){
@@ -742,6 +746,10 @@ function selectFunction(){
         let checkExistsFiltragemInventario = document.getElementById("input-local-search");
 
         if(doc_body.contains(checkExistsFiltragemInventario)==false){
+
+            if(checkExistsChamadoScreen == true){
+                doc_body.removeChild(id_tela_chamado);
+            }
         
 
             // Cria filtragem de local para os itens do inventário
