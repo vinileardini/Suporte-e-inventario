@@ -1175,6 +1175,7 @@ function fecharChamado(){
 
     div_chamado.removeChild(retira_card);
 
+
 }
 
 // Torna possível a edição de um chamado
