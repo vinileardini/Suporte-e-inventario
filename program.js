@@ -1,3 +1,21 @@
+class Chamados{
+    constructor(id_do_chamado,nome_do_chamado,local_do_chamado,data_do_chamado,descricao_do_chamado) {
+        this.id_do_chamado = id_do_chamado;
+        this.nome_do_chamado = nome_do_chamado;
+        this.local_do_chamado = local_do_chamado;
+        this.data_do_chamado = data_do_chamado;
+        this.descricao_do_chamado = descricao_do_chamado;
+    }
+}
+
+class Inventario{
+    constructor(tipo_item,local_item,numeracao_item) {
+        this.tipo_item = tipo_item;
+        this.local_item = local_item;
+        this.numeracao_item = numeracao_item;
+        
+    }
+}
 
 var escolhaChamado = "Chamados";
 
@@ -226,27 +244,9 @@ window.onload = function checkArrayChamado () {if (Array_chamados.length >= 1){
 
 }}
 
-
-
-function Chamados (id_do_chamado, nome_do_chamado, local_do_chamado, data_do_chamado, descricao_do_chamado){
-    this.id_do_chamado = id_do_chamado;
-    this.nome_do_chamado = nome_do_chamado;
-    this.local_do_chamado = local_do_chamado;
-    this.data_do_chamado = data_do_chamado;
-    this.descricao_do_chamado = descricao_do_chamado;
-}
-
-function Inventario (tipo_item, local_item, numeracao_item){
-
-    this.tipo_item = tipo_item;
-    this.local_item = local_item;
-    this.numeracao_item = numeracao_item;
-
-}
-
 var data = new Date();
 
-function changeSymbol() {   
+function changeSymbol(){   
 
     contagemClick++;
 
@@ -560,11 +560,11 @@ function novoItemInventario(){
 
     select_function_inventario.value = "Inventario";
 
-    var novoItemInventario = new Inventario();
+    var valor_tipoItem = itemInv.value;
+    var valor_localItem = localInv.value;
+    var valor_numeracaoItem = numeroSerieInv.value;
 
-    novoItemInventario.tipo_item = itemInv.value;
-    novoItemInventario.local_item = localInv.value;
-    novoItemInventario.numeracao_item = numeroSerieInv.value;
+    var novoItemInventario = new Inventario(valor_tipoItem,valor_localItem,valor_numeracaoItem);
 
     Array_Inv.push(novoItemInventario);
 
@@ -657,6 +657,8 @@ function removerInventario(){
     let recebeCard = recebeDivBotões.parentNode;
 
     div_tela_inventario.removeChild(recebeCard);
+
+    
 
 
 }
@@ -1138,13 +1140,13 @@ function novoChamado(){
 
     // Insire os valores do card de chamado em um objeto dentro de um array
 
-    const novaAberturaChamado = new Chamados();
+    var value_idChamado = id_do_chamado
+    var value_nome = nomeChamado.value;
+    var value_local = localChamado.value;
+    var value_data = dataChamado
+    var value_descricao = descricaoChamado.value
 
-    novaAberturaChamado.id_do_chamado = id_do_chamado;
-    novaAberturaChamado.nome_do_chamado = nomeChamado.value;
-    novaAberturaChamado.local_do_chamado = localChamado.value;
-    novaAberturaChamado.data_do_chamado = dataChamado;
-    novaAberturaChamado.descricao_do_chamado = descricaoChamado.value;
+    const novaAberturaChamado =  new Chamados(value_idChamado,value_nome,value_local,value_data,value_descricao);
 
     Array_chamados.push(novaAberturaChamado);
 
@@ -1275,10 +1277,11 @@ function pesquisaNome(){
 
         for(u = 1; u<=Array_chamados.length; u++){
 
-             seleciona_nome_pesquisa = Array_chamados.findIndex(Array_chamados => Array_chamados.nome_do_chamado === searchName);
+            seleciona_nome_pesquisa = Array_chamados.findIndex(Array_chamados => Array_chamados.nome_do_chamado === searchName);
         }
 
         let operacao_id = seleciona_nome_pesquisa + 1;
+
 
         let card_nome_pesquisa = document.getElementById("shape-card"+operacao_id);
 
