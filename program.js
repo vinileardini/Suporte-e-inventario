@@ -1316,7 +1316,17 @@ function verificaPesquisa(){
 
     if(document.getElementById('input-area-pesquisa').value == ''){
 
-        for(a = 1;a<=Array_chamados.length;a++){
+        body_chamado = document.body;
+
+        for(a = 0;a<=Array_chamados.length;a++){
+
+            let id_do_chamado = Array_chamados.id_do_chamado;
+            let tamanhoArray = Array_chamados.length;
+            let nomeChamado = Array_chamados.nome_do_chamado;
+            let localChamado = Array_chamados.local_do_chamado;
+            let dataChamado = Array_chamados[a].data_do_chamado;
+            let descricaoChamado = Array_chamados[a].descricao_do_chamado;
+
             const div_chamado = document.getElementById("grid-tela");
             const div_card = document.createElement("div");
             div_card.className = "shape-card";
