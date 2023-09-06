@@ -1320,12 +1320,12 @@ function verificaPesquisa(){
 
         for(a = 0;a<=Array_chamados.length;a++){
 
-            let id_do_chamado = Array_chamados.id_do_chamado;
-            let tamanhoArray = Array_chamados.length;
-            let nomeChamado = Array_chamados.nome_do_chamado;
-            let localChamado = Array_chamados.local_do_chamado;
-            let dataChamado = Array_chamados[a].data_do_chamado;
-            let descricaoChamado = Array_chamados[a].descricao_do_chamado;
+            let id_do_chamado = Chamados.id_do_chamado;
+            let tamanhoArray = Chamados.length;
+            let nomeChamado = Chamados.nome_do_chamado;
+            let localChamado = Chamados.local_do_chamado;
+            let dataChamado = Chamados.data_do_chamado;
+            let descricaoChamado = Chamados.descricao_do_chamado;
 
             const div_chamado = document.getElementById("grid-tela");
             const div_card = document.createElement("div");
@@ -1344,7 +1344,7 @@ function verificaPesquisa(){
             input_nome.id = "input-label-nome";
             input_nome.className = "input-label";
             input_nome.readOnly = true;
-            input_nome.value = nomeChamado.value;
+            input_nome.value = nomeChamado;
             let pulaLinha_1 = document.createElement("p");
             const label_local = document.createElement("label");
             label_local.innerText = "Local:";
@@ -1354,7 +1354,7 @@ function verificaPesquisa(){
             input_local.id = "input-label-local";
             input_local.className = "input-label";
             input_local.readOnly = true;
-            input_local.value = localChamado.value;
+            input_local.value = localChamado;
             let pulaLinha_2 = document.createElement("p");
             const label_data = document.createElement("label");
             label_data.innerHTML = "Data:";
@@ -1374,7 +1374,7 @@ function verificaPesquisa(){
             text_descricao.cols = 35;
             text_descricao.rows = 5;
             text_descricao.readOnly = true;
-            text_descricao.innerText = descricaoChamado.value;
+            text_descricao.innerText = descricaoChamado;
             let pulaLinha_5 = document.createElement("p");
             const div_botoes = document.createElement("div");
             div_botoes.className = "div-botoes-chamado";
