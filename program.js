@@ -1271,46 +1271,50 @@ function pesquisaNome(){
     
     const searchName = document.getElementById("input-area-pesquisa").value;
 
+    const DivChamado = document.getElementById('grid-tela');
+
     console.log(searchName);
 
-    if(Array_chamados.find(Array_chamados => Array_chamados.nome_do_chamado === searchName)){
+        Array_pesquisa_nome = [];
 
-        for(u = 1; u<=Array_chamados.length; u++){
 
-            seleciona_nome_pesquisa = Array_chamados.findIndex(Array_chamados => Array_chamados.nome_do_chamado === searchName);
+        for(u = 0; u<=Array_chamados.length; u++){
 
-        }
+            TesteNome = Array_chamados[u].nome_do_chamado;
+            TesteID = Array_chamados[u].id_do_chamado;
 
-        let operacao_id = seleciona_nome_pesquisa + 1; 
+            if(TesteNome == searchName){
 
-        for (i = 1; i<=Array_chamados.length; i++){
+                seleciona_nome_pesquisa = TesteNome;
+                seleciona_id_nome_pesquisa = TesteID;
 
-            cardPesquisa = document.getElementById('shape-card'+i)
+                console.log('teste nome');
+                Array_pesquisa_nome.push(seleciona_id_nome_pesquisa);
 
-            if(cardPesquisa != document.getElementById('shape-card'+operacao_id)){
-                document.getElementById('grid-tela').removeChild(cardPesquisa)
+                console.log(Array_pesquisa_nome);
+
             }
 
+            for(a = 0; a<= Array_pesquisa_nome.length;a++){
+
+                operacao_id = u + 1;
+                cardTeste = document.getElementById('shape-card'+operacao_id)
+                valorId = Array_pesquisa_nome[a]
+
+                
+
+                if(cardTeste != document.getElementById('shape-card'+valorId)){
+                    console.log('card')
+                    console.log(cardTeste)
+                    DivChamado.removeChild(cardTeste)
+            }
         }
 
         
-
-
-
-        //let card_nome_pesquisa = document.getElementById("shape-card"+operacao_id);
-
-
-
-
-
        
     }
-    else{
-        alert("Não existe chamado com o nome desta pessoa");
-    }
-
-
 }
+
 
 function verificaPesquisa(){
 
@@ -1326,10 +1330,13 @@ function verificaPesquisa(){
 
         if(checkExistsDiv == true){
 
-            elementoFilho = DivCardChamado.children[0]
-            DivCardChamado.removeChild(elementoFilho)
+            if(checkExistsCards == Array_chamados.length){
+                elementoFilho = DivCardChamado.children[0]
+                DivCardChamado.removeChild(elementoFilho)
 
-            if(checkExistsCards = 1){
+            }
+
+            if(checkExistsCards <= 1){
                 for(a = 0;a<=Array_chamados.length;a++){
 
                     nomeChamado = Array_chamados[a].nome_do_chamado;
@@ -1427,16 +1434,15 @@ function verificaPesquisa(){
                         div_botoes.appendChild(button_edit);
                         div_botoes.appendChild(button_remove);
                         
-            }
-            else{
-                alert('cards em exibição')
-            }
-
-        }
-
-        
+                    }
+                
+                else{
+                    alert('cards em exibição')
+                }
 
             }
+
+            
            
         }
     }
@@ -1444,6 +1450,7 @@ function verificaPesquisa(){
         console.log('f')
     }
 
+}
 }
 
 
