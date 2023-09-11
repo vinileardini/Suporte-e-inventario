@@ -1296,26 +1296,48 @@ function pesquisaNome(){
 
             }
 
+        }
 
-            // Colocar esse array fora do for
-            if(Array_pesquisa_nome > 0){
-                for(a = 0; a<= Array_pesquisa_nome.length;a++){
+        if(Array_pesquisa_nome.length > 0){
+            for(a = 0; a<Array_pesquisa_nome.length;a++){
 
-                    operacao_id = u + 1;
-                    cardTeste = document.getElementById('shape-card'+operacao_id)
-                    valorId = Array_pesquisa_nome[a]
-                    console.log('valor id'+valorId)
-                    cardPesquisa = document.getElementById('shape-card'+valorId)
+                
+                valorId = Array_pesquisa_nome[a]
+
+                for(u = 0;u<Array_chamados.length;u++){
+
+                    operacao_u = u+1;
+
+                    console.log('valor id = '+valorId)
                 
                     if(valorId != null){
-                        if(cardTeste.id_do_chamado != cardPesquisa.id_do_chamado){
-                            Array_retira_card.push(cardTeste)
-                            console.log("array retira"+Array_retira_card)
+
+                        for(a = 0; a<Array_pesquisa_nome.length;a++){
+                            if(operacao_u != valorId){
+                                Array_retira_card.push(operacao_u)
+                                console.log('array retira'+Array_retira_card)
+                            }
                         }
                     }
+
                 }
             }
         }
+
+        if(Array_retira_card.length>0){
+
+            for(i=0;i<Array_retira_card.length;i++){
+                cardRemove = Array_retira_card[i]
+                console.log('card remove'+cardRemove.getAttribute('id'))
+                console.log('id do card removido = '+cardRemove.getAttribute('id'))
+                DivChamado.removeChild(cardRemove)
+            }
+        }
+
+    //Limpa o array
+
+    Array_pesquisa_nome.splice(0, Array_pesquisa_nome.length)
+    Array_retira_card.splice(0,Array_retira_card.length)
 
 }
 
