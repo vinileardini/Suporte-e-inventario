@@ -1275,44 +1275,48 @@ function pesquisaNome(){
 
     console.log(searchName);
 
-        Array_pesquisa_nome = [];
+    var Array_pesquisa_nome = [];
+
+    var Array_retira_card = [];
 
 
-        for(u = 0; u<=Array_chamados.length; u++){
+        for(u = 0; u<Array_chamados.length; u++){
 
-            TesteNome = Array_chamados[u].nome_do_chamado;
-            TesteID = Array_chamados[u].id_do_chamado;
+            var TesteNome = Array_chamados[u].nome_do_chamado;
+            var TesteID = Array_chamados[u].id_do_chamado;
 
             if(TesteNome == searchName){
 
                 seleciona_nome_pesquisa = TesteNome;
                 seleciona_id_nome_pesquisa = TesteID;
 
-                console.log('teste nome');
                 Array_pesquisa_nome.push(seleciona_id_nome_pesquisa);
 
                 console.log(Array_pesquisa_nome);
 
             }
 
-            for(a = 0; a<= Array_pesquisa_nome.length;a++){
 
-                operacao_id = u + 1;
-                cardTeste = document.getElementById('shape-card'+operacao_id)
-                valorId = Array_pesquisa_nome[a]
+            // Colocar esse array fora do for
+            if(Array_pesquisa_nome > 0){
+                for(a = 0; a<= Array_pesquisa_nome.length;a++){
 
+                    operacao_id = u + 1;
+                    cardTeste = document.getElementById('shape-card'+operacao_id)
+                    valorId = Array_pesquisa_nome[a]
+                    console.log('valor id'+valorId)
+                    cardPesquisa = document.getElementById('shape-card'+valorId)
                 
-
-                if(cardTeste != document.getElementById('shape-card'+valorId)){
-                    console.log('card')
-                    console.log(cardTeste)
-                    DivChamado.removeChild(cardTeste)
+                    if(valorId != null){
+                        if(cardTeste.id_do_chamado != cardPesquisa.id_do_chamado){
+                            Array_retira_card.push(cardTeste)
+                            console.log("array retira"+Array_retira_card)
+                        }
+                    }
+                }
             }
         }
 
-        
-       
-    }
 }
 
 
