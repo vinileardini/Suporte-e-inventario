@@ -1277,7 +1277,7 @@ function pesquisaNome(){
 
     var Array_pesquisa_nome = [];
 
-    var Array_retira_card = [];
+    var Array_retira_all_card = [];
 
 
         for(u = 0; u<Array_chamados.length; u++){
@@ -1308,9 +1308,24 @@ function pesquisaNome(){
                     operacao_u = u+1;
 
                     if(operacao_u != valorId){
+
+                        // Verifica se o elemento já existe no array, retorna o indice no array
+
+                        if(Array_retira_all_card.indexOf(operacao_u) > -1){
                                 
-                        Array_retira_card.push(operacao_u)
-                        console.log('array retira'+Array_retira_card)
+                            Array_retira_all_card.push(operacao_u)
+                            console.log('array retira all'+Array_retira_all_card)
+                        }
+                    }
+
+                    for(i=0;i<Array_retira_all_card.length;i++){
+
+                        if(Array_chamados[u] != Array_retira_all_card[i]){
+                            cardRemove = document.getElementById('shape-card'+Array_chamados[u])
+                            DivChamado.removeChild(cardRemove);
+                            
+                        }
+
                     }
 
                 }
@@ -1319,35 +1334,17 @@ function pesquisaNome(){
         }
 
 
-        // Retira duplicidades
+        // Verifica a frequência de ocorrências e retira os cards
 
-        if(Array_pesquisa_nome.length > 1){
-            var novoArray_retira = [];
+        
+        
 
-            Array_retira_card.forEach((item) => {
-
-                if(!novoArray_retira.includes(item)){
-                    novoArray_retira.push(item)
-                }
-
-            })
-        }
-            
-
-        if(Array_retira_card.length>0){
-
-            for(i=0;i<Array_retira_card.length;i++){
-                cardRemove = Array_retira_card[i]
-                console.log('card remove'+cardRemove.getAttribute('id'))
-                console.log('id do card removido = '+cardRemove.getAttribute('id'))
-                DivChamado.removeChild(cardRemove)
-            }
-        }
+        
 
     //Limpa o array
 
     Array_pesquisa_nome.splice(0, Array_pesquisa_nome.length)
-    Array_retira_card.splice(0,Array_retira_card.length)
+    Array_retira_all_card.splice(0,Array_retira_all_card.length)
 
 }
 
