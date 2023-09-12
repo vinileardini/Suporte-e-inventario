@@ -1298,9 +1298,8 @@ function pesquisaNome(){
 
         }
 
-        if(Array_pesquisa_nome.length > 0){
+         if(Array_pesquisa_nome.length > 0){
             for(a = 0; a<Array_pesquisa_nome.length;a++){
-
                 
                 valorId = Array_pesquisa_nome[a]
 
@@ -1308,21 +1307,32 @@ function pesquisaNome(){
 
                     operacao_u = u+1;
 
-                    console.log('valor id = '+valorId)
-                
-                    if(valorId != null){
-
-                        for(a = 0; a<Array_pesquisa_nome.length;a++){
-                            if(operacao_u != valorId){
-                                Array_retira_card.push(operacao_u)
-                                console.log('array retira'+Array_retira_card)
-                            }
-                        }
+                    if(operacao_u != valorId){
+                                
+                        Array_retira_card.push(operacao_u)
+                        console.log('array retira'+Array_retira_card)
                     }
 
                 }
             }
+        
         }
+
+
+        // Retira duplicidades
+
+        if(Array_pesquisa_nome.length > 1){
+            var novoArray_retira = [];
+
+            Array_retira_card.forEach((item) => {
+
+                if(!novoArray_retira.includes(item)){
+                    novoArray_retira.push(item)
+                }
+
+            })
+        }
+            
 
         if(Array_retira_card.length>0){
 
