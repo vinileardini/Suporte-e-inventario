@@ -1299,34 +1299,59 @@ function pesquisaNome(){
         }
 
          if(Array_pesquisa_nome.length > 0){
+
+
             for(a = 0; a<Array_pesquisa_nome.length;a++){
                 
                 valorId = Array_pesquisa_nome[a]
 
+                console.log('valor id = '+valorId)
+
                 for(u = 0;u<Array_chamados.length;u++){
 
-                    operacao_u = u+1;
+                    if(Array_chamados[u].id_do_chamado != valorId){
+                        idRetirado = Array_chamados[u].id_do_chamado
+
+                        Array_retira_all_card.push(idRetirado)
+
+                        console.log(Array_retira_all_card)
+                    }
+
+                    operacao_u = u+1
 
                     if(operacao_u != valorId){
 
                         // Verifica se o elemento já existe no array, retorna o indice no array
 
-                        if(Array_retira_all_card.indexOf(operacao_u) > -1){
+                        if(Array_retira_all_card.indexOf(operacao_u) != -1){
+
+                            console.log('entrou 5')
                                 
                             Array_retira_all_card.push(operacao_u)
-                            console.log('array retira all'+Array_retira_all_card)
+                            console.log(Array_retira_all_card)
                         }
                     }
 
+                    for(a=0;a<Array_retira_all_card.length;a++){
+
+                        
+
+                    }
+
+                    /*
                     for(i=0;i<Array_retira_all_card.length;i++){
 
-                        if(Array_chamados[u] != Array_retira_all_card[i]){
-                            cardRemove = document.getElementById('shape-card'+Array_chamados[u])
-                            DivChamado.removeChild(cardRemove);
+                        console.log('entrou 6')
+
+                        if(Array_chamados[u].id_do_chamado != Array_retira_all_card[i]){
+
+                            idRemove = document.getElementById('shape-card'+Array_chamados[u].id_do_chamado)
+                            console.log('id remove='+idRemove)
+                            DivChamado.removeChild(idRemove);
                             
                         }
 
-                    }
+                    }*/
 
                 }
             }
@@ -1343,8 +1368,8 @@ function pesquisaNome(){
 
     //Limpa o array
 
-    Array_pesquisa_nome.splice(0, Array_pesquisa_nome.length)
-    Array_retira_all_card.splice(0,Array_retira_all_card.length)
+    //Array_pesquisa_nome.splice(0, Array_pesquisa_nome.length)
+    //Array_retira_all_card.splice(0,Array_retira_all_card.length)
 
 }
 
