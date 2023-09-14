@@ -1277,15 +1277,13 @@ function pesquisaNome(){
 
     var Array_pesquisa_nome = [];
 
-    var Array_retira_all_card = [];
-
 
         for(u = 0; u<Array_chamados.length; u++){
 
             var TesteNome = Array_chamados[u].nome_do_chamado;
             var TesteID = Array_chamados[u].id_do_chamado;
 
-            if(TesteNome == searchName){
+            if(TesteNome != searchName){
 
                 seleciona_nome_pesquisa = TesteNome;
                 seleciona_id_nome_pesquisa = TesteID;
@@ -1296,82 +1294,25 @@ function pesquisaNome(){
 
             }
 
+
         }
+        
 
-         if(Array_pesquisa_nome.length > 0){
-
-
-            for(a = 0; a<Array_pesquisa_nome.length;a++){
+        for(i=0;i<Array_pesquisa_nome.length;i++){
                 
-                valorId = Array_pesquisa_nome[a]
+            idRetira = Array_pesquisa_nome[i]
 
-                console.log('valor id = '+valorId)
+            cardRetira = document.getElementById('shape-card'+idRetira)
 
-                for(u = 0;u<Array_chamados.length;u++){
-
-                    if(Array_chamados[u].id_do_chamado != valorId){
-                        idRetirado = Array_chamados[u].id_do_chamado
-
-                        Array_retira_all_card.push(idRetirado)
-
-                        console.log(Array_retira_all_card)
-                    }
-
-                    operacao_u = u+1
-
-                    if(operacao_u != valorId){
-
-                        // Verifica se o elemento já existe no array, retorna o indice no array
-
-                        if(Array_retira_all_card.indexOf(operacao_u) != -1){
-
-                            console.log('entrou 5')
-                                
-                            Array_retira_all_card.push(operacao_u)
-                            console.log(Array_retira_all_card)
-                        }
-                    }
-
-                    for(a=0;a<Array_retira_all_card.length;a++){
-
-                        
-
-                    }
-
-                    /*
-                    for(i=0;i<Array_retira_all_card.length;i++){
-
-                        console.log('entrou 6')
-
-                        if(Array_chamados[u].id_do_chamado != Array_retira_all_card[i]){
-
-                            idRemove = document.getElementById('shape-card'+Array_chamados[u].id_do_chamado)
-                            console.log('id remove='+idRemove)
-                            DivChamado.removeChild(idRemove);
-                            
-                        }
-
-                    }*/
-
-                }
-            }
+            DivChamado.removeChild(cardRetira)
         
         }
 
-
-        // Verifica a frequência de ocorrências e retira os cards
-
+              
+                
+     }
         
         
-
-        
-
-    //Limpa o array
-
-    //Array_pesquisa_nome.splice(0, Array_pesquisa_nome.length)
-    //Array_retira_all_card.splice(0,Array_retira_all_card.length)
-
-}
 
 
 function verificaPesquisa(){
