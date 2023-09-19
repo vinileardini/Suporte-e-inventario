@@ -296,14 +296,14 @@ function changeSymbol(){
         li_menu_open_chamado.onmouseover = function(){opacidadeSelecaoChamado()};
         li_menu_open_chamado.onmouseout = function(){opacidadePadrao()};
         li_menu_open_chamado.className = "li-menu";
-        li_menu_open_chamado.onclick = function(){adicionarChamado()};
+        li_menu_open_chamado.onclick = function(){adicionarChamado(),selectFunction()};
         li_menu_open_chamado.innerText = "Abrir Chamado";
         const li_menu_open_inventario = document.createElement('li');
         li_menu_open_inventario.id = "liAddInventario";
         li_menu_open_inventario.onmouseover = function(){opacidadeSelecaoInventario( )};
         li_menu_open_inventario.onmouseout = function(){opacidadePadrao()};
         li_menu_open_inventario.className = "li-menu";
-        li_menu_open_inventario.onclick = function(){adicionarInventario()};
+        li_menu_open_inventario.onclick = function(){adicionarInventario(),selectFunction};
         li_menu_open_inventario.innerText = "Adicionar item ao inventário";
 
         body_menu_open.appendChild(menu_add_open);
@@ -1330,24 +1330,130 @@ function verificaPesquisa(){
 
         checkExistsCards = DivCardChamado.children.length
 
+        Array_exclui = []
+
         if(checkExistsDiv == true){
 
             if(checkExistsCards > 0){
-                for(a = 0;a<=checkExistsCards;a++){
+                for(a = 0;a<checkExistsCards;a++){
                     excluiCard = DivCardChamado.children[a]
 
-                    if(a == ){
+                    Array_exclui.push(excluiCard.children[0].innerHTML)
 
-                        console.log('entrou if')
-                        DivCardChamado.removeChild(excluiCard)
+                }
+
+                for(i=0;i<Array_exclui.length;i++){
+                    IdCardExclui = Array_exclui[i]
+                    CardExclui = document.getElementById('shape-card'+IdCardExclui)
+                    DivCardChamado.removeChild(CardExclui)
+                }
+
+                updateCheckExistsCards = DivCardChamado.children.length
+
+                if(updateCheckExistsCards == 0){
+                    for(i=0;i<Array_chamados.length;i++){
+
+                        nomeChamado = Array_chamados[i].nome_do_chamado;
+                        id_do_chamado = Array_chamados[i].id_do_chamado;
+                        localChamado = Array_chamados[i].local_do_chamado;
+                        dataChamado = Array_chamados[i].data_do_chamado;
+                        descricaoChamado = Array_chamados[i].descricao_do_chamado;
+        
+                        tamanhoArray = Array_chamados.length;
+
+                        const div_chamado = document.getElementById("grid-tela");
+                        const div_card = document.createElement("div");
+                        div_card.className = "shape-card";
+                        div_card.id = "shape-card";
+                        div_card.dataset.id_card = tamanhoArray;
+                        const label_idNumber = document.createElement("label");
+                        label_idNumber.id = "number-id";
+                        label_idNumber.className = "id-number";
+                        label_idNumber.innerHTML = id_do_chamado;
+                        let pulaLinha = document.createElement("p");
+                        const label_nomeSolicitante = document.createElement("label");
+                        label_nomeSolicitante.innerHTML = "Nome do solicitante:";
+                        const input_nome = document.createElement("input");
+                        input_nome.type = "text";
+                        input_nome.id = "input-label-nome";
+                        input_nome.className = "input-label";
+                        input_nome.readOnly = true;
+                        input_nome.value = nomeChamado;
+                        let pulaLinha_1 = document.createElement("p");
+                        const label_local = document.createElement("label");
+                        label_local.innerText = "Local:";
+                        label_local.id = "label-local";
+                        const input_local = document.createElement("input");
+                        input_local.type = "text";
+                        input_local.id = "input-label-local";
+                        input_local.className = "input-label";
+                        input_local.readOnly = true;
+                        input_local.value = localChamado;
+                        let pulaLinha_2 = document.createElement("p");
+                        const label_data = document.createElement("label");
+                        label_data.innerHTML = "Data:";
+                        const input_data = document.createElement("label");
+                        input_data.type = "date";
+                        input_data.id = "input-date-style";
+                        input_data.className = "input-label";
+                        input_data.readOnly = true;
+                        input_data.innerText = dataChamado;
+                        let pulaLinha_3 = document.createElement("p");
+                        const label_descricao = document.createElement("label");
+                        label_descricao.innerHTML = "Descrição:";
+                        label_descricao.id = "label-desc";
+                        let pulaLinha_4 = document.createElement("p");
+                        const text_descricao = document.createElement("textarea") 
+                        text_descricao.id = "desc-chamados";
+                        text_descricao.cols = 35;
+                        text_descricao.rows = 5;
+                        text_descricao.readOnly = true;
+                        text_descricao.innerText = descricaoChamado;
+                        let pulaLinha_5 = document.createElement("p");
+                        const div_botoes = document.createElement("div");
+                        div_botoes.className = "div-botoes-chamado";
+                        div_botoes.id = "div-botoes-chamados"
+                        const button_edit = document.createElement("button");
+                        button_edit.innerHTML = "Editar";
+                        button_edit.type ="submit";
+                        button_edit.className = "button-edit-remove";
+                        button_edit.id = "button-edit";
+                        button_edit.onclick = function(){editarChamado()};
+                        const button_remove = document.createElement("button");
+                        button_remove.innerHTML= "Remover";
+                        button_remove.type = "submit";
+                        button_remove.className = "button-edit-remove";
+                        button_remove.id = "button-remove";
+                        button_remove.onclick = function(){fecharChamado()}
+        
+                        div_chamado.appendChild(div_card);
+                        div_card.appendChild(label_idNumber);
+                        div_card.appendChild(pulaLinha);
+                        div_card.appendChild(label_nomeSolicitante);
+                        div_card.appendChild(input_nome);
+                        div_card.appendChild(pulaLinha_1);
+                        div_card.appendChild(label_local);
+                        div_card.appendChild(input_local);
+                        div_card.appendChild(pulaLinha_2)
+                        div_card.appendChild(label_data);
+                        div_card.appendChild(input_data);
+                        div_card.appendChild(pulaLinha_3); 
+                        div_card.appendChild(label_descricao);
+                        div_card.appendChild(pulaLinha_4);
+                        div_card.appendChild(text_descricao);
+                        div_card.appendChild(pulaLinha_5);
+                        div_card.appendChild(div_botoes);
+                        div_botoes.appendChild(button_edit);
+                        div_botoes.appendChild(button_remove);
+
                     }
-
-                    console.log('entrou')
                 }
 
             }
 
-            if(checkExistsCards == 0){
+            
+
+            else{
                 for(a = 0;a<=Array_chamados.length;a++){
 
                     nomeChamado = Array_chamados[a].nome_do_chamado;
@@ -1448,15 +1554,16 @@ function verificaPesquisa(){
                     }
                 
                 else{
-                    alert('cards em exibição')
+
+                    for(u=0;u<Array_chamados.length;u++){
+
+                    }
+                    
                 }
 
             }
            
         }
-    }
-    else{
-        console.log('f')
     }
 
 }
