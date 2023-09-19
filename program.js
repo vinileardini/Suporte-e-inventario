@@ -1302,10 +1302,13 @@ function pesquisaNome(){
                 
             idRetira = Array_pesquisa_nome[i]
 
-            cardRetira = document.getElementById('shape-card'+idRetira)
+            if(idRetira != null){
 
-            DivChamado.removeChild(cardRetira)
-        
+                cardRetira = document.getElementById('shape-card'+idRetira)
+
+                DivChamado.removeChild(cardRetira)
+            }
+            
         }
 
               
@@ -1329,13 +1332,22 @@ function verificaPesquisa(){
 
         if(checkExistsDiv == true){
 
-            if(checkExistsCards == Array_chamados.length){
-                elementoFilho = DivCardChamado.children[0]
-                DivCardChamado.removeChild(elementoFilho)
+            if(checkExistsCards > 0){
+                for(a = 0;a<=checkExistsCards;a++){
+                    excluiCard = DivCardChamado.children[a]
+
+                    if(a == ){
+
+                        console.log('entrou if')
+                        DivCardChamado.removeChild(excluiCard)
+                    }
+
+                    console.log('entrou')
+                }
 
             }
 
-            if(checkExistsCards <= 1){
+            if(checkExistsCards == 0){
                 for(a = 0;a<=Array_chamados.length;a++){
 
                     nomeChamado = Array_chamados[a].nome_do_chamado;
@@ -1440,8 +1452,6 @@ function verificaPesquisa(){
                 }
 
             }
-
-            
            
         }
     }
