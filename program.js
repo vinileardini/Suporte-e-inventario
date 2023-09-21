@@ -303,7 +303,7 @@ function changeSymbol(){
         li_menu_open_inventario.onmouseover = function(){opacidadeSelecaoInventario( )};
         li_menu_open_inventario.onmouseout = function(){opacidadePadrao()};
         li_menu_open_inventario.className = "li-menu";
-        li_menu_open_inventario.onclick = function(){adicionarInventario(),selectFunction};
+        li_menu_open_inventario.onclick = function(){adicionarInventario(),selectFunction()};
         li_menu_open_inventario.innerText = "Adicionar item ao inventário";
 
         body_menu_open.appendChild(menu_add_open);
