@@ -431,6 +431,10 @@ function novoItemInventario(){
     var localInv = document.getElementById("input-local-inv");
     var checkExistsDivInventario = document.getElementById("tela-inventario");
 
+    tamanhoArraydoInv = Array_Inv.length
+
+    var id_card_inv = tamanhoArraydoInv+1
+
     const select_function_inventario = document.getElementById("select-inv-chamado");
 
     const body_inventario = document.body;
@@ -441,7 +445,7 @@ function novoItemInventario(){
         div_inventario.id = "tela-inventario";
         const ul_inventario = document.createElement('ul');
         ul_inventario.className = "list-inventario";
-        ul_inventario.id = "list-inventario"
+        ul_inventario.id = "list-inventario"+id_card_inv
         const li_chamado = document.createElement('li');
         li_chamado.className = "list-inventario-li";
         li_chamado.id = "list-inventario-li";
@@ -1621,21 +1625,25 @@ function pesquisaNumeracao(){
 
 function pesquisaLocal(){
 
-const searchLocal = document.getElementById("input-local-search").value;
+    const searchLocal = document.getElementById("input-local-search").value;
 
-if(Array_Inv.includes(searchLocal)){
+    var Array_pesquisa_local = []
 
-    let Array_resultado_local = Array_Inv.filter(searchLocal);
+    for(i=0;i<Array_Inv.length;i++){
 
-    console.log(Array_resultado_local);
+        testeLocal = Array_Inv[i].local_do_chamado
+
+        if(searchLocal != testeLocal){
+
+            idCardRetiraLocal = Array_Inv[i]
+
+        }
+    }
+
+
+
 
 }
-else{
-    alert("Não existe nenhum item neste local");
-}
-
-}
-
 // Exclui o campo de adição de chamado ou inventário
 
 function resetAdd(){
