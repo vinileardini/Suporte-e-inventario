@@ -422,7 +422,7 @@ function adicionarInventario(){
 
 }
 
-
+// Cria o card do item do inventário
 
 function novoItemInventario(){
 
@@ -431,24 +431,25 @@ function novoItemInventario(){
     var localInv = document.getElementById("input-local-inv");
     var checkExistsDivInventario = document.getElementById("tela-inventario");
 
-    tamanhoArraydoInv = Array_Inv.length
+    var tamanhoArraydoInv = Array_Inv.length;
 
-    var id_card_inv = tamanhoArraydoInv+1
+    var id_card_inv = tamanhoArraydoInv+1;
 
     const select_function_inventario = document.getElementById("select-inv-chamado");
 
     const body_inventario = document.body;
 
     if(body_inventario.contains(checkExistsDivInventario) == false){
+
         const div_inventario = document.createElement('div');
         div_inventario.className = 'inventario';
         div_inventario.id = "tela-inventario";
         const ul_inventario = document.createElement('ul');
         ul_inventario.className = "list-inventario";
-        ul_inventario.id = "list-inventario"+id_card_inv
+        ul_inventario.id = "list-inventario"
         const li_chamado = document.createElement('li');
         li_chamado.className = "list-inventario-li";
-        li_chamado.id = "list-inventario-li";
+        li_chamado.id = 'list-inventario-li'+id_card_inv;
         const label_numeroSerie = document.createElement('label');
         label_numeroSerie.innerHTML = "Número de série:";
         label_numeroSerie.id = "number-serie-align";
@@ -508,7 +509,7 @@ function novoItemInventario(){
         ul_inventario.id = "list-inventario";
         const li_chamado = document.createElement('li');
         li_chamado.className = "list-inventario-li";
-        li_chamado.id = "list-inventario-li";
+        li_chamado.id = "list-inventario-li"+id_card_inv;
         const label_numeroSerie = document.createElement('label');
         label_numeroSerie.innerHTML = "Número de série:";
         label_numeroSerie.id = "number-serie-align";
@@ -568,7 +569,7 @@ function novoItemInventario(){
     var valor_localItem = localInv.value;
     var valor_numeracaoItem = numeroSerieInv.value;
 
-    var novoItemInventario = new Inventario(valor_tipoItem,valor_localItem,valor_numeracaoItem);
+    const novoItemInventario = new Inventario(valor_tipoItem,valor_localItem,valor_numeracaoItem);
 
     Array_Inv.push(novoItemInventario);
 
@@ -1607,6 +1608,8 @@ function pesquisaNumeracao(){
 
     const searchNumber = document.getElementById("input-area-numeracao").value;
 
+    const DivInventario = document.getElementById('tela-inventario')
+
     if(Array_Inv.includes(searchNumber)){
         
         let Array_resultado_numeracao = Array_Inv.filter(searchNumber);
@@ -1625,19 +1628,45 @@ function pesquisaNumeracao(){
 
 function pesquisaLocal(){
 
-    const searchLocal = document.getElementById("input-local-search").value;
+    const searchLocal = document.getElementById("input-area-local").value;
+
+
+    const DivInventario = document.getElementById('tela-inventario')
 
     var Array_pesquisa_local = []
 
     for(i=0;i<Array_Inv.length;i++){
 
-        testeLocal = Array_Inv[i].local_do_chamado
+        //Erro
+        var testeLocal = Array_Inv[i].local_do_chamado
+        console.log(testeLocal)
+        //Erro
+        var testeIdLocal = Array_Inv[i].id_card_inv
+        console.log(testeIdLocal)
+
+        console.log('entrou 2')
 
         if(searchLocal != testeLocal){
 
-            idCardRetiraLocal = Array_Inv[i]
+            Array_pesquisa_local.push(testeIdLocal)
+            console.log(Array_pesquisa_local)
+
+            console.log('entrou 3')
 
         }
+    }
+
+    for (i=0;i<Array_pesquisa_local.length;i++){
+
+        idRetira = Array_pesquisa_local[i]
+
+        if(idRetira != null){
+
+            cardRetira = document.getElementById('list-inventario-li'+idRetira)
+
+            DivInventario.removeChild(cardRetira)
+        }
+
     }
 
 
