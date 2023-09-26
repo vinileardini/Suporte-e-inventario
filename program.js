@@ -9,11 +9,11 @@ class Chamados{
 }
 
 class Inventario{
-    constructor(tipo_item,local_item,numeracao_item) {
+    constructor(tipo_item,local_item,numeracao_item,id_card) {
         this.tipo_item = tipo_item;
         this.local_item = local_item;
         this.numeracao_item = numeracao_item;
-        
+        this.id_card = id_card
     }
 }
 
@@ -568,8 +568,9 @@ function novoItemInventario(){
     var valor_tipoItem = itemInv.value;
     var valor_localItem = localInv.value;
     var valor_numeracaoItem = numeroSerieInv.value;
+    var valor_idItem = id_card_inv
 
-    const novoItemInventario = new Inventario(valor_tipoItem,valor_localItem,valor_numeracaoItem);
+    const novoItemInventario = new Inventario(valor_tipoItem,valor_localItem,valor_numeracaoItem,valor_idItem);
 
     Array_Inv.push(novoItemInventario);
 
@@ -1145,7 +1146,7 @@ function novoChamado(){
 
     // Insire os valores do card de chamado em um objeto dentro de um array
 
-    var value_idChamado = id_do_chamado
+    var value_idChamado = id_do_chamado;
     var value_nome = nomeChamado.value;
     var value_local = localChamado.value;
     var value_data = dataChamado
@@ -1610,16 +1611,39 @@ function pesquisaNumeracao(){
 
     const DivInventario = document.getElementById('tela-inventario')
 
-    if(Array_Inv.includes(searchNumber)){
-        
-        let Array_resultado_numeracao = Array_Inv.filter(searchNumber);
+    var Array_pesquisa_numeracao = []
 
-        console.log(Array_resultado_numeracao);
+    for(u=0;u<Array_pesquisa_numeracao.length;u++){
+
+
+        var testeNum = Array_Inv[u].numeroSerieInv
+        var testeIdNum = Array_Inv[u].id_card
+
+        if(searchNumber != testeNum){
+            Array_pesquisa_numeracao.push(testeIdNum)
+        }
 
     }
-    else{
-        alert("Não existe nenhum item com essa numeração");
+
+    for(i=0;i<Array_pesquisa_numeracao.length;i++){
+
+        idTesteRetira = Array_pesquisa_numeracao[i]
+
+        if(idTesteRetira != null){
+
+            li_excluiCard = document.getElementById('li-list-inventario'+idTesteRetira)
+            ExcluiCard  = li_excluiCard.parentNode
+
+            DivInventario.removeChild(ExcluiCard)
+        }
+
     }
+
+    if(Array_pesquisa_numeracao.length == 0){
+        alert('Não existe item com essa numeração')
+    }
+
+    
 
 
 }
@@ -1637,23 +1661,16 @@ function pesquisaLocal(){
 
     for(i=0;i<Array_Inv.length;i++){
 
-        //Erro
-        var testeLocal = Array_Inv[i].local_do_chamado
-        console.log(testeLocal)
-        //Erro
-        var testeIdLocal = Array_Inv[i].id_card_inv
-        console.log(testeIdLocal)
 
-        console.log('entrou 2')
+        var testeLocal = Array_Inv[i].local_item
+        var testeIdLocal = Array_Inv[i].id_card
 
         if(searchLocal != testeLocal){
 
             Array_pesquisa_local.push(testeIdLocal)
-            console.log(Array_pesquisa_local)
-
-            console.log('entrou 3')
 
         }
+        
     }
 
     for (i=0;i<Array_pesquisa_local.length;i++){
@@ -1662,17 +1679,25 @@ function pesquisaLocal(){
 
         if(idRetira != null){
 
-            cardRetira = document.getElementById('list-inventario-li'+idRetira)
+            li_cardRetira = document.getElementById('list-inventario-li'+idRetira)
+            cardRetira = li_cardRetira.parentNode
 
             DivInventario.removeChild(cardRetira)
         }
 
     }
 
-
+    if(Array_pesquisa_local.length == 0){
+        alert("Não existe item neste local")
+    }
 
 
 }
+
+
+
+
+
 // Exclui o campo de adição de chamado ou inventário
 
 function resetAdd(){
