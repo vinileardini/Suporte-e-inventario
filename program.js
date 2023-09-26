@@ -1586,18 +1586,30 @@ function pesquisaData(){
 
     console.log(transformaData);
 
-    if(Array_chamados.find(Array_chamados => Array_chamados.data_do_chamado === transformaData)){
+    Array_pesquisa_data = []
 
-        let consulta_index = Array_chamados.findIndex(Array_chamados => Array_chamados.data_do_chamado === transformaData);
+    for(a=0;a<Array_chamados.length;a++){
 
-        let operacao_id_data = consulta_index+1;
 
-        let card_id_data = document.getElementById("shape-card"+operacao_id_data);
+        var testeData = Array_chamados[a].data_do_chamado
+        var idTesteData = Array_chamados[a].id_do_chamado
 
+        if(searchDate != testeData){
+            Array_pesquisa_data.push(idTesteData)
+        }
     }
-    else{
-        alert("Não existe chamado desta data");
+
+    for(j=0;j<Array_pesquisa_data.length;j++){
+        idRetirada = Array_pesquisa_data[j]
+
+        if(idRetirada != null){
+            cardRetirada = document.getElementById('shape-card'+idRetirada)
+
+            DivCardChamado.removeChild(cardRetirada)
+        }
     }
+
+    
 
     
 
@@ -1691,6 +1703,11 @@ function pesquisaLocal(){
         alert("Não existe item neste local")
     }
 
+
+}
+
+function verificaPesquisaLocal(){
+    
 
 }
 
