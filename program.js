@@ -770,6 +770,7 @@ function selectFunction(){
             input_pesquisa_local.id = "input-area-local";
             input_pesquisa_local.className = "input-area-local";
             input_pesquisa_local.type = "text";
+            input_pesquisa_local.onchange=function(){verificaPesquisaLocal()};
             const button_submit_pesquisa_local = document.createElement("button");
             button_submit_pesquisa_local.id = "lupa-pesquisa-local";
             button_submit_pesquisa_local.className = "lupa-pesquisa";
@@ -1692,6 +1693,7 @@ function pesquisaLocal(){
         if(idRetira != null){
 
             li_cardRetira = document.getElementById('list-inventario-li'+idRetira)
+
             cardRetira = li_cardRetira.parentNode
 
             DivInventario.removeChild(cardRetira)
@@ -1712,26 +1714,32 @@ function verificaPesquisaLocal(){
 
         body_inventario = document.body
 
-        checkExistsDivInv = body_inventario.contains(document.getElementById('tela-inventario'));
-
         DivCardInv = document.getElementById('tela-inventario');
 
-        checkExistsItemInventario = DivCardInv.children.lenght;
+        checkExistsDivInv = body_inventario.contains(DivCardInv);
 
         Array_exclui_inv = []
 
         if(checkExistsDivInv == true){
+
+            checkExistsItemInventario = DivCardInv.children.length;
+
             if(checkExistsItemInventario > 0){
+
+
                 for(i = 0;i<checkExistsItemInventario;i++){
+
                     exclui_item = DivCardInv.children[i]
 
-                    Array_exclui_inv.push(exclui_item.children[0].innerHTML)
+                    Array_exclui_inv.push(exclui_item.children[0].getAttribute('id'))
                 }
 
                 for(j=0;j<Array_exclui_inv.length;j++){
                     IdItemExclui = Array_exclui_inv[j]
-                    ItemExclui = document.getElementById('list-inventario-li'+IdItemExclui)
-                    DivCardInv.removeChild(ItemExclui)
+                    manipulacaoIdItemExclui = IdItemExclui.replace('list-inventario-li','')
+                    ItemExclui = document.getElementById('list-inventario-li'+manipulacaoIdItemExclui);
+                    CardExclui = ItemExclui.parentNode;
+                    DivCardInv.removeChild(CardExclui)
                 }
 
                 updateCheckExistsItem = DivCardInv.children.lenght
@@ -1742,7 +1750,6 @@ function verificaPesquisaLocal(){
                         var numeroSerieInv = document.getElementById("input-inv-numeracao");
                         var itemInv = document.getElementById("input-item-inv");
                         var localInv = document.getElementById("input-local-inv");
-                        var checkExistsDivInventario = document.getElementById("tela-inventario");
 
                         var tamanhoArraydoInv = Array_Inv.length;
 
@@ -1884,6 +1891,10 @@ function verificaPesquisaLocal(){
             }
         }
 
+    }
+
+    else{
+        console.log('alteracao campo pesquisa')
     }
 }
 
