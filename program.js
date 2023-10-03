@@ -1698,7 +1698,9 @@ function verificaPesquisaNumeracao(){
 
                     console.log('entrou')
 
-                    for(u=0;u<Array_Inv.lenght;u++){
+                    for(u=0;u<Array_Inv.length;u++){
+
+                        console.log('entrou 1')
 
                         numeroSerieInv = Array_Inv[u].numeracao_item;
                         itemInv = Array_Inv[u].tipo_item;
@@ -1725,7 +1727,7 @@ function verificaPesquisaNumeracao(){
                         input_inv_numeroSerie.id = "input-numeroDeSerie"
                         input_inv_numeroSerie.type = "text";
                         input_inv_numeroSerie.readOnly = true;
-                        input_inv_numeroSerie.value = numeroSerieInv.value;
+                        input_inv_numeroSerie.value = numeroSerieInv;
                         const label_equipamento = document.createElement('label');
                         label_equipamento.innerHTML = "Equipamento:";
                         label_equipamento.id = "label_equipamento";
@@ -1734,7 +1736,7 @@ function verificaPesquisaNumeracao(){
                         input_inv_equipamento.id = "input-equipamento"
                         input_inv_equipamento.type = "text";
                         input_inv_equipamento.readOnly = true;
-                        input_inv_equipamento.value = itemInv.value ;
+                        input_inv_equipamento.value = itemInv;
                         const label_local = document.createElement('label');
                         label_local.id = "label-local";
                         label_local.textContent = "Local:";
@@ -1743,7 +1745,7 @@ function verificaPesquisaNumeracao(){
                         input_local.id = "input-local";
                         input_local.type = "text";
                         input_local.readOnly = true;
-                        input_local.value = localInv.value;
+                        input_local.value = localInv;
                         const button_edit_inv = document.createElement('button');
                         button_edit_inv.textContent = "Editar";
                         button_edit_inv.className = "button-edit-remove";
