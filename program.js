@@ -799,6 +799,7 @@ function selectFunction(){
             input_pesquisa_numeracao.id = "input-area-numeracao";
             input_pesquisa_numeracao.className = "input-area-numeracao";
             input_pesquisa_numeracao.type = "text";
+            input_pesquisa_numeracao.onchange = function(){verificaPesquisaNumeracao()}
             const button_submit_pesquisa_numeracao = document.createElement("button");
             button_submit_pesquisa_numeracao.id = "lupa-pesquisa-numeracao";
             button_submit_pesquisa_numeracao.className = "lupa-pesquisa";
@@ -1626,11 +1627,12 @@ function pesquisaNumeracao(){
 
     var Array_pesquisa_numeracao = []
 
-    for(u=0;u<Array_pesquisa_numeracao.length;u++){
+    for(u=0;u<Array_Inv.length;u++){
 
-
-        var testeNum = Array_Inv[u].numeroSerieInv
+        var testeNum = Array_Inv[u].numeracao_item
+        console.log('teste num ='+testeNum)
         var testeIdNum = Array_Inv[u].id_card
+        console.log('teste id num='+testeIdNum)
 
         if(searchNumber != testeNum){
             Array_pesquisa_numeracao.push(testeIdNum)
@@ -1644,7 +1646,7 @@ function pesquisaNumeracao(){
 
         if(idTesteRetira != null){
 
-            li_excluiCard = document.getElementById('li-list-inventario'+idTesteRetira)
+            li_excluiCard = document.getElementById('list-inventario-li'+idTesteRetira)
             ExcluiCard  = li_excluiCard.parentNode
 
             DivInventario.removeChild(ExcluiCard)
@@ -1652,13 +1654,202 @@ function pesquisaNumeracao(){
 
     }
 
-    if(Array_pesquisa_numeracao.length == 0){
-        alert('Não existe item com essa numeração')
+
+}
+
+
+//Verifica se o campo de pesquisa de numeracao está em branco
+function verificaPesquisaNumeracao(){
+
+    if(document.getElementById('input-area-numeracao').value == ''){
+        
+        body_inventario = document.body;
+
+        DivCardInventario = document.getElementById('tela-inventario');
+
+        checkExistsDivInventario = body_inventario.contains(DivCardInventario)
+
+        Array_exclui_inventario = []
+
+        if(checkExistsDivInventario == true){
+
+            checkExistsItemInv = DivCardInventario.children.length;
+
+            if(checkExistsItemInv > 0){
+
+                for(a=0;a<checkExistsItemInv;a++){
+
+                    exclui_item_inv = DivCardInventario.children[a]
+
+                    Array_exclui_inventario.push(exclui_item_inv.getAttribute('id'))
+
+                }
+
+                for(i=0;i<Array_exclui_inventario.length;i++){
+                    IdItemInvExclui = Array_exclui_inventario[i]
+                    ItemInvExclui = document.getElementById(IdItemInvExclui)
+                    DivCardInventario.removeChild(ItemInvExclui)
+
+                }
+
+                updateCheckExistsCardItem = DivCardInventario.children.length
+
+                if(updateCheckExistsCardItem == 0){
+
+                    console.log('entrou')
+
+                    for(u=0;u<Array_Inv.lenght;u++){
+
+                        numeroSerieInv = Array_Inv[u].numeracao_item;
+                        itemInv = Array_Inv[u].tipo_item;
+                        localInv = Array_Inv[u].local_item;
+
+                        tamanhoArrayInventario = Array_Inv.length;
+
+                        id_card_inv = tamanhoArrayInventario+1;
+
+                        const div_inventario = document.createElement('div');
+                        div_inventario.className = 'inventario';
+                        div_inventario.id = "tela-inventario";
+                        const ul_inventario = document.createElement('ul');
+                        ul_inventario.className = "list-inventario";
+                        ul_inventario.id = "list-inventario"
+                        const li_chamado = document.createElement('li');
+                        li_chamado.className = "list-inventario-li";
+                        li_chamado.id = 'list-inventario-li'+id_card_inv;
+                        const label_numeroSerie = document.createElement('label');
+                        label_numeroSerie.innerHTML = "Número de série:";
+                        label_numeroSerie.id = "number-serie-align";
+                        const input_inv_numeroSerie = document.createElement('input');
+                        input_inv_numeroSerie.className = "inputs-inv";
+                        input_inv_numeroSerie.id = "input-numeroDeSerie"
+                        input_inv_numeroSerie.type = "text";
+                        input_inv_numeroSerie.readOnly = true;
+                        input_inv_numeroSerie.value = numeroSerieInv.value;
+                        const label_equipamento = document.createElement('label');
+                        label_equipamento.innerHTML = "Equipamento:";
+                        label_equipamento.id = "label_equipamento";
+                        const input_inv_equipamento = document.createElement('input');
+                        input_inv_equipamento.className = "inputs-inv";
+                        input_inv_equipamento.id = "input-equipamento"
+                        input_inv_equipamento.type = "text";
+                        input_inv_equipamento.readOnly = true;
+                        input_inv_equipamento.value = itemInv.value ;
+                        const label_local = document.createElement('label');
+                        label_local.id = "label-local";
+                        label_local.textContent = "Local:";
+                        const input_local = document.createElement('input');
+                        input_local.id.className = "inputs-inv";
+                        input_local.id = "input-local";
+                        input_local.type = "text";
+                        input_local.readOnly = true;
+                        input_local.value = localInv.value;
+                        const button_edit_inv = document.createElement('button');
+                        button_edit_inv.textContent = "Editar";
+                        button_edit_inv.className = "button-edit-remove";
+                        button_edit_inv.type = "submit";
+                        button_edit_inv.onclick = function(){editarInventario()};
+                        const button_remove_inv = document.createElement('button');
+                        button_remove_inv.textContent = "Remover";
+                        button_remove_inv.id = "button-remove-inv";
+                        button_remove_inv.className = "button-edit-remove";
+                        button_remove_inv.type = "submit";
+                        button_remove_inv.onclick = function(){removerInventario()};
+                    
+                        body_inventario.appendChild(div_inventario);
+                        div_inventario.appendChild(ul_inventario);
+                        ul_inventario.appendChild(li_chamado);
+                        li_chamado.appendChild(label_numeroSerie);
+                        li_chamado.appendChild(input_inv_numeroSerie);
+                        li_chamado.appendChild(label_equipamento);
+                        li_chamado.appendChild(input_inv_equipamento);
+                        li_chamado.appendChild(label_local);
+                        li_chamado.appendChild(input_local);
+                        li_chamado.appendChild(button_edit_inv);
+                        li_chamado.appendChild(button_remove_inv);
+
+
+
+
+                    }
+                }
+                else{
+                    const div_inventario = document.createElement('div');
+                    div_inventario.className = 'inventario';
+                    div_inventario.id = 'tela-inventario';
+
+                    for(i=0;i<Array_Inv.length;i++){
+
+                        numeroSerieInv = Array_Inv[i].numeracao_item
+                        itemInv = Array_Inv[i].tipo_item
+                        localInv = Array_Inv[i].local_item
+                    
+                        const ul_inventario = document.createElement('ul');
+                        ul_inventario.className = "list-inventario";
+                        ul_inventario.id = "list-inventario"
+                        const li_chamado = document.createElement('li');
+                        li_chamado.className = "list-inventario-li";
+                        li_chamado.id = 'list-inventario-li'+id_card_inv;
+                        const label_numeroSerie = document.createElement('label');
+                        label_numeroSerie.innerHTML = "Número de série:";
+                        label_numeroSerie.id = "number-serie-align";
+                        const input_inv_numeroSerie = document.createElement('input');
+                        input_inv_numeroSerie.className = "inputs-inv";
+                        input_inv_numeroSerie.id = "input-numeroDeSerie"
+                        input_inv_numeroSerie.type = "text";
+                        input_inv_numeroSerie.readOnly = true;
+                        input_inv_numeroSerie.value = numeroSerieInv;
+                        const label_equipamento = document.createElement('label');
+                        label_equipamento.innerHTML = "Equipamento:";
+                        label_equipamento.id = "label_equipamento";
+                        const input_inv_equipamento = document.createElement('input');
+                        input_inv_equipamento.className = "inputs-inv";
+                        input_inv_equipamento.id = "input-equipamento"
+                        input_inv_equipamento.type = "text";
+                        input_inv_equipamento.readOnly = true;
+                        input_inv_equipamento.value = itemInv;
+                        const label_local = document.createElement('label');
+                        label_local.id = "label-local";
+                        label_local.textContent = "Local:";
+                        const input_local = document.createElement('input');
+                        input_local.id.className = "inputs-inv";
+                        input_local.id = "input-local";
+                        input_local.type = "text";
+                        input_local.readOnly = true;
+                        input_local.value = localInv;
+                        const button_edit_inv = document.createElement('button');
+                        button_edit_inv.textContent = "Editar";
+                        button_edit_inv.className = "button-edit-remove";
+                        button_edit_inv.type = "submit";
+                        button_edit_inv.onclick = function(){editarInventario()};
+                        const button_remove_inv = document.createElement('button');
+                        button_remove_inv.textContent = "Remover";
+                        button_remove_inv.id = "button-remove-inv";
+                        button_remove_inv.className = "button-edit-remove";
+                        button_remove_inv.type = "submit";
+                        button_remove_inv.onclick = function(){removerInventario()};
+                    
+                        body_inventario.appendChild(div_inventario);
+                        div_inventario.appendChild(ul_inventario);
+                        ul_inventario.appendChild(li_chamado);
+                        li_chamado.appendChild(label_numeroSerie);
+                        li_chamado.appendChild(input_inv_numeroSerie);
+                        li_chamado.appendChild(label_equipamento);
+                        li_chamado.appendChild(input_inv_equipamento);
+                        li_chamado.appendChild(label_local);
+                        li_chamado.appendChild(input_local);
+                        li_chamado.appendChild(button_edit_inv);
+                        li_chamado.appendChild(button_remove_inv);
+
+                    }
+                }
+
+            }
+
+        }
+
+
     }
-
-    
-
-
 }
 
 // Realiza a pesquisa de itens a partir do local informado na pesquisa
@@ -1736,8 +1927,7 @@ function verificaPesquisaLocal(){
 
                 for(j=0;j<Array_exclui_inv.length;j++){
                     IdItemExclui = Array_exclui_inv[j]
-                    manipulacaoIdItemExclui = IdItemExclui.replace('list-inventario-li','')
-                    ItemExclui = document.getElementById('list-inventario-li'+manipulacaoIdItemExclui);
+                    ItemExclui = document.getElementById(IdItemExclui);
                     CardExclui = ItemExclui.parentNode;
                     DivCardInv.removeChild(CardExclui)
                 }
@@ -1747,9 +1937,9 @@ function verificaPesquisaLocal(){
                 if(updateCheckExistsItem == 0){
                     for(a=0;a<Array_Inv.lenght;a++){
 
-                        var numeroSerieInv = document.getElementById("input-inv-numeracao");
-                        var itemInv = document.getElementById("input-item-inv");
-                        var localInv = document.getElementById("input-local-inv");
+                        numeroSerieInv = Array_Inv[a].numeracao_item
+                        itemInv = Array_Inv[a].tipo_item
+                        localInv = Array_Inv[a].local_item
 
                         var tamanhoArraydoInv = Array_Inv.length;
 
@@ -1822,14 +2012,17 @@ function verificaPesquisaLocal(){
                 }
 
                 else{
+
+                    const div_inventario = document.createElement('div');
+                    div_inventario.className = 'inventario';
+                    div_inventario.id = "tela-inventario";
                     
                     for(u=0;u<Array_Inv.length;u++){
 
-                        
-
-                        const div_inventario = document.createElement('div');
-                        div_inventario.className = 'inventario';
-                        div_inventario.id = "tela-inventario";
+                        numeroSerieInv = Array_Inv[u].numeracao_item
+                        itemInv = Array_Inv[u].tipo_item
+                        localInv = Array_Inv[u].local_item
+                    
                         const ul_inventario = document.createElement('ul');
                         ul_inventario.className = "list-inventario";
                         ul_inventario.id = "list-inventario"
@@ -1844,7 +2037,7 @@ function verificaPesquisaLocal(){
                         input_inv_numeroSerie.id = "input-numeroDeSerie"
                         input_inv_numeroSerie.type = "text";
                         input_inv_numeroSerie.readOnly = true;
-                        input_inv_numeroSerie.value = numeroSerieInv.value;
+                        input_inv_numeroSerie.value = numeroSerieInv;
                         const label_equipamento = document.createElement('label');
                         label_equipamento.innerHTML = "Equipamento:";
                         label_equipamento.id = "label_equipamento";
@@ -1853,7 +2046,7 @@ function verificaPesquisaLocal(){
                         input_inv_equipamento.id = "input-equipamento"
                         input_inv_equipamento.type = "text";
                         input_inv_equipamento.readOnly = true;
-                        input_inv_equipamento.value = itemInv.value ;
+                        input_inv_equipamento.value = itemInv;
                         const label_local = document.createElement('label');
                         label_local.id = "label-local";
                         label_local.textContent = "Local:";
@@ -1862,7 +2055,7 @@ function verificaPesquisaLocal(){
                         input_local.id = "input-local";
                         input_local.type = "text";
                         input_local.readOnly = true;
-                        input_local.value = localInv.value;
+                        input_local.value = localInv;
                         const button_edit_inv = document.createElement('button');
                         button_edit_inv.textContent = "Editar";
                         button_edit_inv.className = "button-edit-remove";
