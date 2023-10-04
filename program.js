@@ -731,7 +731,7 @@ function selectFunction(){
             input_pesquisa_data.id = "input-area-date";
             input_pesquisa_data.className = "input-area-pesquisa";
             input_pesquisa_data.type = "date";
-            input_pesquisa_data.onsubmit = function(){pesquisaData()};
+            input_pesquisa_data.onsubmit = function(){pesquisaLocalChamado()};
 
             div_filtragem.appendChild(nova_div_pesquisa_data);
             nova_div_pesquisa_data.appendChild(input_pesquisa_data);
@@ -1580,29 +1580,26 @@ function verificaPesquisa(){
 
 // Realiza a pesquisa através da data informada
 
-function pesquisaData(){
+function pesquisaLocalChamado(){
 
-    const searchDate = document.getElementById("input-area-date").value;
+    const searchDate = document.getElementById("input-area-local-chamado").value;
 
-    const transformaData = searchDate.split("-").reverse().join('/');
+    DivCardChamado = document.getElementById('grid-tela')
 
-    console.log(transformaData);
-
-    Array_pesquisa_data = []
+    Array_pesquisa_local_chamado = []
 
     for(a=0;a<Array_chamados.length;a++){
 
+        var testeLocalChamado = Array_chamados[a].local_do_chamado
+        var idTesteLocalChamado = Array_chamados[a].id_do_chamado
 
-        var testeData = Array_chamados[a].data_do_chamado
-        var idTesteData = Array_chamados[a].id_do_chamado
-
-        if(searchDate != testeData){
-            Array_pesquisa_data.push(idTesteData)
+        if(searchDate != testeLocalChamado){
+            Array_pesquisa_local_chamado.push(idTesteLocalChamado)
         }
     }
 
-    for(j=0;j<Array_pesquisa_data.length;j++){
-        idRetirada = Array_pesquisa_data[j]
+    for(j=0;j<Array_pesquisa_local_chamado.length;j++){
+        idRetirada = Array_pesquisa_local_chamado[j]
 
         if(idRetirada != null){
             cardRetirada = document.getElementById('shape-card'+idRetirada)
@@ -1610,10 +1607,47 @@ function pesquisaData(){
             DivCardChamado.removeChild(cardRetirada)
         }
     }
-
     
 
-    
+}
+
+function verificaPesquisaLocalChamado(){
+
+    body_chamado = document.body;
+
+    DivCardChamado = document.getElementById('grid-tela');
+
+    checkExistsDivdoChamado = body_inventario.contains(DivCardChamado);
+
+    Array_retira_chamado = []
+
+    if(checkExistsDivdoChamado == true){
+        checkExistsChamado = DivCardChamado.children.lenght;
+
+        if(checkExistsChamado > 0){
+            for(i=0;i<checkExistsChamado;i++){
+
+                exclui_chamado = DivCardChamado.children[i];
+
+                Array_retira_chamado.push(exclui_chamado.getAttribute('id'));
+
+            }
+
+            for(a=0;a<Array_retira_chamado.lenght;a++){
+                idChamado = Array_retira_chamado[a];
+                retiraChamado = document.getElementById('shape-card'+idChamado);
+                DivCardChamado.removeChild(retiraChamado);
+            }
+
+            updateCheckExistsChamado = DivCardChamado.children.length;
+
+            if(updateCheckExistsChamado == 0){
+                
+            }
+        }
+    }
+
+
 
 }
 
