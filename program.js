@@ -721,23 +721,32 @@ function selectFunction(){
             nova_div_pesquisa_nome.appendChild(button_submit_pesquisa_nome);
             button_submit_pesquisa_nome.appendChild(symbol_lupa_nome);
 
-        // Cria filtragem dos cards de chamado a partir da data do chamado
+        // Cria filtragem dos cards de chamado a partir do local do chamado
 
-            const nova_div_pesquisa_data = document.createElement("div");
-            nova_div_pesquisa_data.textContent = "Insira a data para pesquisa:";
-            nova_div_pesquisa_data.id = "input-date-search";
-            nova_div_pesquisa_data.className = "input-date-search";
-            const input_pesquisa_data = document.createElement("input");
-            input_pesquisa_data.id = "input-area-date";
-            input_pesquisa_data.className = "input-area-pesquisa";
-            input_pesquisa_data.type = "date";
-            input_pesquisa_data.onsubmit = function(){pesquisaLocalChamado()};
+            const nova_div_pesquisa_local_chamado = document.createElement("div");
+            nova_div_pesquisa_local_chamado.textContent = "Insira o local do chamado:";
+            nova_div_pesquisa_local_chamado.id = "input-local-chamado-search";
+            nova_div_pesquisa_local_chamado.className = "input-area-local";
+            const input_pesquisa_local = document.createElement("input");
+            input_pesquisa_local.id = "input-area-local-chamado";
+            input_pesquisa_local.className = "input-area-local";
+            input_pesquisa_local.type = 'text';
+            const button_submit_pesquisa_local_chamado= document.createElement("button");
+            button_submit_pesquisa_local_chamado.id = "lupa-pesquisa-nome";
+            button_submit_pesquisa_local_chamado.className = "lupa-pesquisa";
+            button_submit_pesquisa_local_chamado.type = "submit";
+            button_submit_pesquisa_local_chamado.onclick=function(){pesquisaLocalChamado};
+            const symbol_lupa_local_chamado = document.createElement("i");
+            symbol_lupa_local_chamado.id = "symbol-lupa-nome";
+            symbol_lupa_local_chamado.className = "fa-solid fa-magnifying-glass";
 
-            div_filtragem.appendChild(nova_div_pesquisa_data);
-            nova_div_pesquisa_data.appendChild(input_pesquisa_data);
+            div_filtragem.appendChild(nova_div_pesquisa_local_chamado);
+            nova_div_pesquisa_local_chamado.appendChild(input_pesquisa_local);
+            nova_div_pesquisa_local_chamado.appendChild(button_submit_pesquisa_local_chamado);
+            button_submit_pesquisa_local_chamado.appendChild(symbol_lupa_local_chamado)
 
             botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_nome);
-            botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_data);
+            botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_local_chamado);
 
             const area_pesquisa_local = document.getElementById("input-local-search");
 
@@ -817,10 +826,10 @@ function selectFunction(){
             botao_add.insertAdjacentElement("beforebegin",nova_div_pesquisa_numeracao);
 
             const area_pesquisa_nome = document.getElementById("input-name-search");
-            const area_pesquisa_data = document.getElementById("input-date-search");
+            const area_pesquisa_local_chamado = document.getElementById("input-local-chamado-search");
 
             div_filtragem.removeChild(area_pesquisa_nome);
-            div_filtragem.removeChild(area_pesquisa_data);
+            div_filtragem.removeChild(area_pesquisa_local_chamado);
             
         
     }
@@ -1603,6 +1612,7 @@ function pesquisaLocalChamado(){
 
         if(idRetirada != null){
             cardRetirada = document.getElementById('shape-card'+idRetirada)
+            console.log('card retirada:'+cardRetirada)
 
             DivCardChamado.removeChild(cardRetirada)
         }
@@ -1612,43 +1622,253 @@ function pesquisaLocalChamado(){
 }
 
 function verificaPesquisaLocalChamado(){
+    if(document.getElementById('input-area-local-chamado').value == ''){
+        body_chamado = document.body;
 
-    body_chamado = document.body;
+        DivCardChamado = document.getElementById('grid-tela');
 
-    DivCardChamado = document.getElementById('grid-tela');
+        checkExistsDivdoChamado = body_chamado.contains(DivCardChamado);
 
-    checkExistsDivdoChamado = body_inventario.contains(DivCardChamado);
+        Array_retira_chamado = []
 
-    Array_retira_chamado = []
+        if(checkExistsDivdoChamado == true){
 
-    if(checkExistsDivdoChamado == true){
-        checkExistsChamado = DivCardChamado.children.lenght;
+            console.log('entrou')
 
-        if(checkExistsChamado > 0){
-            for(i=0;i<checkExistsChamado;i++){
+            checkExistsChamado = DivCardChamado.children.length;
 
-                exclui_chamado = DivCardChamado.children[i];
+            if(checkExistsChamado > 0){
 
-                Array_retira_chamado.push(exclui_chamado.getAttribute('id'));
+                console.log('entrou 2')
 
-            }
+                for(i=0;i<checkExistsChamado;i++){
 
-            for(a=0;a<Array_retira_chamado.lenght;a++){
-                idChamado = Array_retira_chamado[a];
-                retiraChamado = document.getElementById('shape-card'+idChamado);
-                DivCardChamado.removeChild(retiraChamado);
-            }
+                    exclui_chamado = DivCardChamado.children[i];
 
-            updateCheckExistsChamado = DivCardChamado.children.length;
+                    manipulaId = exclui_chamado.getAttribute('id').replace('shape-card','')
 
-            if(updateCheckExistsChamado == 0){
-                
+                    console.log('manipula id:'+manipulaId)
+
+                    Array_retira_chamado.push(manipulaId);
+
+                }
+
+                for(a=0;a<Array_retira_chamado.length;a++){
+                    idChamado = Array_retira_chamado[a];
+                    retiraChamado = document.getElementById('shape-card'+idChamado);
+                    DivCardChamado.removeChild(retiraChamado);
+                }
+
+                updateCheckExistsChamado = DivCardChamado.children.length;
+
+                if(updateCheckExistsChamado == 0){
+                    
+                    for(u=0;u<Array_chamados.length;u++){
+                        
+                        nomeChamado = Array_chamados[u].nome_do_chamado;
+                        id_do_chamado = Array_chamados[u].id_do_chamado;
+                        localChamado = Array_chamados[u].local_do_chamado;
+                        dataChamado = Array_chamados[u].data_do_chamado;
+                        descricaoChamado = Array_chamados[u].descricao_do_chamado;
+            
+                        tamanhoArray = Array_chamados.length;
+
+                        const div_chamado = document.getElementById("grid-tela");
+                        const div_card = document.createElement("div");
+                        div_card.className = "shape-card";
+                        div_card.id = "shape-card";
+                        div_card.dataset.id_card = tamanhoArray;
+                        const label_idNumber = document.createElement("label");
+                        label_idNumber.id = "number-id";
+                        label_idNumber.className = "id-number";
+                        label_idNumber.innerHTML = id_do_chamado;
+                        let pulaLinha = document.createElement("p");
+                        const label_nomeSolicitante = document.createElement("label");
+                        label_nomeSolicitante.innerHTML = "Nome do solicitante:";
+                        const input_nome = document.createElement("input");
+                        input_nome.type = "text";
+                        input_nome.id = "input-label-nome";
+                        input_nome.className = "input-label";
+                        input_nome.readOnly = true;
+                        input_nome.value = nomeChamado;
+                        let pulaLinha_1 = document.createElement("p");
+                        const label_local = document.createElement("label");
+                        label_local.innerText = "Local:";
+                        label_local.id = "label-local";
+                        const input_local = document.createElement("input");
+                        input_local.type = "text";
+                        input_local.id = "input-label-local";
+                        input_local.className = "input-label";
+                        input_local.readOnly = true;
+                        input_local.value = localChamado;
+                        let pulaLinha_2 = document.createElement("p");
+                        const label_data = document.createElement("label");
+                        label_data.innerHTML = "Data:";
+                        const input_data = document.createElement("label");
+                        input_data.type = "date";
+                        input_data.id = "input-date-style";
+                        input_data.className = "input-label";
+                        input_data.readOnly = true;
+                        input_data.innerText = dataChamado;
+                        let pulaLinha_3 = document.createElement("p");
+                        const label_descricao = document.createElement("label");
+                        label_descricao.innerHTML = "Descrição:";
+                        label_descricao.id = "label-desc";
+                        let pulaLinha_4 = document.createElement("p");
+                        const text_descricao = document.createElement("textarea") 
+                        text_descricao.id = "desc-chamados";
+                        text_descricao.cols = 35;
+                        text_descricao.rows = 5;
+                        text_descricao.readOnly = true;
+                        text_descricao.innerText = descricaoChamado;
+                        let pulaLinha_5 = document.createElement("p");
+                        const div_botoes = document.createElement("div");
+                        div_botoes.className = "div-botoes-chamado";
+                        div_botoes.id = "div-botoes-chamados"
+                        const button_edit = document.createElement("button");
+                        button_edit.innerHTML = "Editar";
+                        button_edit.type ="submit";
+                        button_edit.className = "button-edit-remove";
+                        button_edit.id = "button-edit";
+                        button_edit.onclick = function(){editarChamado()};
+                        const button_remove = document.createElement("button");
+                        button_remove.innerHTML= "Remover";
+                        button_remove.type = "submit";
+                        button_remove.className = "button-edit-remove";
+                        button_remove.id = "button-remove";
+                        button_remove.onclick = function(){fecharChamado()}
+        
+                        div_chamado.appendChild(div_card);
+                        div_card.appendChild(label_idNumber);
+                        div_card.appendChild(pulaLinha);
+                        div_card.appendChild(label_nomeSolicitante);
+                        div_card.appendChild(input_nome);
+                        div_card.appendChild(pulaLinha_1);
+                        div_card.appendChild(label_local);
+                        div_card.appendChild(input_local);
+                        div_card.appendChild(pulaLinha_2)
+                        div_card.appendChild(label_data);
+                        div_card.appendChild(input_data);
+                        div_card.appendChild(pulaLinha_3); 
+                        div_card.appendChild(label_descricao);
+                        div_card.appendChild(pulaLinha_4);
+                        div_card.appendChild(text_descricao);
+                        div_card.appendChild(pulaLinha_5);
+                        div_card.appendChild(div_botoes);
+                        div_botoes.appendChild(button_edit);
+                        div_botoes.appendChild(button_remove);
+
+                        
+
+                    }
+
+                }
+                else{
+                    
+                    for(i=0;i<Array_chamados.length;i++){
+                        
+                        nomeChamado = Array_chamados[i].nome_do_chamado;
+                        id_do_chamado = Array_chamados[i].id_do_chamado;
+                        localChamado = Array_chamados[i].local_do_chamado;
+                        dataChamado = Array_chamados[i].data_do_chamado;
+                        descricaoChamado = Array_chamados[i].descricao_do_chamado;
+
+                        tamanhoArray = Array_chamados.length;
+
+                        const div_chamado = document.getElementById("grid-tela");
+                        const div_card = document.createElement("div");
+                        div_card.className = "shape-card";
+                        div_card.id = "shape-card";
+                        div_card.dataset.id_card = tamanhoArray;
+                        const label_idNumber = document.createElement("label");
+                        label_idNumber.id = "number-id";
+                        label_idNumber.className = "id-number";
+                        label_idNumber.innerHTML = id_do_chamado;
+                        let pulaLinha = document.createElement("p");
+                        const label_nomeSolicitante = document.createElement("label");
+                        label_nomeSolicitante.innerHTML = "Nome do solicitante:";
+                        const input_nome = document.createElement("input");
+                        input_nome.type = "text";
+                        input_nome.id = "input-label-nome";
+                        input_nome.className = "input-label";
+                        input_nome.readOnly = true;
+                        input_nome.value = nomeChamado;
+                        let pulaLinha_1 = document.createElement("p");
+                        const label_local = document.createElement("label");
+                        label_local.innerText = "Local:";
+                        label_local.id = "label-local";
+                        const input_local = document.createElement("input");
+                        input_local.type = "text";
+                        input_local.id = "input-label-local";
+                        input_local.className = "input-label";
+                        input_local.readOnly = true;
+                        input_local.value = localChamado;
+                        let pulaLinha_2 = document.createElement("p");
+                        const label_data = document.createElement("label");
+                        label_data.innerHTML = "Data:";
+                        const input_data = document.createElement("label");
+                        input_data.type = "date";
+                        input_data.id = "input-date-style";
+                        input_data.className = "input-label";
+                        input_data.readOnly = true;
+                        input_data.innerText = dataChamado;
+                        let pulaLinha_3 = document.createElement("p");
+                        const label_descricao = document.createElement("label");
+                        label_descricao.innerHTML = "Descrição:";
+                        label_descricao.id = "label-desc";
+                        let pulaLinha_4 = document.createElement("p");
+                        const text_descricao = document.createElement("textarea") 
+                        text_descricao.id = "desc-chamados";
+                        text_descricao.cols = 35;
+                        text_descricao.rows = 5;
+                        text_descricao.readOnly = true;
+                        text_descricao.innerText = descricaoChamado;
+                        let pulaLinha_5 = document.createElement("p");
+                        const div_botoes = document.createElement("div");
+                        div_botoes.className = "div-botoes-chamado";
+                        div_botoes.id = "div-botoes-chamados"
+                        const button_edit = document.createElement("button");
+                        button_edit.innerHTML = "Editar";
+                        button_edit.type ="submit";
+                        button_edit.className = "button-edit-remove";
+                        button_edit.id = "button-edit";
+                        button_edit.onclick = function(){editarChamado()};
+                        const button_remove = document.createElement("button");
+                        button_remove.innerHTML= "Remover";
+                        button_remove.type = "submit";
+                        button_remove.className = "button-edit-remove";
+                        button_remove.id = "button-remove";
+                        button_remove.onclick = function(){fecharChamado()}
+
+                        div_chamado.appendChild(div_card);
+                        div_card.appendChild(label_idNumber);
+                        div_card.appendChild(pulaLinha);
+                        div_card.appendChild(label_nomeSolicitante);
+                        div_card.appendChild(input_nome);
+                        div_card.appendChild(pulaLinha_1);
+                        div_card.appendChild(label_local);
+                        div_card.appendChild(input_local);
+                        div_card.appendChild(pulaLinha_2)
+                        div_card.appendChild(label_data);
+                        div_card.appendChild(input_data);
+                        div_card.appendChild(pulaLinha_3); 
+                        div_card.appendChild(label_descricao);
+                        div_card.appendChild(pulaLinha_4);
+                        div_card.appendChild(text_descricao);
+                        div_card.appendChild(pulaLinha_5);
+                        div_card.appendChild(div_botoes);
+                        div_botoes.appendChild(button_edit);
+                        div_botoes.appendChild(button_remove);
+
+                    }
+
+                    
+                }
             }
         }
+
+
     }
-
-
-
 }
 
 // Realiza a pesquisa a partir  da numeracao informada do item
@@ -1730,11 +1950,7 @@ function verificaPesquisaNumeracao(){
 
                 if(updateCheckExistsCardItem == 0){
 
-                    console.log('entrou')
-
                     for(u=0;u<Array_Inv.length;u++){
-
-                        console.log('entrou 1')
 
                         numeroSerieInv = Array_Inv[u].numeracao_item;
                         itemInv = Array_Inv[u].tipo_item;

@@ -58,12 +58,11 @@
 
         <div id="input-local-chamado-search" class="input-local-chamado-search">
             <font>Insira o local da abertura do chamado:</font>
-            <input id="input-area-local-chamado" class="input-area-local" type="text">
+            <input id="input-local-chamado-search" class="input-area-local" type="text" onchange=verificaPesquisaLocalChamado()></input>
             <button id="lupa-pesquisa-local-chamado" type="submit" class="lupa-pesquisa" onclick=pesquisaLocalChamado()><i id="symbol-lupa" class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
         <div id="button-add" class="button-add">
-
             <span id="menu-trigger" class="menu-trigger" onclick=changeSymbol()>
                 <i id="symbol-plus" class="fa-solid fa-plus"></i>
                 <i id="symbol-minus" class="fa-solid fa-minus" style="display: none;"></i>
