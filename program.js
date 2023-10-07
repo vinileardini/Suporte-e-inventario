@@ -622,17 +622,34 @@ function inventarioEditado(){
 
     let card_click = salvar_click.parentNode;
 
+    idCard = card_click.getAttribute('id').replace('list-inventario-li','');
+    
     let input_numeroSerie_salvar = card_click.children[1];
 
     let input_equipamento_salvar = card_click.children[3];
 
-    let input_item_salvar = card_click.children[5];
+    let input_local_item_salvar = card_click.children[5];
+
+    manipulaId = idCard - 1;
+
+    // Altera o valor do numero de série no array
+    if(input_numeroSerie_salvar != Array_Inv[manipulaId].numeroSerieInv){
+        Array_Inv[manipulaId].numeracao_item = input_numeroSerie_salvar.value;
+    }
+    // Altera o valor de tipo de equipamento no array
+    if(input_equipamento_salvar != Array_Inv[manipulaId].tipo_item){
+        Array_Inv[manipulaId].tipo_item = input_equipamento_salvar.value;
+    }
+    // Altera o valor do local do item no array
+    if(input_local_item_salvar != Array_Inv[manipulaId].local_item){
+        Array_Inv[manipulaId].local_item = input_local_item_salvar.value;
+    }
 
     let botao_remove_inv = card_click.children[7];
     
     input_numeroSerie_salvar.readOnly = true;
     input_equipamento_salvar.readOnly = true;
-    input_item_salvar.readOnly = true;
+    input_local_item_salvar.readOnly = true;
 
     card_click.removeChild(salvar_click);
 
@@ -1256,8 +1273,28 @@ function salvarChamadoEditado(){
     let input_nome_card_chamado = card_clickado.children[3];
 
     let input_local_card_chamado = card_clickado.children[6];
-
+ 
     let descricao_card_chamado = card_clickado.children[13];
+
+    idChamado = card_clickado.children[0].innerHTML;
+
+    manipulaId = idChamado - 1;
+
+    console.log('manipula id:'+manipulaId)
+
+    if(input_local_card_chamado != Array_chamados[manipulaId].local_do_chamado){
+        Array_chamados[manipulaId].local_do_chamado = input_local_card_chamado.value;
+    }
+
+    if(input_nome_card_chamado != Array_chamados[manipulaId].nome_do_chamado){
+        Array_chamados[manipulaId].nome_do_chamado = input_nome_card_chamado;
+    }
+
+    if(descricao_card_chamado != Array_chamados[manipulaId].descricao_do_chamado){
+        Array_chamados[manipulaId].descricao_do_chamado = descricao_card_chamado.value;
+    }
+
+    console.log(Array_chamados);
 
     input_nome_card_chamado.readOnly = true;
     input_local_card_chamado.readOnly = true;
