@@ -43,6 +43,14 @@ console.log(Array_Inv,Array_chamados);
 
 window.onload = function checkArrayChamado () {if (Array_chamados.length >= 1){
 
+    window.localStorage.setItem('inventario',JSON.stringify(Array_chamados));
+
+    window.localStorage.setItem('chamados',JSON.stringify(Array_Inv));
+
+    JSON.parse(window.localStorage.getItem('chamados'));
+
+    JSON.parse(window.localStorage.getItem('inventario'));
+
     for(let i = 0; i < Array_chamados.length; i++){
 
         let checkExistsDivChamado = document.getElementById("grid-tela");
