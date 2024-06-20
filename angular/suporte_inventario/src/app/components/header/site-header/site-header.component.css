@@ -6,7 +6,7 @@
   grid-row-gap: 0px;
 
   margin: 0;
-
+  padding: 0;
   height: 10%;
   max-height: 100%;
   min-height: 100%;
@@ -14,14 +14,7 @@
   min-width: 100%;
   max-width: 100%;
   background-color: rgb(4, 4, 167);
+
+  border-radius: 3px;
 }
 
-#menu{
-  height: 100%;
-  width: 100%;
-}
-
-#menu > img{
-  height: 30%;
-  width: 20%;
-}

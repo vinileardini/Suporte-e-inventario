@@ -8,6 +8,7 @@ import { SiteHeaderComponent } from './components/header/site-header/site-header
 import { FooterSiteComponent } from './components/header/footer/footer-site/footer-site.component';
 import { LogoAreaComponent } from './components/header/site-header/logo-area/logo-area/logo-area.component';
 import { LoginAreaComponent } from './components/header/site-header/login-area/login-area/login-area.component';
+import { MenuComponent } from './components/header/site-header/menu/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginAreaComponent } from './components/header/site-header/login-area/l
     SiteHeaderComponent,
     FooterSiteComponent,
     LogoAreaComponent,
-    LoginAreaComponent
+    LoginAreaComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
