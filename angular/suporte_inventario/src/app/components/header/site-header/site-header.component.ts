@@ -12,4 +12,12 @@ export class SiteHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+
+
 }

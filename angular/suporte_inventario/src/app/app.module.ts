@@ -9,6 +9,7 @@ import { FooterSiteComponent } from './components/header/footer/footer-site/foot
 import { LogoAreaComponent } from './components/header/site-header/logo-area/logo-area/logo-area.component';
 import { LoginAreaComponent } from './components/header/site-header/login-area/login-area/login-area.component';
 import { MenuComponent } from './components/header/site-header/menu/menu/menu.component';
+import { DropdownComponent } from './components/header/site-header/dropdown-menu/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MenuComponent } from './components/header/site-header/menu/menu/menu.co
     FooterSiteComponent,
     LogoAreaComponent,
     LoginAreaComponent,
-    MenuComponent
+    MenuComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
