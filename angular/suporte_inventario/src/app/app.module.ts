@@ -10,6 +10,8 @@ import { LogoAreaComponent } from './components/header/site-header/logo-area/log
 import { LoginAreaComponent } from './components/header/site-header/login-area/login-area/login-area.component';
 import { MenuComponent } from './components/header/site-header/menu/menu/menu.component';
 import { DropdownComponent } from './components/header/site-header/dropdown-menu/dropdown/dropdown.component';
+import { BigCardComponent } from './home/big-card/big-card/big-card.component';
+import { LoginComponent } from './login/login-page/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DropdownComponent } from './components/header/site-header/dropdown-menu
     LogoAreaComponent,
     LoginAreaComponent,
     MenuComponent,
-    DropdownComponent
+    DropdownComponent,
+    BigCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
