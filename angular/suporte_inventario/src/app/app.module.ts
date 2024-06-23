@@ -12,6 +12,7 @@ import { MenuComponent } from './components/header/site-header/menu/menu/menu.co
 import { DropdownComponent } from './components/header/site-header/dropdown-menu/dropdown/dropdown.component';
 import { BigCardComponent } from './home/big-card/big-card/big-card.component';
 import { LoginComponent } from './login/login-page/login/login.component';
+import { TicketsComponent } from './tickets/tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login-page/login/login.component';
     MenuComponent,
     DropdownComponent,
     BigCardComponent,
-    LoginComponent
+    LoginComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,
