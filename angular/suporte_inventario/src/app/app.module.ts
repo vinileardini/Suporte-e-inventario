@@ -13,6 +13,7 @@ import { DropdownComponent } from './components/header/site-header/dropdown-menu
 import { BigCardComponent } from './home/big-card/big-card/big-card.component';
 import { LoginComponent } from './login/login-page/login/login.component';
 import { TicketsComponent } from './tickets/tickets/tickets.component';
+import { CardTicketComponent } from './tickets/tickets/ticket/card-ticket/card-ticket.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TicketsComponent } from './tickets/tickets/tickets.component';
     DropdownComponent,
     BigCardComponent,
     LoginComponent,
-    TicketsComponent
+    TicketsComponent,
+    CardTicketComponent
   ],
   imports: [
     BrowserModule,

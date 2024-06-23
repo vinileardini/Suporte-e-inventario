@@ -1,0 +1,57 @@
+
+
+.principal-ticket{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+
+}
+
+.info{
+  border: 2px solid black;
+  height: 80%;
+  width: 80%;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+
+  -webkit-box-shadow: 10px 10px 13px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 13px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 13px -6px rgba(0,0,0,0.75);
+
+}
+
+.num-ticket{
+  margin-left: 90%;
+  margin-top: 5%;
+}
+
+.ticket-name{
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.ticket-phone{
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.ticket-desc{
+  margin-top: 10%;
+  margin-left: 5%;
+}
