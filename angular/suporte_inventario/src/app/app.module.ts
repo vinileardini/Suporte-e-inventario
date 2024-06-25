@@ -14,6 +14,8 @@ import { BigCardComponent } from './home/big-card/big-card/big-card.component';
 import { LoginComponent } from './login/login-page/login/login.component';
 import { TicketsComponent } from './tickets/tickets/tickets.component';
 import { CardTicketComponent } from './tickets/tickets/ticket/card-ticket/card-ticket.component';
+import { SidebarMenuComponent } from './tickets/tickets/sidebar/sidebar-menu/sidebar-menu.component';
+import { InventoryComponent } from './inventory/inventory/inventory.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { CardTicketComponent } from './tickets/tickets/ticket/card-ticket/card-t
     BigCardComponent,
     LoginComponent,
     TicketsComponent,
-    CardTicketComponent
+    CardTicketComponent,
+    SidebarMenuComponent,
+    InventoryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
