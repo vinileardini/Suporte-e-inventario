@@ -15,4 +15,22 @@ footer{
   background: -ms-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
   background: linear-gradient(to right, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06467d', endColorstr='#0d57a6', GradientType=1 );
+
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+
+}
+
+footer div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -16,6 +16,8 @@ import { TicketsComponent } from './tickets/tickets/tickets.component';
 import { CardTicketComponent } from './tickets/tickets/ticket/card-ticket/card-ticket.component';
 import { SidebarMenuComponent } from './tickets/tickets/sidebar/sidebar-menu/sidebar-menu.component';
 import { InventoryComponent } from './inventory/inventory/inventory.component';
+import { BigCardInventoryComponent } from './inventory/inventory/big-card/big-card-inventory/big-card-inventory.component';
+import { CardInventoryComponent } from './inventory/inventory/cards-inventory/card-inventory/card-inventory.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InventoryComponent } from './inventory/inventory/inventory.component';
     TicketsComponent,
     CardTicketComponent,
     SidebarMenuComponent,
-    InventoryComponent
+    InventoryComponent,
+    BigCardInventoryComponent,
+    CardInventoryComponent
   ],
   imports: [
     BrowserModule,

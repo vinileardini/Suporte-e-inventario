@@ -5,11 +5,19 @@
   position: fixed;
   top: 0;
   left: -250px;
-  background-color: #111;
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 60px;
   z-index: 1;
+  background: rgba(6,70,125,1);
+  background: -moz-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(6,70,125,1)), color-stop(100%, rgba(13,87,166,1)));
+  background: -webkit-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: -o-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: -ms-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: linear-gradient(to right, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06467d', endColorstr='#0d57a6', GradientType=1 );
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sidebar a {
@@ -30,7 +38,8 @@
 }
 
 .content{
-  width: 250px;
+  width: 100%;
+  background-color: #111;
 }
 
 #openSidebar{
@@ -39,6 +48,7 @@
   font-size: 16px;
   height: 20%;
   width: 20%;
+  background-color: #111;
 }
 
 #buttonCloseSidebar{
