@@ -15,9 +15,12 @@
   background-color: white;
 
   border: 2px solid black;
+  border-radius: 5px;
+
+  justify-items: center;
 }
 
 .info{
-  width:5%;
-  height: 80%;
+  width:6%;
+  height: 90%;
 }

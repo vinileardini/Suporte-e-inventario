@@ -21,6 +21,7 @@ import { CardInventoryComponent } from './inventory/inventory/cards-inventory/ca
 import { SerialNumComponent } from './inventory/inventory/cards-inventory/serial-num/serial-num/serial-num.component';
 import { UserInventoryComponent } from './inventory/inventory/cards-inventory/user-inventory/user-inventory/user-inventory.component';
 import { ModelInventoryComponent } from './inventory/inventory/cards-inventory/model-inventory/model-inventory/model-inventory.component';
+import { SupportComponent } from './support/support/support.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ModelInventoryComponent } from './inventory/inventory/cards-inventory/m
     CardInventoryComponent,
     SerialNumComponent,
     UserInventoryComponent,
-    ModelInventoryComponent
+    ModelInventoryComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,

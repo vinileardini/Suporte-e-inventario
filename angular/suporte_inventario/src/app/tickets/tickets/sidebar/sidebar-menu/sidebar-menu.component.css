@@ -18,6 +18,7 @@
   background: linear-gradient(to right, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06467d', endColorstr='#0d57a6', GradientType=1 );
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .sidebar a {
@@ -46,8 +47,8 @@
   rotate: 180deg;
   z-index: 0;
   font-size: 16px;
-  height: 20%;
-  width: 20%;
+  height: 30%;
+  width: 30%;
   background-color: #111;
 }
 
@@ -56,7 +57,12 @@
   width: 20%;
 }
 
-button {
+
+#buttonToggleSidebar {
+  width: 10%;
+}
+
+button{
   font-size: 16px;
   background-color: transparent;
   border: none;

@@ -76,3 +76,10 @@
   background-color: blue;
   color: white;
 }
+
+.text-login{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10%;
+}
