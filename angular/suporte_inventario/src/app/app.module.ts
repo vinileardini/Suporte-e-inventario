@@ -18,6 +18,9 @@ import { SidebarMenuComponent } from './tickets/tickets/sidebar/sidebar-menu/sid
 import { InventoryComponent } from './inventory/inventory/inventory.component';
 import { BigCardInventoryComponent } from './inventory/inventory/big-card/big-card-inventory/big-card-inventory.component';
 import { CardInventoryComponent } from './inventory/inventory/cards-inventory/card-inventory/card-inventory.component';
+import { SerialNumComponent } from './inventory/inventory/cards-inventory/serial-num/serial-num/serial-num.component';
+import { UserInventoryComponent } from './inventory/inventory/cards-inventory/user-inventory/user-inventory/user-inventory.component';
+import { ModelInventoryComponent } from './inventory/inventory/cards-inventory/model-inventory/model-inventory/model-inventory.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { CardInventoryComponent } from './inventory/inventory/cards-inventory/ca
     SidebarMenuComponent,
     InventoryComponent,
     BigCardInventoryComponent,
-    CardInventoryComponent
+    CardInventoryComponent,
+    SerialNumComponent,
+    UserInventoryComponent,
+    ModelInventoryComponent
   ],
   imports: [
     BrowserModule,
