@@ -23,6 +23,8 @@ import { UserInventoryComponent } from './inventory/inventory/cards-inventory/us
 import { ModelInventoryComponent } from './inventory/inventory/cards-inventory/model-inventory/model-inventory/model-inventory.component';
 import { SupportComponent } from './support/support/support.component';
 import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.component';
+import { BigCardSupportComponent } from './support/support/big-card-sup/big-card-support/big-card-support.component';
+import { FormSupportComponent } from './support/support/forms/form-support/form-support.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.compo
     UserInventoryComponent,
     ModelInventoryComponent,
     SupportComponent,
-    OpenTicketComponent
+    OpenTicketComponent,
+    BigCardSupportComponent,
+    FormSupportComponent
   ],
   imports: [
     BrowserModule,
