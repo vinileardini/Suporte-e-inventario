@@ -4,6 +4,7 @@ import { HomepageComponent } from './home/homepage/homepage.component';
 import { LoginComponent } from './login/login-page/login/login.component';
 import { TicketsComponent } from './tickets/tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory/inventory.component';
+import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'inventory',
     component: InventoryComponent
+  },
+  {
+    path:'openticket',
+    component: OpenTicketComponent
   }
 ];
 

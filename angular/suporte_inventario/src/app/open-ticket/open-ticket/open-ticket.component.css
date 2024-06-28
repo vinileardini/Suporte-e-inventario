@@ -1,0 +1,99 @@
+*{
+  background-color: #111;
+}
+
+.principal-ticket{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
+}
+
+
+.input-container {
+
+  display: flex;
+
+  position: relative;
+  margin: 20px 0;
+
+  width: 80%;
+
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 10px 10px 5px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #757575;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  color: #ffffff;
+}
+
+input[type="text"]:focus ~ .placeholder,
+input[type="text"]:valid ~ .placeholder {
+  top: -20px;
+  left: 0;
+  font-size: 14px;
+  color: #757575;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.placeholder {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  font-size: 18px;
+  color: #999;
+  transition: 0.2s ease all;
+  pointer-events: none;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sendButton{
+  background: rgba(6,70,125,1);
+  background: -moz-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(6,70,125,1)), color-stop(100%, rgba(13,87,166,1)));
+  background: -webkit-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: -o-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: -ms-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  background: linear-gradient(to right, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06467d', endColorstr='#0d57a6', GradientType=1 );
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  border-radius: 5px;
+
+  width: 10%;
+  color: white;
+}
+
+.buttonTicket{
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 10%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

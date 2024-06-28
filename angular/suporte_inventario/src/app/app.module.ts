@@ -22,6 +22,7 @@ import { SerialNumComponent } from './inventory/inventory/cards-inventory/serial
 import { UserInventoryComponent } from './inventory/inventory/cards-inventory/user-inventory/user-inventory/user-inventory.component';
 import { ModelInventoryComponent } from './inventory/inventory/cards-inventory/model-inventory/model-inventory/model-inventory.component';
 import { SupportComponent } from './support/support/support.component';
+import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SupportComponent } from './support/support/support.component';
     SerialNumComponent,
     UserInventoryComponent,
     ModelInventoryComponent,
-    SupportComponent
+    SupportComponent,
+    OpenTicketComponent
   ],
   imports: [
     BrowserModule,
