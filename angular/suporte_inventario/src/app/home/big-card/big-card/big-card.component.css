@@ -10,6 +10,7 @@
 
     background-color: #111;
 
+
 }
 
 #card-title{
@@ -45,4 +46,16 @@
   height: 60%;
   width: 80%;
 
+  animation: myAnim 2s ease 0s 1 normal forwards;
+
+}
+
+@keyframes myAnim {
+	0% {
+		transform: translateX(100px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
 }

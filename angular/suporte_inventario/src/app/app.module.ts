@@ -25,6 +25,7 @@ import { SupportComponent } from './support/support/support.component';
 import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.component';
 import { BigCardSupportComponent } from './support/support/big-card-sup/big-card-support/big-card-support.component';
 import { FormSupportComponent } from './support/support/forms/form-support/form-support.component';
+import { TextMenuComponent } from './support/support/text-menu/text-menu/text-menu.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FormSupportComponent } from './support/support/forms/form-support/form-
     SupportComponent,
     OpenTicketComponent,
     BigCardSupportComponent,
-    FormSupportComponent
+    FormSupportComponent,
+    TextMenuComponent
   ],
   imports: [
     BrowserModule,
