@@ -1,4 +1,59 @@
+
+
 .forms-support{
   display: flex;
   flex-direction: column;
+
+}
+
+.input-container {
+
+  display: flex;
+
+  position: relative;
+  margin: 20px 0;
+
+  width: 80%;
+
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px 10px 10px 5px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #757575;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  color: #ffffff;
+}
+
+input[type="text"]:focus ~ .placeholder,
+input[type="text"]:valid ~ .placeholder {
+  top: -20px;
+  left: 0;
+  font-size: 14px;
+  color: #757575;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.placeholder {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  font-size: 18px;
+  color: #999;
+  transition: 0.2s ease all;
+  pointer-events: none;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
