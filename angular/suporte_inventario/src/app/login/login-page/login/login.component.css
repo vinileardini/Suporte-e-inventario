@@ -11,7 +11,7 @@
 }
 
 .card-login{
-  border: 2px solid blue;
+
   height: 60%;
   max-height: 60%;
   min-height: 60%;
@@ -30,6 +30,12 @@
  align-items: center;
 
 
+  background: rgba(48, 49, 51, 0.03);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(48, 49, 51, 0.58);
 }
 
 .card-login-area{
@@ -42,20 +48,26 @@
 .card-text{
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
   display: flex;
+  flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
-  height: 90%;
-  min-height: 90%;
-  max-height: 90%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 
   width: 100%;
   min-width: 100%;
   max-width: 100%;
 
-  border-right: 2px solid blue;
+  background: rgba(29, 73, 174, 0.67);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(29, 73, 174, 0.31);
 }
 
 .text-login{
@@ -64,6 +76,28 @@
   font-size: 20px;
 
   margin-bottom: 5%;
+
+}
+
+.principal-text{
+  color: white;
+  font-size: 25px;
+  margin-bottom: 5%;
+}
+
+.subtext{
+  color: white;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
 
 
 }
