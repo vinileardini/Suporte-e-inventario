@@ -69,15 +69,12 @@ input[type="text"]:valid ~ .placeholder {
 }
 
 .sendButton{
-  background: rgba(6,70,125,1);
-  background: -moz-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(6,70,125,1)), color-stop(100%, rgba(13,87,166,1)));
-  background: -webkit-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
-  background: -o-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
-  background: -ms-linear-gradient(left, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
-  background: linear-gradient(to right, rgba(6,70,125,1) 0%, rgba(13,87,166,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06467d', endColorstr='#0d57a6', GradientType=1 );
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgba(29, 73, 174, 0.67);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(29, 73, 174, 0.31);
 
   border-radius: 5px;
 
@@ -96,4 +93,6 @@ input[type="text"]:valid ~ .placeholder {
   align-items: center;
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
 }

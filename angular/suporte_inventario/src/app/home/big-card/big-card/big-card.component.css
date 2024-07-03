@@ -19,6 +19,15 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   color: white;
+
+  background: rgba(0, 0, 0, 0.36);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+
+
+
 }
 
 #card-title h3{
@@ -30,11 +39,13 @@
 #card-title p{
   font-size: 15px;
   margin-left: 5%;
+  margin-right: 5%;
 }
 
 .cards{
   height: 100%;
   min-height: 100%;
+  max-height: 100%;
 
   display: flex;
   align-items: center;
@@ -42,11 +53,32 @@
 
 }
 
+#card-image{
+
+  background: rgba(0, 0, 0, 0.36);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+
+
+}
+
 .cards img {
-  height: 60%;
+  height: 80%;
   width: 80%;
 
+  border-radius: 5px;
+
   animation: myAnim 2s ease 0s 1 normal forwards;
+
+  background: rgba(0, 0, 0, 0.36);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+  border: 1px solid rgba(0, 0, 0, 0.28);
+
 
 }
 

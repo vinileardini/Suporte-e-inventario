@@ -56,14 +56,13 @@ input[type="text"]:valid ~ .placeholder {
 }
 
 .sendButton{
-  background: rgba(25,85,140,1);
-  background: -moz-linear-gradient(left, rgba(25,85,140,1) 12%, rgba(27,93,159,1) 31%, rgba(32,124,229,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(12%, rgba(25,85,140,1)), color-stop(31%, rgba(27,93,159,1)), color-stop(100%, rgba(32,124,229,1)));
-  background: -webkit-linear-gradient(left, rgba(25,85,140,1) 12%, rgba(27,93,159,1) 31%, rgba(32,124,229,1) 100%);
-  background: -o-linear-gradient(left, rgba(25,85,140,1) 12%, rgba(27,93,159,1) 31%, rgba(32,124,229,1) 100%);
-  background: -ms-linear-gradient(left, rgba(25,85,140,1) 12%, rgba(27,93,159,1) 31%, rgba(32,124,229,1) 100%);
-  background: linear-gradient(to right, rgba(25,85,140,1) 12%, rgba(27,93,159,1) 31%, rgba(32,124,229,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19558c', endColorstr='#207ce5', GradientType=1 );
+  background:  rgba(25,85,140,1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid  rgba(25,85,140,1);
+
 
   color: white;
 
