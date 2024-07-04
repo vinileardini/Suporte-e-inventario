@@ -1,16 +1,16 @@
 <div class="header">
-  <!-- app.component.html -->
-<div class="dropdown">
-  <app-menu (click)="toggleMenu()"></app-menu>
-  <div id="myLinks" [ngClass]="{'show': isMenuOpen, 'hide': !isMenuOpen}">
-    <a href="#">Home</a>
-    <a href="/openticket">Open ticket</a>
-    <a href="/support">Support</a>
+
+  <div class="dropdown">
+    <app-menu (click)="toggleMenu()"></app-menu>
+    <div id="myLinks" [ngClass]="{'show': isMenuOpen, 'hide': !isMenuOpen}">
+      <a href="#">Home</a>
+      <a href="/openticket">Open ticket</a>
+      <a href="/support">Support</a>
+    </div>
   </div>
-</div>
 
-  <app-logo-area></app-logo-area>
-  <app-login-area></app-login-area>
+    <app-logo-area></app-logo-area>
+    <app-login-area></app-login-area>
 
-</div>
+  </div>
 

@@ -9,7 +9,7 @@ import { FooterSiteComponent } from './components/header/footer/footer-site/foot
 import { LogoAreaComponent } from './components/header/site-header/logo-area/logo-area/logo-area.component';
 import { LoginAreaComponent } from './components/header/site-header/login-area/login-area/login-area.component';
 import { MenuComponent } from './components/header/site-header/menu/menu/menu.component';
-import { DropdownComponent } from './components/header/site-header/dropdown-menu/dropdown/dropdown.component';
+import { DropdownComponent } from './components/header/site-header/dropdown-menu/dropdown.component';
 import { BigCardComponent } from './home/big-card/big-card/big-card.component';
 import { LoginComponent } from './login/login-page/login/login.component';
 import { TicketsComponent } from './tickets/tickets/tickets.component';
