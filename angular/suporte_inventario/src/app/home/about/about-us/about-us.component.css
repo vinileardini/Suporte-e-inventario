@@ -1,0 +1,32 @@
+.principal-about{
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+
+  background-color: #111;
+
+}
+
+.principal-image{
+  display: flex;
+}
+
+.principal-image img{
+  width: 100%;
+  border-radius: 5px;
+  height: 100%;
+  z-index: 0;
+}
+
+.principal-image p{
+  width: 50%;
+  height: 50%;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  z-index: 1;
+}
+

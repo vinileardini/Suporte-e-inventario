@@ -6,6 +6,7 @@ import { TicketsComponent } from './tickets/tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory/inventory.component';
 import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.component';
 import { SupportComponent } from './support/support/support.component';
+import { AboutUsComponent } from './home/about/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:'support',
     component: SupportComponent
+  },
+  {
+    path:'about-us',
+    component: AboutUsComponent
   }
 ];
 
