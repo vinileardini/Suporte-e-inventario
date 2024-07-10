@@ -12,4 +12,9 @@ export class LogoAreaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  redirectHome(): void{
+    window.location.href = '/';
+  }
+
+
 }
