@@ -1,10 +1,20 @@
 <div class="card-inventory">
 
-  <img id="symbol-info" class="info" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRou_5bMjcXCPIvWQwLqtxRJ1ZPZi-1_scQdg&s" alt="symbol-info">
+  <img id="symbol-info" class="info" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRou_5bMjcXCPIvWQwLqtxRJ1ZPZi-1_scQdg&s" alt="symbol-info" (click)="openCard()">
 
   <app-serial-num></app-serial-num>
 
   <app-user-inventory></app-user-inventory>
 
   <app-model-inventory></app-model-inventory>
+
 </div>
+
+<!--Card com todas as informações-->
+<div class="generalCard" *ngIf="mostrarDetalhesFlag">
+  
+  <h2>Detalhes do Card</h2>
+  
+  <p>Informações detalhadas</p>
+</div>
+

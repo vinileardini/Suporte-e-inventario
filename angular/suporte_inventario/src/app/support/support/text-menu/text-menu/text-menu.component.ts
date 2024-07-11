@@ -12,4 +12,5 @@ export class TextMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

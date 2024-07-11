@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@angular/router": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5"
+  }
+}

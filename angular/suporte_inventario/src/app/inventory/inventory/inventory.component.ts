@@ -9,7 +9,13 @@ export class InventoryComponent implements OnInit {
 
   constructor() { }
 
+  mostrarDetalhesFlag: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  openCard(): void{
+    this.mostrarDetalhesFlag = true;
   }
 
 }

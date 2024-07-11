@@ -37,6 +37,8 @@
 #myLinks {
   display: none;
   position: absolute;
+
+  border-radius: 3px;
   min-width: 20%;
   min-height: 15%;
   margin-left: 40%;
