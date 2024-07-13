@@ -1,3 +1,4 @@
+
 <div class="card-inventory">
 
   <img id="symbol-info" class="info" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRou_5bMjcXCPIvWQwLqtxRJ1ZPZi-1_scQdg&s" alt="symbol-info" (click)="openCard()">
@@ -12,9 +13,14 @@
 
 <!--Card com todas as informações-->
 <div class="generalCard" *ngIf="mostrarDetalhesFlag">
+
+  <img src="https://cdn-icons-png.flaticon.com/512/959/959160.png" alt="returnAllCards" (click)="openCard()">
   
   <h2>Detalhes do Card</h2>
   
   <p>Informações detalhadas</p>
 </div>
+
+
+
 
