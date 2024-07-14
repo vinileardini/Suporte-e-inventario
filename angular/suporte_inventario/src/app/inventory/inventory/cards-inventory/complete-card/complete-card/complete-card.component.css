@@ -1,0 +1,33 @@
+.return{
+    height: 5%;
+    min-height: 5%;
+    max-height: 5%;
+  
+    margin-left: 2%;
+  }
+  
+  
+  .div-info{
+    width: 90%;
+    min-width: 90%;
+    max-width: 90%;
+  
+    margin-left: 10%;
+  
+    display: flex;
+    flex-direction: row;
+  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    color: white;
+
+
+  
+  }
+  
+  label{
+    color: gray;
+  
+    margin-left: 5%;
+  }
+  

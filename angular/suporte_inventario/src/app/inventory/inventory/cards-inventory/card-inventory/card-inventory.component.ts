@@ -27,4 +27,6 @@ export class CardInventoryComponent implements OnInit {
     
   }
 
+  
+
 }

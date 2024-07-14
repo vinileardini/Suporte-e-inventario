@@ -27,6 +27,7 @@ import { BigCardSupportComponent } from './support/support/big-card-sup/big-card
 import { FormSupportComponent } from './support/support/forms/form-support/form-support.component';
 import { TextMenuComponent } from './support/support/text-menu/text-menu/text-menu.component';
 import { AboutUsComponent } from './home/about/about-us/about-us.component';
+import { CompleteCardComponent } from './inventory/inventory/cards-inventory/complete-card/complete-card/complete-card.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AboutUsComponent } from './home/about/about-us/about-us.component';
     BigCardSupportComponent,
     FormSupportComponent,
     TextMenuComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    CompleteCardComponent
   ],
   imports: [
     BrowserModule,
