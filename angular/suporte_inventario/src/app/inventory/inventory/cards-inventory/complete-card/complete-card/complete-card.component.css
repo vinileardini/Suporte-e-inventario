@@ -21,6 +21,8 @@
 
     color: white;
 
+    margin-bottom: 2%;
+
 
   
   }
@@ -28,6 +30,9 @@
   label{
     color: gray;
   
-    margin-left: 5%;
+    margin-left: 3%;
   }
   
+  .model{
+    margin-left: 5%;
+  }

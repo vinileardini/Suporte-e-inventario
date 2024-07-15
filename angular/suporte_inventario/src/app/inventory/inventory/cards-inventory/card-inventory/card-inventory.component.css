@@ -12,6 +12,7 @@
 
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: .5%;
 
   background-color: white;
 
@@ -38,6 +39,7 @@ color: white;
 .info{
   width:6%;
   height: 90%;
+  border-radius: 50%;
 }
 
 .generalCard{
@@ -48,9 +50,9 @@ color: white;
   border: 2px solid black;
   border-radius: 5px;
 
-  height: 90%;
-  min-height: 90%;
-  max-height: 90%;
+  height: 55%;
+  min-height: 55%;
+  max-height: 55%;
   
   width: 80%;
   max-width: 80%;
@@ -62,14 +64,14 @@ color: white;
   
   position: absolute;
 
-      /* From https://css.glass */
-background: rgba(49, 49, 49, 0.19);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(13.3px);
--webkit-backdrop-filter: blur(13.3px);
-border: 1px solid rgba(49, 49, 49, 0.6);
-  
+        /* From https://css.glass */
+  background: rgba(25, 26, 26, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.3px);
+  -webkit-backdrop-filter: blur(13.3px);
+  border: 1px solid rgba(49, 49, 49, 0.6);
+    
 
 }
 
