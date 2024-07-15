@@ -36,3 +36,26 @@
   .model{
     margin-left: 5%;
   }
+
+  .functions{
+    height: 5%;
+    min-height: 5%;
+    max-height: 5%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+  }
+
+  .icons{
+    height: 80%;
+    min-height: 80%;
+    max-height: 80%;
+    width: 2%;
+    min-width: 2%;
+    max-width: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }

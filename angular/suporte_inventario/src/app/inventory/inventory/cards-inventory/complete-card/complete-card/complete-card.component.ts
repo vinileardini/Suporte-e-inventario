@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { flatMap } from 'rxjs';
 
 @Component({
@@ -12,20 +12,23 @@ export class CompleteCardComponent implements OnInit {
 
     
   mostrarDetalhesFlag: boolean = true;
+  tradeImage: boolean = false;
 
   ngOnInit(): void {
   }
 
- 
-  closeCard(): void{
+  // Define parametro no elemento
 
-    if(this.mostrarDetalhesFlag == false){
-      this.mostrarDetalhesFlag = true;
-    }
-    else{
-      this.mostrarDetalhesFlag = false;
-    }
-    
+  @Output() callViewCard = new EventEmitter<void>();
+
+  // Usa parametro para capturar evento no pai
+  closeCard(): void{
+    this.callViewCard.emit();
+  }
+
+  editCard():void{
+    this.tradeImage = !this.tradeImage;
+
   }
 
 

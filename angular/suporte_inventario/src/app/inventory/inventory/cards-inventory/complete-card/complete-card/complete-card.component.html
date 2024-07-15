@@ -55,6 +55,12 @@
 
   <p>CPU: </p>
 
-  <label for="" class="cpu-label"> Intel Core I5</label>
+  <label for="" class="cpu-label"> Intel Core i5 12400f</label>
 
+</div>
+
+<div class="functions">
+  <img *ngIf="!tradeImage" (click)="editCard()" src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="edit" class="icons">
+  <img *ngIf="tradeImage" (click)="editCard()" src="https://cdn-icons-png.flaticon.com/512/25/25643.png" alt="save" class="icons">
+  <img src="https://cdn-icons-png.flaticon.com/512/7269/7269138.png" alt="discard" class="icons">
 </div>

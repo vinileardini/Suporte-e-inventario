@@ -16,7 +16,9 @@ export class CardInventoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openCard(): void{
+  // Open/Close card with all info
+
+  viewCard(): void{
 
     if(this.mostrarDetalhesFlag == false){
       this.mostrarDetalhesFlag = true;
