@@ -59,3 +59,12 @@
     margin-right: 2%;
     margin-bottom: 2%;
   }
+
+  .input-change{
+    background: none;
+    border: none;
+    border-bottom: 1px solid #757575;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin-left: 2%;
+  }

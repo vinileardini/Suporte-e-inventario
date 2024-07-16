@@ -13,6 +13,7 @@ export class CompleteCardComponent implements OnInit {
     
   mostrarDetalhesFlag: boolean = true;
   tradeImage: boolean = false;
+  tradeLabelInput: boolean = false;
 
   ngOnInit(): void {
   }
@@ -28,6 +29,7 @@ export class CompleteCardComponent implements OnInit {
 
   editCard():void{
     this.tradeImage = !this.tradeImage;
+    this.tradeLabelInput = !this.tradeLabelInput;
 
   }
 

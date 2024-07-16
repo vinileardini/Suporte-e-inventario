@@ -3,7 +3,8 @@
   
 <div class="div-info">
   <p>User:</p>
-  <label for="" class="user-label">John Doe</label>
+  <label for="" class="user-label" *ngIf="!tradeLabelInput">John Doe</label>
+  <input type="text" class="input-change" *ngIf="tradeLabelInput" placeholder="John Doe">
   
 </div>
 
@@ -11,7 +12,8 @@
 <div class="div-info">
   <p>Serial Number:</p>
 
-  <label for="" class="serial-number-label">A1A1A1A1</label>
+  <label for="" class="serial-number-label" *ngIf="!tradeLabelInput">A1A1A1A1</label>
+  <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="A1A1A1A1">
 </div>
 
 <div class="div-info">
@@ -21,33 +23,41 @@
 
     <p class="model">Model: </p>
 
-    <label for="" class="model-label"> Lenovo Thinkpad</label>
+    <label for="" class="model-label" *ngIf="!tradeLabelInput"> Lenovo Thinkpad</label>
+    <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="Lenovo Thinkpad">
+
 </div>
 
 <div class="div-info">
   <p>MAC Address: </p>
 
-  <label for="" class="mac-address-label">Q9:Q9:Q9:Q9</label>
+  <label for="" class="mac-address-label" *ngIf="!tradeLabelInput">Q9:Q9:Q9:Q9</label>
+  <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="Q9:Q9:Q9:Q9">
 </div>
 
 <div class="div-info">
 
   <p>Date: </p>
 
-  <label for="" class="date-inventory">14/07/2024</label>
+  <label for="" class="date-inventory" *ngIf="!tradeLabelInput">14/07/2024</label>
+  <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="14/07/2024">
 
 </div>
 
 <div class="div-info">
   <p>OS: </p>
 
-  <label for="" class="os-label"> Windows 10</label>
+  <label for="" *ngIf="!tradeLabelInput" class="os-label"> Windows 10</label>
+  <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="Windows 10">
+
+
 </div>
 
 <div class="div-info">
   <p>RAM: </p>
 
-  <label for="" class="memory-ram-label"> 16 GB</label>
+  <label for="" class="memory-ram-label" *ngIf="!tradeLabelInput"> 16 GB</label>
+  <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="16 GB">
 
 </div>
 
@@ -55,7 +65,8 @@
 
   <p>CPU: </p>
 
-  <label for="" class="cpu-label"> Intel Core i5 12400f</label>
+  <label *ngIf="!tradeLabelInput" for="" class="cpu-label"> Intel Core i5 12400f</label>
+  <input type="text" *ngIf="tradeLabelInput" class="input-change" placeholder="Intel Core i5 12400f">
 
 </div>
 
