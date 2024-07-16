@@ -7,6 +7,7 @@ import { InventoryComponent } from './inventory/inventory/inventory.component';
 import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.component';
 import { SupportComponent } from './support/support/support.component';
 import { AboutUsComponent } from './home/about/about-us/about-us.component';
+import { ServicesComponent } from './services/services/services.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path:'about-us',
     component: AboutUsComponent
+  },
+  {
+    path:'services',
+    component: ServicesComponent
   }
 ];
 

@@ -28,6 +28,7 @@ import { FormSupportComponent } from './support/support/forms/form-support/form-
 import { TextMenuComponent } from './support/support/text-menu/text-menu/text-menu.component';
 import { AboutUsComponent } from './home/about/about-us/about-us.component';
 import { CompleteCardComponent } from './inventory/inventory/cards-inventory/complete-card/complete-card/complete-card.component';
+import { ServicesComponent } from './services/services/services.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CompleteCardComponent } from './inventory/inventory/cards-inventory/com
     FormSupportComponent,
     TextMenuComponent,
     AboutUsComponent,
-    CompleteCardComponent
+    CompleteCardComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
