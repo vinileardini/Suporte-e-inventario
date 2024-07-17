@@ -29,6 +29,9 @@ import { TextMenuComponent } from './support/support/text-menu/text-menu/text-me
 import { AboutUsComponent } from './home/about/about-us/about-us.component';
 import { CompleteCardComponent } from './inventory/inventory/cards-inventory/complete-card/complete-card/complete-card.component';
 import { ServicesComponent } from './services/services/services.component';
+import { AdminAreaComponent } from './admin/admin-area/admin-area.component';
+import { InitialPageAdminComponent } from './admin/initial-admin-area/initial-page-admin/initial-page-admin.component';
+import { CredentialChangeComponent } from './admin/credentialChange-area/credential-change/credential-change.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { ServicesComponent } from './services/services/services.component';
     TextMenuComponent,
     AboutUsComponent,
     CompleteCardComponent,
-    ServicesComponent
+    ServicesComponent,
+    AdminAreaComponent,
+    InitialPageAdminComponent,
+    CredentialChangeComponent
   ],
   imports: [
     BrowserModule,
