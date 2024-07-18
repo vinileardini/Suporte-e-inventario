@@ -8,6 +8,7 @@ import { OpenTicketComponent } from './open-ticket/open-ticket/open-ticket.compo
 import { SupportComponent } from './support/support/support.component';
 import { AboutUsComponent } from './home/about/about-us/about-us.component';
 import { ServicesComponent } from './services/services/services.component';
+import { AdminAreaComponent } from './admin/admin-area/admin-area.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path:'services',
     component: ServicesComponent
+  },
+  {
+    path:'admin-area',
+    component: AdminAreaComponent
   }
 ];
 

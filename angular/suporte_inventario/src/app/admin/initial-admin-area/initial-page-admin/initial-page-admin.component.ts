@@ -12,4 +12,8 @@ export class InitialPageAdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  redirect():void {
+    
+  }
+
 }
